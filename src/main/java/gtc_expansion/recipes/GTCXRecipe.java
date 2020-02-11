@@ -205,8 +205,8 @@ public class GTCXRecipe {
             GTCXRecipeIterators.createOreDictPlanksRecipeX2();
             GTCXRecipeIterators.createStickRecipe();
             GTCXRecipeIterators.createStickRecipeX2();
+            GTCXRecipeRemove.removeModRecipes();
         }
-        GTCXRecipeRemove.removeModRecipes();
         GTCXRecipeProcessing.removals();
         GTCXRecipeIterators.initAutoOredictMachineRecipes();
         GTCXTileMicrowave.init();
