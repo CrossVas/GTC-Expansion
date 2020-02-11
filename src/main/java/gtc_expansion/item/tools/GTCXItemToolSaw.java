@@ -26,9 +26,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class GTCXItemToolSaw extends Item 
 		implements IStaticTexturedItem, IGTColorItem, ILayeredItemModel, ICustomItemCameraTransform {
 
-	GTMaterial material;
+    GTMaterial material;
 	
-	public GTCXItemToolSaw(GTMaterial mat, ToolMaterial tmat) {
+    public GTCXItemToolSaw(GTMaterial mat, ToolMaterial tmat) {
 	this.maxStackSize = 1;
 	this.material = mat;
 	this.setMaxDamage(tmat.getMaxUses());
