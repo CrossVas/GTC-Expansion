@@ -1,6 +1,7 @@
 package gtc_expansion.recipes;
 
 import gtc_expansion.GTCXConfiguration;
+import gtc_expansion.util.GTCXHelperStack;
 import gtclassic.api.helpers.GTHelperStack;
 import gtclassic.api.helpers.GTValues;
 import gtclassic.api.material.GTMaterial;
