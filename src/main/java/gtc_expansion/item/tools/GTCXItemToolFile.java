@@ -10,8 +10,10 @@ import ic2.core.platform.textures.Ic2Icons;
 import ic2.core.platform.textures.obj.ILayeredItemModel;
 import ic2.core.platform.textures.obj.IStaticTexturedItem;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -78,5 +80,14 @@ public class GTCXItemToolFile extends Item implements IStaticTexturedItem, IGTCo
     @Override
     public TextureAtlasSprite getTexture(int var1, ItemStack var2) {
         return Ic2Icons.getTextures(GTCExpansion.MODID + "_materials")[18 + var1];
+    }
+    
+    @Override
+    public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+    	int max = this.getMaxDamage();
+    	int curr = max - this.getDamage(stack);
+    	String durString = String.valueOf(curr + " / " + max);
+    	tooltip.add(durString);
+    	tooltip.add("For sharpening or rounding Edges");
     }
 }
