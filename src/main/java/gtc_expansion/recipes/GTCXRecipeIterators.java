@@ -11,6 +11,7 @@ import gtc_expansion.tile.GTCXTileFluidCaster;
 import gtc_expansion.tile.GTCXTileFluidSmelter;
 import gtc_expansion.tile.GTCXTileLathe;
 import gtc_expansion.tile.GTCXTilePlateBender;
+import gtc_expansion.util.GTCXHelperStack;
 import gtc_expansion.util.GTCXIc2cECompat;
 import gtclassic.api.helpers.GTValues;
 import gtclassic.api.material.GTMaterial;
@@ -26,6 +27,7 @@ import ic2.core.block.machine.low.TileEntityMacerator;
 import ic2.core.item.recipe.entry.RecipeInputCombined;
 import ic2.core.item.recipe.entry.RecipeInputOreDict;
 import ic2.core.platform.registry.Ic2Items;
+import ic2.core.util.misc.StackUtil;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
@@ -228,6 +230,43 @@ public class GTCXRecipeIterators {
                 dustBlacklist.add(mat.getDisplayName());
             }
         }
+    }
+    
+    public static void createOreDictPlanksRecipe() {
+    	for (ItemStack stack : OreDictionary.getOres("logWood", false)) {
+   			if (stack.getMetadata() == OreDictionary.WILDCARD_VALUE) {
+   	    		List<ItemStack> listStack = GTCXHelperStack.getBlockByMeta(stack);
+   	    		for (ItemStack entryStack : listStack) {
+   	        		ItemStack output = GTCXHelperStack.resultStack(entryStack.copy());
+   	        		if (!output.isEmpty()) {
+   	             	recipes.addRecipe(StackUtil.copyWithSize(output, 4), "S", "L", 'S',
+   	             			"craftingToolSaw", 'L', StackUtil.copyWithSize(entryStack, 1));
+   	        		}
+   	    		}
+   			}
+    	}
+    }
+    
+    public static void createOreDictPlanksRecipeX2() {
+    	for (ItemStack stack : OreDictionary.getOres("logWood", false)) {
+   			if (stack.getMetadata() == OreDictionary.WILDCARD_VALUE) {
+   	    		List<ItemStack> listStack = GTCXHelperStack.getBlockByMeta(stack);
+   	    		for (ItemStack entryStack : listStack) {
+   	        		ItemStack output = GTCXHelperStack.resultStack(entryStack.copy());
+   	        		if (!output.isEmpty()) {
+   	             	recipes.addRecipe(StackUtil.copyWithSize(output, 2), "L", 'L', StackUtil.copyWithSize(entryStack, 1));
+   	        		}
+   	    		}
+   			}
+    	}
+    }
+    
+    public static void createStickRecipe() {
+        recipes.addRecipe(new ItemStack(Items.STICK, 4), "S", "P", "P", 'S', "craftingToolSaw", 'P', "plankWood");
+    }
+
+    public static void createStickRecipeX2() {
+    	recipes.addRecipe(new ItemStack(Items.STICK, 2), "P", "P", 'P', "plankWood");
     }
 
     public static void createNuggetRecipe(GTMaterial mat) {
