@@ -2,6 +2,7 @@ package gtc_expansion.item.tools;
 
 import gtc_expansion.GTCExpansion;
 import gtc_expansion.material.GTCXMaterial;
+import gtc_expansion.util.GTCXHelperStack;
 import gtclassic.GTMod;
 import gtclassic.api.interfaces.IGTColorItem;
 import gtclassic.api.material.GTMaterial;
@@ -40,7 +41,8 @@ public class GTCXItemToolFile extends Item implements IStaticTexturedItem, IGTCo
     @Override
     public ItemStack getContainerItem(ItemStack itemStack) {
         ItemStack copy = itemStack.copy();
-        return copy.attemptDamageItem(1, itemRand, null) ? ItemStack.EMPTY : copy;
+        GTCXHelperStack.damageItem(copy, 1);
+        return copy;
     }
 
     @Override
