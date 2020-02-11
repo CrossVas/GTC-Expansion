@@ -43,7 +43,7 @@ public class GTCXItemToolHammer extends ItemPickaxe
         if (GTCXConfiguration.general.harderPlates) {
             GTCXHelperStack.damageItem(copy, 4);	
         } else {
-        	GTCXHelperStack.damageItem(copy, 2);
+            GTCXHelperStack.damageItem(copy, 2);
         }
         return copy;
     }
