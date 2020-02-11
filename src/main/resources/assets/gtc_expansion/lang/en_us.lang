@@ -483,6 +483,11 @@ item.gtc_expansion.steel_wrench.name=Steel Wrench
 item.gtc_expansion.tungstensteel_wrench.name=Tungstensteel Wrench
 item.gtc_expansion.ruby_wrench.name=Ruby Wrench
 item.gtc_expansion.sapphire_wrench.name=Sapphire Wrench
+#saws
+item.gtc_expansion.bronze_saw.name=Bronze Saw
+item.gtc_expansion.iron_saw.name=Iron Saw
+item.gtc_expansion.steel_saw.name=Steel Saw
+item.gtc_expansion.tungstensteel_saw.name=Tungstensteel Saw
 #swords
 item.gtc_expansion.flint_sword.name=Flint Sword
 item.gtc_expansion.steel_sword.name=Steel Sword
