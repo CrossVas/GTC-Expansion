@@ -1,7 +1,7 @@
 package gtc_expansion.item.tools;
 
 import gtc_expansion.GTCExpansion;
-import gtc_expansion.material.GTCXMaterial;
+import gtc_expansion.GTCXConfiguration;
 import gtc_expansion.util.GTCXHelperStack;
 import gtclassic.GTMod;
 import gtclassic.api.interfaces.IGTColorItem;
@@ -11,9 +11,11 @@ import ic2.core.platform.textures.obj.ICustomItemCameraTransform;
 import ic2.core.platform.textures.obj.ILayeredItemModel;
 import ic2.core.platform.textures.obj.IStaticTexturedItem;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -100,5 +102,14 @@ public class GTCXItemToolHammer extends ItemPickaxe
     @Override
     public boolean hasCustomTransform(int var1) {
         return true;
+    }
+    
+    @Override
+    public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+    	int max = this.getMaxDamage();
+    	int curr = max - this.getDamage(stack);
+    	String durString = String.valueOf(curr + " / " + max);
+    	tooltip.add(durString);
+    	tooltip.add("Used to craft Plates from Ingots");
     }
 }

@@ -8,7 +8,9 @@ import gtclassic.api.material.GTMaterial;
 import ic2.core.item.tool.ItemToolWrench;
 import ic2.core.platform.textures.Ic2Icons;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -69,5 +71,15 @@ public class GTCXItemToolWrench extends ItemToolWrench implements IGTColorItem {
     @Override
     public boolean canOverrideLossChance(ItemStack stack) {
         return true;
+    }
+    
+    @Override
+    public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+    	int max = this.getMaxDamage();
+    	int curr = max - this.getDamage(stack);
+    	String durString = String.valueOf(curr + " / " + max);
+    	tooltip.add(durString);
+    	tooltip.add("To dismantle and rotate Blocks of most Mods");
+    	tooltip.add("Rotation of target depends on where exactly you click");
     }
 }
