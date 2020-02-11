@@ -1,6 +1,7 @@
 package gtc_expansion.recipes;
 
 import gtc_expansion.GTCXConfiguration;
+import gtc_expansion.util.GTCXHelperStack;
 import gtclassic.api.helpers.GTHelperStack;
 import gtclassic.api.helpers.GTValues;
 import gtclassic.api.material.GTMaterial;
@@ -75,6 +76,27 @@ public class GTCXRecipeRemove {
             GTHelperStack.removeSmelting(new ItemStack(Items.COAL, 1, 1));
 
         }
+    }
+    
+    public static void removeModRecipes() {
+    	String[] vanillaPlanksType = { "oak_", "spruce_", "birch_", "jungle_", "acacia_", "dark_oak_" };
+    	String[] forestryPlanksType = { "_larch", "_teak", "_acacia", "_lime", "_chestnut", "_wenge", "_baobab", "_sequoia", "_kapok", "_ebony", "_mahogany", "_balsa", "_willow", "_walnut", "_greenheart", "_cherry", "_mahoe", "_poplar", "_palm", "_papaya", "_pine", "_plum", "_maple", "_citrus", "_giganteum", "_ipe", "_padauk", "_cocobolo", "_zebrawood", "_oak", "_spruce", "_birch", "_jungle", "_acacia", "_dark_oak" };
+    	String[] twilightPlanksType = { "wood/twilight_oak_", "wood/canopy_", "wood/mangrove_", "wood/darkwood_", "wood/time_", "wood/trans_", "wood/mine_", "wood/sort_" }; 
+    	String orePlank = "planks";
+    	String fireProof = "fireproof_";
+    		for (int i = 0; i < vanillaPlanksType.length; i++) {
+    	    	GTCXHelperStack.removeModRecipe("minecraft", vanillaPlanksType[i] + orePlank);	
+    		}
+    		for (int i = 0; i < forestryPlanksType.length; i++) {
+    			GTCXHelperStack.removeModRecipe("forestry", orePlank + forestryPlanksType[i]);
+    		}
+    		for (int i = 0; i < forestryPlanksType.length; i++) {
+    			GTCXHelperStack.removeModRecipe("forestry", fireProof + orePlank + forestryPlanksType[i]);
+    		}
+    		for (int i = 0; i < twilightPlanksType.length; i++) {
+    			GTCXHelperStack.removeModRecipe("twilightforest", twilightPlanksType[i] + orePlank);
+    		}
+    		GTCXHelperStack.removeModRecipe("minecraft", "stick");
     }
 
     public static void removeCentrifugeRecipe(String id){

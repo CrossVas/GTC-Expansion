@@ -200,6 +200,13 @@ public class GTCXRecipe {
     }
 
     public static void postInit(){
+        if (GTCXConfiguration.general.planksNeedSaw) {
+            GTCXRecipeIterators.createOreDictPlanksRecipe();
+            GTCXRecipeIterators.createOreDictPlanksRecipeX2();
+            GTCXRecipeIterators.createStickRecipe();
+            GTCXRecipeIterators.createStickRecipeX2();
+            GTCXRecipeRemove.removeModRecipes();
+        }
         GTCXRecipeProcessing.removals();
         GTCXRecipeIterators.initAutoOredictMachineRecipes();
         GTCXTileMicrowave.init();

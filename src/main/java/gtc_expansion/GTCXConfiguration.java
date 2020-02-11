@@ -130,5 +130,7 @@ public class GTCXConfiguration {
                 "Note: if ic2c extras is loaded, this will have no effect, as all items in this system will be added to ic2c extra's instead."
         })
         public boolean enableRadiation = true;
+        @Comment("Removes log to planks and planks to sticks regular recipe. Will remove all vanilla (and modded) recipes that output planks from logs and sticks from planks.")
+        public boolean planksNeedSaw = true;
     }
 }
