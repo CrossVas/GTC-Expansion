@@ -1,6 +1,7 @@
 package gtc_expansion.item.tools;
 
 import gtc_expansion.GTCExpansion;
+import gtc_expansion.util.GTCXHelperStack;
 import gtclassic.GTMod;
 import gtclassic.api.interfaces.IGTColorItem;
 import gtclassic.api.material.GTMaterial;
@@ -36,7 +37,8 @@ public class GTCXItemToolWrench extends ItemToolWrench implements IGTColorItem {
     @Override
     public ItemStack getContainerItem(ItemStack itemStack) {
         ItemStack copy = itemStack.copy();
-        return copy.attemptDamageItem(1, itemRand, null) ? ItemStack.EMPTY : copy;
+        GTCXHelperStack.damageItem(copy, 8);
+        return copy;
     }
 
     @Override
