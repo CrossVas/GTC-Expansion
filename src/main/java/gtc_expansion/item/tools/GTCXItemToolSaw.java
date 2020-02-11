@@ -29,9 +29,9 @@ public class GTCXItemToolSaw extends Item
 	GTMaterial material;
 	
 	public GTCXItemToolSaw(GTMaterial mat, ToolMaterial tmat) {
-		this.maxStackSize = 1;
-		this.material = mat;
-		this.setMaxDamage(tmat.getMaxUses());
+	this.maxStackSize = 1;
+	this.material = mat;
+	this.setMaxDamage(tmat.getMaxUses());
         this.setNoRepair();
         setRegistryName(this.material.getName() + "_saw");
         setUnlocalizedName(GTCExpansion.MODID + "." + this.material.getName() + "_saw");
@@ -102,6 +102,6 @@ public class GTCXItemToolSaw extends Item
     	int curr = max - this.getDamage(stack);
     	String durString = String.valueOf(curr + " / " + max);
     	tooltip.add(durString);
-    	tooltip.add("Fow sawing Logs into Planks");
+    	tooltip.add("For sawing Logs into Planks");
     }
 }
