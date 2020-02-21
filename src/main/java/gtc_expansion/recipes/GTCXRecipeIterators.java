@@ -281,14 +281,9 @@ public class GTCXRecipeIterators {
         String plate = "plate" + mat.getDisplayName();
         if (mat.hasFlag(GTCXMaterial.plate)) {
             // Plate crafting recipe
-            if (GTCXConfiguration.general.harderPlates) {
                 recipes.addRecipe(GTCXMaterialGen.getPlate(mat, 1), "H", "X", "X", 'H',
                         "craftingToolForgeHammer", 'X', ingot);
-            } else {
-                recipes.addRecipe(GTCXMaterialGen.getPlate(mat, 1), "H", "X", 'H',
-                        "craftingToolForgeHammer", 'X', ingot);
-            }
-            if (Loader.isModLoaded("ic2c_extras")){
+            if (Loader.isModLoaded("ic2c_extras")) {
                 // Add to auto add blacklist first
                 GTCXIc2cECompat.addToRollerIngotBlacklist(mat.getDisplayName());
                 if (GTConfig.modcompat.compatIc2Extras){
@@ -309,16 +304,12 @@ public class GTCXRecipeIterators {
         String rod = "rod" + mat.getDisplayName();
         if (mat.hasFlag(GTCXMaterial.stick)) {
             // Rod crafting recipe
-            if (GTCXConfiguration.general.enableCraftingTools){
-                recipes.addRecipe(GTCXMaterialGen.getRod(mat, 2), "XF", 'F',
+                recipes.addRecipe(GTCXMaterialGen.getRod(mat, 1), "XF", 'F',
                         "craftingToolFile", 'X', ingot);
-            } else {
-                recipes.addRecipe(GTCXMaterialGen.getRod(mat, 4), "X", "X", 'X', ingot);
-            }
             GTCXTileLathe.addRecipe(ingot, 1, GTCXMaterialGen.getRod(mat, 2));
             // If a dust is present create a maceration recipe
             if (mat.hasFlag(GTCXMaterial.smalldust)) {
-                TileEntityMacerator.addRecipe(rod, 2, getDust(mat), 0.0F);
+                TileEntityMacerator.addRecipe(rod, 1, getDust(mat), 0.0F);
             }
         }
     }
