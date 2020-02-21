@@ -1,6 +1,5 @@
 package gtc_expansion.recipes;
 
-import gtc_expansion.GTCXItems;
 import gtc_expansion.material.GTCXMaterial;
 import gtc_expansion.material.GTCXMaterialGen;
 import gtc_expansion.tile.GTCXTileAlloySmelter;
@@ -14,16 +13,12 @@ import gtclassic.api.material.GTMaterial;
 import gtclassic.api.material.GTMaterialGen;
 import gtclassic.api.recipe.GTRecipeCraftingHandler;
 import gtclassic.common.GTConfig;
-import gtclassic.common.GTItems;
 import gtclassic.common.recipe.GTRecipe;
 import ic2.api.classic.recipe.ClassicRecipes;
 import ic2.api.classic.recipe.crafting.ICraftingRecipeList;
 import ic2.api.recipe.IRecipeInput;
-import ic2.core.IC2;
 import ic2.core.block.machine.low.TileEntityMacerator;
 import ic2.core.item.recipe.entry.RecipeInputCombined;
-import ic2.core.item.recipe.entry.RecipeInputOreDict;
-import ic2.core.platform.registry.Ic2Items;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
