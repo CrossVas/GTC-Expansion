@@ -108,8 +108,8 @@ public class GTCXConfiguration {
     public static class General{
         @Comment("Enables quite a few of GT recipes using plates instead of ingots.")
         public boolean usePlates = true;
-        @Comment("Enables plates taking 2 ingots instead of 1 ingot in the crafting table recipes.")
-        public boolean harderPlates = false;
+//         @Comment("Enables plates taking 2 ingots instead of 1 ingot in the crafting table recipes.")
+//         public boolean harderPlates = false;
         @Comment("Enables regular and fire bricks taking unfired bricks in the furnace recipe.")
         public boolean unfiredBricks = false;
         @Comment("Enables removing of vanilla smelting of end game metals from all loaded mods")

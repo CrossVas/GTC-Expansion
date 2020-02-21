@@ -6,6 +6,9 @@ import java.util.Random;
 
 import com.google.common.collect.Lists;
 
+import gtclassic.api.tile.GTTileBaseMachine;
+import ic2.api.recipe.IRecipeInput;
+import ic2.core.IC2;
 import ic2.core.util.misc.StackUtil;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -32,23 +35,6 @@ public class GTCXHelperStack {
 		return false;
 	}
 	
-	/** removes recipe by modId and recipeId **/
-	public static void removeModRecipe(String modId, String recipeId) {
-		((ForgeRegistry<?>) ForgeRegistries.RECIPES).remove(new ResourceLocation(modId, recipeId));
-	}
-	
-	/** removes recipe by Output Stack **/
-	public static void removeStackRecipe(ItemStack stack) {
-		ForgeRegistry<IRecipe> recipeRegistry = (ForgeRegistry<IRecipe>) ForgeRegistries.RECIPES;
-		ArrayList<IRecipe> recipesList = Lists.newArrayList(recipeRegistry.getValues());
-		for (IRecipe recipe : recipesList) {
-			ItemStack outputStack = recipe.getRecipeOutput();
-			if (outputStack.getItem() == stack.getItem()) {
-				recipeRegistry.remove(recipe.getRegistryName());
-			}
-		}
-	}
-	
 	/** simulates a fake 3X3 crafting table **/
     	public static ItemStack resultStack(ItemStack stack) {
     		InventoryCrafting inventory = new InventoryCrafting(new Container() {
@@ -69,5 +55,21 @@ public class GTCXHelperStack {
     		NonNullList<ItemStack> list = NonNullList.create();
     		stack.getItem().getSubItems(CreativeTabs.SEARCH, list);
     		return list;
+    	}
+	
+	public static IRecipeInput input(String name){
+        	return input(name, 1);
+    	}
+
+    	public static IRecipeInput input(String name, int size){
+        	return GTTileBaseMachine.input(name, size);
+    	}
+
+    	public static IRecipeInput input(ItemStack stack){
+        	return GTTileBaseMachine.input(stack);
+    	}
+    
+    	public static String getRefinedIronPlate() {
+        	return IC2.config.getFlag("SteelRecipes") ? "plateSteel" : "plateRefinedIron";
     	}
 }
