@@ -75,7 +75,7 @@ public class GTCXOverrideRecipes {
 			GTCExpansion.logger.info("Wait a minute... RailCraft?! No way!!");
 		}
 		GTCExpansion.logger.info("Vanilla... Bruh...");
-    	String[] vanillaPlanksType = { "oak_", "spruce_", "birch_", "jungle_", "acacia_", "dark_oak_" };
+    		String[] vanillaPlanksType = { "oak_", "spruce_", "birch_", "jungle_", "acacia_", "dark_oak_" };
 		for (int i = 0; i < vanillaPlanksType.length; i++) {
 			((ForgeRegistry)ForgeRegistries.RECIPES).remove(new ResourceLocation("minecraft", vanillaPlanksType[i] + "planks"));	
 		}
