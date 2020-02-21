@@ -6,6 +6,9 @@ import java.util.Random;
 
 import com.google.common.collect.Lists;
 
+import gtclassic.api.tile.GTTileBaseMachine;
+import ic2.api.recipe.IRecipeInput;
+import ic2.core.IC2;
 import ic2.core.util.misc.StackUtil;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
