@@ -547,6 +547,7 @@ item.gtc_expansion.large_acid_battery.name=Large Acid Battery
 item.gtc_expansion.large_mercury_battery.name=Large Mercury Battery
 item.gtc_expansion.large_lithium_battery.name=Large Lithium Battery
 item.gtc_expansion.large_sodium_battery.name=Large Sodium Battery
+item.gtc_expansion.bronze_jackhammer.name=Bronze Jackhammer
 item.gtc_expansion.steel_jackhammer.name=Steel Jackhammer
 item.gtclassic.jackhammer.name=Diamond Jackhammer
 item.gtc_expansion.diamond_chainsaw.name=Diamond Chainsaw
@@ -660,6 +661,7 @@ tooltip.gtc_expansion.primitiveblastfurnace3=Controller centered at the second l
 
 #item tooltips
 tooltip.gtc_expansion.crafting_tablet=Temporary crafting on the go
+tooltip.gtc_expansion.bronze_jackhammer=Mines any stone block at 2x the speed of a diamond drill.
 tooltip.gtc_expansion.steel_jackhammer=Mines any stone block at 4x the speed of a diamond drill.
 tooltip.gtc_expansion.steel_jackhammer1=Can be upgraded to a diamond to do 3x3 but at 1/8th the speed.
 tooltip.gtc_expansion.oilberry=Can be eaten, but I wouldn't recommend it.
