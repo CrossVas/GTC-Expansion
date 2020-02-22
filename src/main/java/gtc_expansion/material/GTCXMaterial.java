@@ -101,6 +101,7 @@ public class GTCXMaterial {
     public static final GTMaterial RedRock = new GTMaterial("RedRock", 255, 80, 50, dustAll);
     public static final GTMaterial Redstone = new GTMaterial("Redstone", 200, 0, 0, smalldust, tinydust);
     public static final GTMaterial RefinedIron = new GTMaterial("RefinedIron", 1, 220, 235, 235, stick, plate, gear, hull, molten);
+    public static final GTMaterial Rubber = new GTMaterial("Rubber", 127, 82, 0, dust);
     public static final GTMaterial Saltpeter = new GTMaterial("Saltpeter", 230, 230, 230, dustAll);
     public static final GTMaterial Silver = new GTMaterial("Silver", 215, 225, 230, molten, smalldust, nugget, plate, stick, gear);
     public static final GTMaterial Slag = new GTMaterial("Slag", 64, 48, 0, dustAll);
