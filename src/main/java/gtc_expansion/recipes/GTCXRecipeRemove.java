@@ -35,6 +35,9 @@ public class GTCXRecipeRemove {
         ClassicRecipes.compressor.removeRecipe(GTTileBaseMachine.input("dustYellowGarnet", 1));
         ClassicRecipes.compressor.removeRecipe(GTTileBaseMachine.input("dustCarbon", 8));
         ClassicRecipes.compressor.removeRecipe(GTTileBaseMachine.input(Ic2Items.coalChunk));
+        ClassicRecipes.extractor.removeRecipe(GTTileBaseMachine.input(Ic2Items.stickyResin));
+        ClassicRecipes.extractor.removeRecipe(GTTileBaseMachine.input(Ic2Items.rubberSapling));
+        ClassicRecipes.extractor.removeRecipe(GTTileBaseMachine.input(Ic2Items.rubberWood));
 
         ClassicRecipes.macerator.removeRecipe(GTTileBaseMachine.input("oreRedstone", 1));
         if (GTCXConfiguration.general.usePlates && (!Loader.isModLoaded(GTValues.MOD_ID_IC2_EXTRAS) || !GTConfig.modcompat.compatIc2Extras)){
