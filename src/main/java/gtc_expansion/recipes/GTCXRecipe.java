@@ -129,9 +129,7 @@ public class GTCXRecipe {
     	GTCXRecipeProcessing.removals();
         if (GTCXConfiguration.general.planksNeedSaw) {
             GTCXRecipeIterators.createOreDictPlanksRecipe();
-            GTCXRecipeIterators.createOreDictPlanksRecipeX2();
             GTCXRecipeIterators.createStickRecipe();
-            GTCXRecipeIterators.createStickRecipeX2();
         }
         GTCXIC2ClassicRecipes.initIC2Recipes();
         if (GTCXConfiguration.general.enableCraftingTools){
@@ -261,6 +259,9 @@ public class GTCXRecipe {
         IRecipeInput ashes = new RecipeInputCombined(1, GTCXHelperStack.input("dustAshes"), GTCXHelperStack.input("dustAsh"));
         recipes.addShapelessRecipe(new ItemStack(Items.IRON_INGOT, 1), "ingotRefinedIron", ashes);
         recipes.addShapelessRecipe(GTMaterialGen.get(GTCXItems.magicDye), "dyeCyan", "dyeMagenta", "dyeYellow", "dyeBlack");
+        recipes.addShapelessRecipe(GTMaterialGen.getDust(GTCXMaterial.StainlessSteel, 9), "dustIron", "dustIron", "dustIron", "dustIron", "dustIron", "dustIron", "dustManganese", "dustNickel", "dustChrome");
+        IRecipeInput dustAl = new RecipeInputCombined(1, new RecipeInputOreDict("dustAluminum"), new RecipeInputOreDict("dustAluminium"));
+        recipes.addShapelessRecipe(GTMaterialGen.getDust(GTCXMaterial.Kanthal, 3), "dustIron", dustAl, "dustChrome");
     }
 
     public static void initOverrideGTClassic(){
