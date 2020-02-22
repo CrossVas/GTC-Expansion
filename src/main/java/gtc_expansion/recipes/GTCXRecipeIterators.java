@@ -367,14 +367,14 @@ public class GTCXRecipeIterators {
                 recipes.addRecipe(G.getFile(GTCXMaterial.TungstenSteel), "P", "P", "S", 'P', "plateTungstensteel", 'S', "stickSteel");
                 recipes.addRecipe(G.getSaw(GTCXMaterial.Iron), "SSS", "PPS", "FH ", 'S', stick, 'P', "plateIron", 'F', "craftingToolFile", 'H', "craftingToolForgeHammer");
                 recipes.addRecipe(G.getSaw(GTCXMaterial.Bronze), "SSS", "PPS", "FH ", 'S', stick, 'P', "plateBronze", 'F', "craftingToolFile", 'H', "craftingToolForgeHammer");
-                recipes.addRecipe(G.getSaw(GTCXMaterial.Steel), "SSS", "PPS", "FH ", 'S', "stickIron", 'P', "plateSteel", 'F', "craftingToolFile", 'H', "craftingToolForgeHammer");
-                recipes.addRecipe(G.getSaw(GTCXMaterial.TungstenSteel), "SSS", "PPS", "FH ", 'S', "stickSteel", 'P', "plateSteel", 'F', "craftingToolFile", 'H', "craftingToolForgeHammer");
+                recipes.addRecipe(G.getSaw(GTCXMaterial.Steel), "SSS", "PPS", "FH ", 'S', "rodRefinedIron", 'P', "plateSteel", 'F', "craftingToolFile", 'H', "craftingToolForgeHammer");
+                recipes.addRecipe(G.getSaw(GTCXMaterial.TungstenSteel), "SSS", "PPS", "FH ", 'S', "rodSteel", 'P', "plateSteel", 'F', "craftingToolFile", 'H', "craftingToolForgeHammer");
                 recipes.addRecipe(G.getWrench(mat), "I I", "III", " I ", 'I', ingot);
             }
             recipes.addRecipe(G.getHammer(GTCXMaterial.Iron), "II ", "IIS", "II ", 'I', "ingotIron", 'S', stick);
             recipes.addRecipe(G.getHammer(GTCXMaterial.Bronze), "II ", "IIS", "II ", 'I', "ingotBronze", 'S', stick);
-            recipes.addRecipe(G.getHammer(GTCXMaterial.Steel), "II ", "IIS", "II ", 'I', "ingotSteel", 'S', "stickIron");
-            recipes.addRecipe(G.getHammer(GTCXMaterial.TungstenSteel), "II ", "IIS", "II ", 'I', "ingotTungstensteel", 'S', "stickSteel");
+            recipes.addRecipe(G.getHammer(GTCXMaterial.Steel), "II ", "IIS", "II ", 'I', "ingotSteel", 'S', "rodRefinedIron");
+            recipes.addRecipe(G.getHammer(GTCXMaterial.TungstenSteel), "II ", "IIS", "II ", 'I', "ingotTungstensteel", 'S', "rodSteel");
         }
     }
 
