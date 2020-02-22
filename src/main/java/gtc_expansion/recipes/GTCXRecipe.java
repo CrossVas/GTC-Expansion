@@ -151,7 +151,8 @@ public class GTCXRecipe {
 //        recipes.addRecipe(GTMaterialGen.get(GTCXItems.kanthalHeatingCoil), " R ", "R R", "RRR", 'R', "rodKanthal");
 //        recipes.addRecipe(GTMaterialGen.get(GTCXItems.nichromeHeatingCoil), "RRR", "RIR", " R ", 'R', "rodNichrome", 'I', "ingotNichrome");
         recipes.addRecipe(GTMaterialGen.get(GTCXItems.diamondChainsaw), " D ", "DdD", "TCT", 'D', "dustDiamond", 'd', Ic2Items.chainSaw, 'T', RecipeHelper.titanium, 'C', "circuitAdvanced");
-        recipes.addRecipe(GTMaterialGen.get(GTCXItems.steelJackhammer), "SBS", " C ", " s ", 'S', RecipeHelper.rodSteels, 'B', Ic2Items.battery, 'C', "circuitAdvanced", 's', RecipeHelper.ingotSteels);
+        recipes.addRecipe(GTMaterialGen.get(GTCXItems.steelJackhammer), "SBS", " C ", " s ", 'S', "rodStainlessSteel", 'B', Ic2Items.battery, 'C', "circuitAdvanced", 's', "ingotSteel");
+        recipes.addRecipe(GTMaterialGen.get(GTCXItems.bronzeJackhammer), "RBR", " C ", " b ", 'R', "rodBronze", 'B', Ic2Items.battery, 'C', "circuitBasic", 'b', "ingotBronze");
         if (GTCXConfiguration.general.unfiredBricks){
             recipes.addRecipe(GTMaterialGen.get(GTCXItems.unfiredBrick, 2), "C", "C", 'C', Items.CLAY_BALL);
             recipes.addRecipe(GTMaterialGen.get(GTCXItems.unfiredFireBrick, 2), "C", "C", 'C', GTCXItems.fireClayBall);
