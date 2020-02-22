@@ -129,9 +129,7 @@ public class GTCXRecipe {
     	GTCXRecipeProcessing.removals();
         if (GTCXConfiguration.general.planksNeedSaw) {
             GTCXRecipeIterators.createOreDictPlanksRecipe();
-            GTCXRecipeIterators.createOreDictPlanksRecipeX2();
             GTCXRecipeIterators.createStickRecipe();
-            GTCXRecipeIterators.createStickRecipeX2();
         }
         GTCXIC2ClassicRecipes.initIC2Recipes();
         if (GTCXConfiguration.general.enableCraftingTools){
@@ -151,7 +149,8 @@ public class GTCXRecipe {
 //        recipes.addRecipe(GTMaterialGen.get(GTCXItems.kanthalHeatingCoil), " R ", "R R", "RRR", 'R', "rodKanthal");
 //        recipes.addRecipe(GTMaterialGen.get(GTCXItems.nichromeHeatingCoil), "RRR", "RIR", " R ", 'R', "rodNichrome", 'I', "ingotNichrome");
         recipes.addRecipe(GTMaterialGen.get(GTCXItems.diamondChainsaw), " D ", "DdD", "TCT", 'D', "dustDiamond", 'd', Ic2Items.chainSaw, 'T', RecipeHelper.titanium, 'C', "circuitAdvanced");
-        recipes.addRecipe(GTMaterialGen.get(GTCXItems.steelJackhammer), "SBS", " C ", " s ", 'S', RecipeHelper.rodSteels, 'B', Ic2Items.battery, 'C', "circuitAdvanced", 's', RecipeHelper.ingotSteels);
+        recipes.addRecipe(GTMaterialGen.get(GTCXItems.steelJackhammer), "SBS", " C ", " s ", 'S', "rodStainlessSteel", 'B', Ic2Items.battery, 'C', "circuitAdvanced", 's', "ingotSteel");
+        recipes.addRecipe(GTMaterialGen.get(GTCXItems.bronzeJackhammer), "RBR", " C ", " b ", 'R', "rodBronze", 'B', Ic2Items.battery, 'C', "circuitBasic", 'b', "ingotBronze");
         if (GTCXConfiguration.general.unfiredBricks){
             recipes.addRecipe(GTMaterialGen.get(GTCXItems.unfiredBrick, 2), "C", "C", 'C', Items.CLAY_BALL);
             recipes.addRecipe(GTMaterialGen.get(GTCXItems.unfiredFireBrick, 2), "C", "C", 'C', GTCXItems.fireClayBall);
@@ -260,6 +259,9 @@ public class GTCXRecipe {
         IRecipeInput ashes = new RecipeInputCombined(1, GTCXHelperStack.input("dustAshes"), GTCXHelperStack.input("dustAsh"));
         recipes.addShapelessRecipe(new ItemStack(Items.IRON_INGOT, 1), "ingotRefinedIron", ashes);
         recipes.addShapelessRecipe(GTMaterialGen.get(GTCXItems.magicDye), "dyeCyan", "dyeMagenta", "dyeYellow", "dyeBlack");
+        recipes.addShapelessRecipe(GTMaterialGen.getDust(GTCXMaterial.StainlessSteel, 9), "dustIron", "dustIron", "dustIron", "dustIron", "dustIron", "dustIron", "dustManganese", "dustNickel", "dustChrome");
+        IRecipeInput dustAl = new RecipeInputCombined(1, new RecipeInputOreDict("dustAluminum"), new RecipeInputOreDict("dustAluminium"));
+        recipes.addShapelessRecipe(GTMaterialGen.getDust(GTCXMaterial.Kanthal, 3), "dustIron", dustAl, "dustChrome");
     }
 
     public static void initOverrideGTClassic(){
