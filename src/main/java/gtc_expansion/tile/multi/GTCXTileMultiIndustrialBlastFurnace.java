@@ -193,19 +193,19 @@ public class GTCXTileMultiIndustrialBlastFurnace extends GTTileMultiBaseMachine 
 		addRecipe(new IRecipeInput[] { input("dustPyrite", 3),
 				input("dustCalcite", 1) }, 1500, 12800, GTMaterialGen.getIc2(Ic2Items.refinedIronIngot, 2));
 		/* Steel **/
-		addRecipe(new IRecipeInput[] { input("dustSteel", 1) }, 1000, COST_MED, GTMaterialGen.getIngot(GTCXMaterial.Steel, 1));
+		addRecipe(new IRecipeInput[] { input("dustSteel", 1) }, 1000, 120000, GTMaterialGen.getIngot(GTCXMaterial.Steel, 1));
 		addRecipe(new IRecipeInput[] { input("ingotRefinedIron", 1),
-				input("dustCoal", 2) }, 1000, COST_MED, GTMaterialGen.getIngot(GTCXMaterial.Steel, 1));
+				input("dustCoal", 2) }, 1000, 60000, GTMaterialGen.getIngot(GTCXMaterial.Steel, 1));
 		addRecipe(new IRecipeInput[] { input("ingotRefinedIron", 1),
-				input("dustCarbon", 1) }, 1000, COST_MED, GTMaterialGen.getIngot(GTCXMaterial.Steel, 1));
+				input("dustCarbon", 1) }, 1000, 60000, GTMaterialGen.getIngot(GTCXMaterial.Steel, 1));
 		/* Titanium **/
 		addRecipe(new IRecipeInput[] {
-				input("dustTitanium", 1) }, 1500, COST_MED, GTMaterialGen.getIngot(GTMaterial.Titanium, 1));
+				input("dustTitanium", 1) }, 1500, 180000, GTMaterialGen.getIngot(GTMaterial.Titanium, 1));
 		/* Tungsten Steel **/
-		addRecipe(new IRecipeInput[]{input("ingotTungsten", 1), input("ingotSteel", 1)}, 3000, COST_HIGH, GTMaterialGen.getHotIngot(GTCXMaterial.TungstenSteel, 2), GTMaterialGen.getDust(GTCXMaterial.DarkAshes, 4));
+		addRecipe(new IRecipeInput[]{input("ingotTungsten", 1), input("ingotSteel", 1)}, 3000, 250000, GTMaterialGen.getHotIngot(GTCXMaterial.TungstenSteel, 2), GTMaterialGen.getDust(GTCXMaterial.DarkAshes, 4));
 		/* Tungsten **/
 		addRecipe(new IRecipeInput[] {
-				input("dustTungsten", 1) }, 2500, COST_HIGH, GTMaterialGen.getHotIngot(GTMaterial.Tungsten, 1));
+				input("dustTungsten", 1) }, 2500, 1200000, GTMaterialGen.getHotIngot(GTMaterial.Tungsten, 1));
 		/* Iridium **/
 		addRecipe(new IRecipeInput[] {
 				input("dustIridium", 1) }, 2500, COST_HIGH, GTMaterialGen.getHotIngot(GTMaterial.Iridium, 1));
@@ -214,7 +214,7 @@ public class GTCXTileMultiIndustrialBlastFurnace extends GTTileMultiBaseMachine 
 				input(GTMaterialGen.getIc2(Ic2Items.iridiumOre, 1)) }, 2500, COST_HIGH, GTMaterialGen.getHotIngot(GTMaterial.Iridium, 1));
 		/* Galena **/
 		addRecipe(new IRecipeInput[] {
-				input("dustGalena", 2) }, 1500, COST_MED, GTMaterialGen.getIngot(GTCXMaterial.Lead, 1), GTMaterialGen.getIc2(Ic2Items.silverIngot, 1));
+				input("dustGalena", 2) }, 1500, 48000, GTMaterialGen.getIngot(GTCXMaterial.Lead, 1), GTMaterialGen.getIc2(Ic2Items.silverIngot, 1));
 		/* Osmium **/
 		addRecipe(new IRecipeInput[] {
 				input("dustOsmium", 1) }, 3000, COST_HIGH, GTMaterialGen.getHotIngot(GTCXMaterial.Osmium, 1));
@@ -223,14 +223,14 @@ public class GTCXTileMultiIndustrialBlastFurnace extends GTTileMultiBaseMachine 
 				input("dustThorium", 1) }, 1500, COST_HIGH, GTMaterialGen.getIngot(GTMaterial.Thorium, 1));
 		/* Chrome **/
 		addRecipe(new IRecipeInput[] {
-				input("dustChrome", 1) }, 1700, COST_HIGH, GTMaterialGen.getIngot(GTMaterial.Chrome, 1));
+				input("dustChrome", 1) }, 1700, 204000, GTMaterialGen.getIngot(GTMaterial.Chrome, 1));
 
 		/* Stainless Steel **/
-		addRecipe(new IRecipeInput[]{metal("Iron", 6), metal("Nickel", 1), metal("Chrome", 1), metal("Manganese", 1)}, 1700, COST_HIGH, GTMaterialGen.getIngot(GTCXMaterial.StainlessSteel, 9));
-		addRecipe(new IRecipeInput[]{input("dustStainlessSteel", 1)}, 1700, COST_HIGH, GTMaterialGen.getIngot(GTCXMaterial.StainlessSteel, 1));
+		//addRecipe(new IRecipeInput[]{metal("Iron", 6), metal("Nickel", 1), metal("Chrome", 1), metal("Manganese", 1)}, 1700, COST_HIGH, GTMaterialGen.getIngot(GTCXMaterial.StainlessSteel, 9));
+		addRecipe(new IRecipeInput[]{input("dustStainlessSteel", 1)}, 1700, 204000, GTMaterialGen.getIngot(GTCXMaterial.StainlessSteel, 1));
 		/* Kanthal **/
-		addRecipe(new IRecipeInput[]{new RecipeInputCombined(1, input("ingotIron", 1), input("ingotRefinedIron", 1)), input("ingotAluminium", 1), input("ingotChrome", 1)}, 1700, COST_HIGH, GTMaterialGen.getHotIngot(GTCXMaterial.Kanthal, 3));
-		addRecipe(new IRecipeInput[]{input("dustKanthal", 1)}, 1700, COST_HIGH, GTMaterialGen.getHotIngot(GTCXMaterial.Kanthal, 1));
+		//addRecipe(new IRecipeInput[]{new RecipeInputCombined(1, input("ingotIron", 1), input("ingotRefinedIron", 1)), input("ingotAluminium", 1), input("ingotChrome", 1)}, 1700, COST_HIGH, GTMaterialGen.getHotIngot(GTCXMaterial.Kanthal, 3));
+		addRecipe(new IRecipeInput[]{input("dustKanthal", 1)}, 1700, 300000, GTMaterialGen.getHotIngot(GTCXMaterial.Kanthal, 1));
 
 		/* Nichrome **/
 		addRecipe(new IRecipeInput[]{metal("Nickel", 4), metal("Chrome", 1)}, 2000, COST_HIGH, GTMaterialGen.getHotIngot(GTCXMaterial.Nichrome, 5));
@@ -238,10 +238,10 @@ public class GTCXTileMultiIndustrialBlastFurnace extends GTTileMultiBaseMachine 
 
 		/* Aluminium **/
 		IRecipeInput aluminium = new RecipeInputCombined(1, new RecipeInputOreDict("dustAluminum"), new RecipeInputOreDict("dustAluminium"));
-		addRecipe(new IRecipeInput[]{aluminium}, 1000, COST_MED, GTMaterialGen.getIngot(GTMaterial.Aluminium, 1));
+		addRecipe(new IRecipeInput[]{aluminium}, 1700, 204000, GTMaterialGen.getIngot(GTMaterial.Aluminium, 1));
 
 		/* Silicon **/
-		addRecipe(new IRecipeInput[]{input("dustSilicon", 1)}, 1000, COST_MED, GTMaterialGen.getIngot(GTMaterial.Silicon, 1));
+		addRecipe(new IRecipeInput[]{input("dustSilicon", 1)}, 1500, 180000, GTMaterialGen.getIngot(GTMaterial.Silicon, 1));
 	}
 
 	public static int getRequiredHeat(MachineOutput output) {
