@@ -52,6 +52,9 @@ public class GTCXRecipeProcessing {
         GameRegistry.addSmelting(GTCXBlocks.oreTetrahedrite, Ic2Items.copperIngot, 0.5F);
         GameRegistry.addSmelting(GTMaterialGen.getDust(GTCXMaterial.Tetrahedrite, 1), GTCXMaterialGen.getNugget(GTCXMaterial.Copper, 6), 0.5F);
         GameRegistry.addSmelting(GTMaterialGen.getDust(GTCXMaterial.Rubber, 1), GTMaterialGen.getIc2(Ic2Items.rubber, 1), 0.5F);
+        GameRegistry.addSmelting(Ic2Items.stoneMacerator, GTMaterialGen.getIc2(Ic2Items.bronzeIngot, 12), 1.0F);
+        GameRegistry.addSmelting(GTCXBlocks.stoneExtractor, GTMaterialGen.getIc2(Ic2Items.bronzeIngot, 5), 1.0F);
+        GameRegistry.addSmelting(GTCXBlocks.stoneCompressor, GTMaterialGen.getIc2(Ic2Items.bronzeIngot, 8), 1.0F);
     }
 
     public static void initIc2Recipes(){
