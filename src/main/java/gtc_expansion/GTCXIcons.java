@@ -35,9 +35,12 @@ public class GTCXIcons {
         if (GTConfig.general.debugMode){
             GTCExpansion.logger.info("All GregTech Classic Expansion textures generated without error");
         }
+        GTCXIconInfo top = s("stone_machine_top");
+        GTCXIconInfo bot = s("stone_machine_bottom");
+        GTCXIconInfo side = s("stone_machine_side");
         setTexture(GTCXBlocks.advancedWorktable, s("advanced_worktable_bottom"), s("advanced_worktable_top"), s("advanced_worktable_side"), s("advanced_worktable_side"), s("advanced_worktable_side"), s("advanced_worktable_side"), s("advanced_worktable_bottom"), s("advanced_worktable_top_active"), s("advanced_worktable_side"), s("advanced_worktable_side"), s("advanced_worktable_side"), s("advanced_worktable_side"));
-        GTCXIconInfo t1 = s("alloy_furnace_side");
-        setTexture(GTCXBlocks.alloyFurnace, t1, t1, t1, s("alloy_furnace_front"), t1, t1, t1, t1, t1, s("alloy_furnace_front_active"), t1, t1);
+        GTCXIconInfo t1;
+        setTexture(GTCXBlocks.alloyFurnace, bot, top, side, s("alloy_furnace_front"), side, side, bot, top, side, s("alloy_furnace_front_active"), side, side);
         t1 = s("machine_back");
         setTexture(GTCXBlocks.alloySmelter, s(0), s(1), t1, s("alloy_smelter_front"), s(2), s(2), s(0), s(1), t1, s("alloy_smelter_front_active"), s(2), s(2));
         setTexture(GTCXBlocks.fluidSmelter, s(0), s(1), t1, s("fluid_smelter_front"), s(2), s(2), s(0), s(1), t1, s("fluid_smelter_front_active"), s(2), s(2));
@@ -68,6 +71,8 @@ public class GTCXIcons {
         t2 = s("vacuum_freezer_side");
         setTexture(GTCXBlocks.vacuumFreezer, iS, iF, t2, t2, t2, t2, iS, iFA, t2, t2, t2, t2);
         setTexture(GTCXBlocks.wiremill, s(0), s("wiremill_top"), t1, s(22), s(2), s(2), s(0), s("wiremill_top_active"), t1, s(23), s(2), s(2));
+        setTexture(GTCXBlocks.stoneCompressor, bot, top, side, s("stone_compressor_front"), side, side, bot, top, side, s("stone_compressor_front_active"), side, side);
+        setTexture(GTCXBlocks.stoneExtractor, bot, top, side, s("stone_extractor_front"), side, side, bot, top, side, s("stone_extractor_front_active"), side, side);
     }
 
     private static ResourceLocation location(String name) {
