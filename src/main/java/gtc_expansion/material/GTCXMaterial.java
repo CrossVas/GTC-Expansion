@@ -60,7 +60,7 @@ public class GTCXMaterial {
     public static final GTMaterial Clay = new GTMaterial("Clay", 200, 200, 220, smalldust);
     public static final GTMaterial Coal = new GTMaterial("Coal", 70, 70, 70, smalldust);
     public static final GTMaterial CoalFuel = new GTMaterial("CoalFuel", 0, 0, 0, fluid);
-    public static final GTMaterial Constantan = new GTMaterial("Constantan", 2, 227, 150, 128, pipeItem, dust, ingot, blockMetal, molten, smalldust, nugget, plate, stick);
+    public static final GTMaterial Constantan = new GTMaterial("Constantan", 2, 227, 150, 128, pipeItem, dust, ingot, blockMetal, molten, smalldust, nugget, plate, stick, gear);
     public static final GTMaterial Copper = new GTMaterial(29,"Copper", 180, 113, 61, molten, smalldust, nugget, plate, stick, gear);
     public static final GTMaterial DarkAshes = new GTMaterial("DarkAshes", 50, 50, 50, dustAll);
     public static final GTMaterial Diamond = new GTMaterial("Diamond", 51, 235, 203, dustAll);
