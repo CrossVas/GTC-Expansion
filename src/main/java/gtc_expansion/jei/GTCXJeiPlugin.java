@@ -65,6 +65,13 @@ public class GTCXJeiPlugin implements IModPlugin {
             if (!Loader.isModLoaded(GTValues.MOD_ID_TFOREST) || !GTConfig.modcompat.compatTwilightForest){
                 blacklist.addIngredientToBlacklist(GTMaterialGen.get(GTCXBlocks.oreOlivineOverworld));
             }
+            if (Loader.isModLoaded(GTValues.MOD_ID_THERMAL)) {
+            	int[] aMaterialMeta = { 0, 1, 2, 24, 25, 64, 65, 66, 67, 68, 69, 70, 71, 96, 97, 98, 99, 100, 128, 129, 130, 131, 132, 133, 134, 135, 160, 161, 162, 163, 164, 256, 257, 258, 259, 260, 261, 262, 263, 288, 289, 290, 291, 292 };
+            	for (int i = 0; i < aMaterialMeta.length; i++) {
+                	ItemStack material = GTMaterialGen.getModMetaItem("thermalfoundation", "material", aMaterialMeta[i], 1);
+                	blacklist.addIngredientToBlacklist(material);	
+            	}
+            }
             if (!GTCXConfiguration.general.unfiredBricks){
                 blacklist.addIngredientToBlacklist(GTMaterialGen.get(GTCXItems.unfiredBrick));
                 blacklist.addIngredientToBlacklist(GTMaterialGen.get(GTCXItems.unfiredFireBrick));
