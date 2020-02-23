@@ -3,6 +3,7 @@ package gtc_expansion.recipes;
 import static gtclassic.common.recipe.GTRecipeMods.input;
 
 import gtc_expansion.GTCExpansion;
+import cofh.api.util.ThermalExpansionHelper;
 import gtc_expansion.GTCXItems;
 import gtclassic.api.helpers.GTValues;
 import gtclassic.api.material.GTMaterialGen;
@@ -60,11 +61,10 @@ public class GTCXOverrideRecipes {
 		}
 		if (Loader.isModLoaded(GTValues.MOD_ID_THERMAL) && GTConfig.modcompat.compatThermal) {
 			GTCExpansion.logger.info("Messing with Thermal Mods!");
-			recipe.removeRecipe(GTValues.MOD_ID_THERMAL, "material_2");
             recipe.overrideGTRecipe("thermalexpansion", "frame", GTMaterialGen.getModItem("thermalexpansion", "frame"), "SGS", "GTG", "SGS", 'S', "ingotSteel", 'G', "blockGlass", 'T', "gearTin");
-            for (int i = 61; i <= 81; ++i) {
-            	String TFgear = "material_";
-            	((ForgeRegistry)ForgeRegistries.RECIPES).remove(new ResourceLocation("thermalfoundation", TFgear + i));
+            for (GTMaterial mat : GTMaterial.values()) {
+                ThermalExpansionHelper.removeCompactorPlateRecipe(GTMaterialGen.getIngot(mat, 1));	
+                ThermalExpansionHelper.removeCompactorGearRecipe(GTMaterialGen.getIngot(mat, 4));
             }
 		}
 		if (Loader.isModLoaded("gravisuit")) {
