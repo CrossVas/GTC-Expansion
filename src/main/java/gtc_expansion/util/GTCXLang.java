@@ -24,6 +24,9 @@ public class GTCXLang {
     public static final LocaleComp MICROWAVE = new LangComponentHolder.LocaleBlockComp("tile.gtc_expansion.microwave");
     public static final LocaleComp DIESEL_GENERATOR = new LangComponentHolder.LocaleBlockComp("tile.gtc_expansion.dieselgenerator");
     public static final LocaleComp GAS_TURBINE = new LangComponentHolder.LocaleBlockComp("tile.gtc_expansion.gasturbine");
+    
+    public static final LocaleComp COMPRESSOR = new LangComponentHolder.LocaleBlockComp("tile.gtc_expansion.compressor");
+    public static final LocaleComp EXTRACTOR = new LangComponentHolder.LocaleBlockComp("tile.gtc_expansion.extractor");
 
     public static final LocaleComp LOCKER = new LangComponentHolder.LocaleBlockComp("tile.gtc_expansion.locker");
     public static final LocaleComp ELECTRIC_LOCKER = new LangComponentHolder.LocaleBlockComp("tile.gtc_expansion.electriclocker");

@@ -60,6 +60,7 @@ public class GTCXOverrideRecipes {
 		}
 		if (Loader.isModLoaded(GTValues.MOD_ID_THERMAL) && GTConfig.modcompat.compatThermal) {
 			GTCExpansion.logger.info("Messing with Thermal Mods!");
+			recipe.removeRecipe(GTValues.MOD_ID_THERMAL, "material_2");
             recipe.overrideGTRecipe("thermalexpansion", "frame", GTMaterialGen.getModItem("thermalexpansion", "frame"), "SGS", "GTG", "SGS", 'S', "ingotSteel", 'G', "blockGlass", 'T', "gearTin");
             for (int i = 61; i <= 81; ++i) {
             	String TFgear = "material_";

@@ -15,6 +15,8 @@ import gtc_expansion.tile.GTCXTileFluidSmelter;
 import gtc_expansion.tile.GTCXTileGasTurbine;
 import gtc_expansion.tile.GTCXTileMicrowave;
 import gtc_expansion.tile.GTCXTilePlateBender;
+import gtc_expansion.tile.GTCXTileStoneCompressor;
+import gtc_expansion.tile.GTCXTileStoneExtractor;
 import gtc_expansion.tile.GTCXTileWiremill;
 import gtc_expansion.tile.multi.GTCXTileMultiDistillationTower;
 import gtc_expansion.tile.multi.GTCXTileMultiImplosionCompressor;
@@ -138,6 +140,8 @@ public class GTCXRecipe {
     	GTCXOverrideRecipes.initGTCXOverride();
         GTCXRecipeIterators.initAutoOredictMachineRecipes();
         GTCXTileMicrowave.init();
+        GTCXTileStoneCompressor.convertIC2toGTC();
+        GTCXTileStoneExtractor.convertIC2toGTC();
     }
 
     public static void initShapedItemRecipes(){
@@ -235,7 +239,7 @@ public class GTCXRecipe {
         recipes.addRecipe(GTMaterialGen.get(GTCXBlocks.fluidCaster), "IcI", "PMP", "ICI", 'I', materialStainlessTitatium, 'c', GTCXItems.mold, 'P', pipe, 'M', "machineBlockVeryAdvanced", 'C', "circuitElite");
         recipes.addRecipe(GTMaterialGen.get(GTCXBlocks.fluidSmelter), "IbI", "PMP", "BCB", 'I', materialStainlessTitatium, 'c', GTCXBlocks.industrialBlastFurnace, 'P', pipe, 'M', "machineBlockVeryAdvanced", 'C', "circuitElite", 'B', Blocks.BRICK_BLOCK);
         recipes.addRecipe(GTMaterialGen.get(GTCXBlocks.primitiveBlastFurnace), "PBP", "BWB", "PBP", 'B', Blocks.BRICK_BLOCK, 'P', "plateBronze", 'W', "craftingToolWrench");
-        recipes.addRecipe(GTMaterialGen.get(GTCXBlocks.alloyFurnace), "CCC", "FHF", "CCC", 'C', Blocks.BRICK_BLOCK, 'F', Blocks.FURNACE, 'H', Blocks.HOPPER);
+        recipes.addRecipe(GTMaterialGen.get(GTCXBlocks.alloyFurnace), "BBB", "FWF", "CCC", 'C', Blocks.BRICK_BLOCK, 'F', Blocks.FURNACE, 'B', "plateBronze", 'W', "craftingToolWrench");
         recipes.addRecipe(GTMaterialGen.get(GTCXBlocks.casingStandard, 4), "III", "CBC", "III", 'I', RecipeHelper.refinedIron, 'C', "circuitBasic", 'B', "machineBlockCheap");
         recipes.addRecipe(GTMaterialGen.get(GTCXBlocks.casingReinforced, 4), "III", "CMC", "III", 'I', RecipeHelper.materialSteelsAluminium, 'C', "circuitAdvanced", 'M', "machineBlockAdvanced");
         recipes.addRecipe(GTMaterialGen.get(GTCXBlocks.casingAdvanced, 4), "III", "CBC", "III", 'I', RecipeHelper.chrome, 'C', "circuitData", 'B', "machineBlockElite");
@@ -248,6 +252,8 @@ public class GTCXRecipe {
         recipes.addRecipe(GTMaterialGen.get(GTCXBlocks.electricLocker), "SLS", "SlS", "SCS", colorTransfer(GTMaterialGen.get(GTCXBlocks.locker)), 'S', RecipeHelper.materialSteels, 'L', Ic2Items.lapotronCrystal, 'l', GTCXBlocks.locker, 'C', "circuitAdvanced");
         recipes.addRecipe(GTMaterialGen.get(GTCXBlocks.advancedWorktable), "EOE", "EWE", "ECE", colorTransfer(GTMaterialGen.get(GTBlocks.tileWorktable)), 'E', RecipeHelper.electrum, 'O', RecipeHelper.tier2Energy, 'W', GTBlocks.tileWorktable, 'C', "circuitAdvanced");
         recipes.addRecipe(GTMaterialGen.get(GTCXBlocks.dustBin), "IHI", "IWI", "IHI", colorTransfer(GTMaterialGen.get(GTBlocks.tileWorktable)), 'I', RecipeHelper.materialRefinedIron, 'H', Blocks.HOPPER, 'W', GTBlocks.tileWorktable);
+        recipes.addRecipe(GTMaterialGen.get(GTCXBlocks.stoneCompressor), "BGB", "PWP", "BMB", 'B', "plateBronze", 'G', "gearBronze", 'P', RecipeHelper.anyPiston, 'W', "craftingToolWrench", 'M', "machineBlockCheap");
+        recipes.addRecipe(GTMaterialGen.get(GTCXBlocks.stoneExtractor), "BBB", "PWP", "BMB", 'B', "plateBronze", 'P', RecipeHelper.anyPiston, 'W', "craftingToolWrench", 'M', "machineBlockCheap");
     }
 
     public static void initShapelessRecipes(){
@@ -262,6 +268,7 @@ public class GTCXRecipe {
         recipes.addShapelessRecipe(GTMaterialGen.getDust(GTCXMaterial.StainlessSteel, 9), "dustIron", "dustIron", "dustIron", "dustIron", "dustIron", "dustIron", "dustManganese", "dustNickel", "dustChrome");
         IRecipeInput dustAl = new RecipeInputCombined(1, new RecipeInputOreDict("dustAluminum"), new RecipeInputOreDict("dustAluminium"));
         recipes.addShapelessRecipe(GTMaterialGen.getDust(GTCXMaterial.Kanthal, 3), "dustIron", dustAl, "dustChrome");
+        recipes.addShapelessRecipe(GTMaterialGen.getIc2(Ic2Items.bronzeDust, 3), "dustCopper", "dustCopper", "dustCopper", "dustTin");
     }
 
     public static void initOverrideGTClassic(){

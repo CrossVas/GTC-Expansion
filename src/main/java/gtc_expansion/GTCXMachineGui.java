@@ -111,4 +111,16 @@ public class GTCXMachineGui {
             super(container);
         }
     }
+    
+    public static class GTCXStoneCompressorGui extends MachineGui {
+        public GTCXStoneCompressorGui(ContainerComponent container) {
+            super(container);
+        }
+    }
+    
+    public static class GTCXStoneExtractorGui extends MachineGui {
+        public GTCXStoneExtractorGui(ContainerComponent container) {
+            super(container);
+        }
+    }
 }
