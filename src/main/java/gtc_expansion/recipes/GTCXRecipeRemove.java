@@ -20,7 +20,9 @@ public class GTCXRecipeRemove {
     public static void init(){
         initCentrifugeRemoval();
         initIc2Removals();
-        GTHelperStack.removeSmelting(new ItemStack(Items.BRICK));
+        if (GTCXConfiguration.general.unfiredBricks){
+            GTHelperStack.removeSmelting(new ItemStack(Items.BRICK));
+        }
         removeFurnaceRecipes();
     }
 
@@ -38,7 +40,7 @@ public class GTCXRecipeRemove {
         ClassicRecipes.extractor.removeRecipe(GTTileBaseMachine.input(Ic2Items.rubberWood));
 
         ClassicRecipes.macerator.removeRecipe(GTTileBaseMachine.input("oreRedstone", 1));
-        if ((!Loader.isModLoaded(GTValues.MOD_ID_IC2_EXTRAS) || !GTConfig.modcompat.compatIc2Extras)){
+        if (GTCXConfiguration.general.usePlates && (!Loader.isModLoaded(GTValues.MOD_ID_IC2_EXTRAS) || !GTConfig.modcompat.compatIc2Extras)){
             ClassicRecipes.compressor.removeRecipe(GTTileBaseMachine.input("ingotCopper", 8));
         }
 
