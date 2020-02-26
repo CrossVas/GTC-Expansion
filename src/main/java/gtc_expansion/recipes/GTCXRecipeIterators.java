@@ -164,7 +164,7 @@ public class GTCXRecipeIterators {
     public static void createPipeRecipe(GTMaterial mat) {
         String ingot = "ingot" + mat.getDisplayName();
         String plate = "plate" + mat.getDisplayName();
-        String material = GTCXConfiguration.general.usePlates ? plate : ingot;
+        String material = plate;
         String hammer = "craftingToolForgeHammer";
         if (!mat.hasFlag(GTMaterialFlag.INGOT) || !mat.hasFlag(GTCXMaterial.plate)){
             return;
@@ -305,7 +305,7 @@ public class GTCXRecipeIterators {
         String rod = "rod" + mat.getDisplayName();
         if (mat.hasFlag(GTCXMaterial.gear)) {
             // Rod crafting recipe
-            IRecipeInput wrench = GTCXConfiguration.general.enableCraftingTools ? new RecipeInputOreDict("craftingToolWrench") : null;
+            IRecipeInput wrench = new RecipeInputOreDict("craftingToolWrench");
             recipes.addRecipe(GTCXMaterialGen.getGear(mat, 1), "RIR", "IWI", "RIR", 'R', rod,
                     'W', wrench, 'I', plate);
             // If a dust is present create a maceration recipe
@@ -328,7 +328,7 @@ public class GTCXRecipeIterators {
         }
         if (mat.hasFlag(GTCXMaterial.hull) && mat.hasFlag(GTCXMaterial.plate) && !steel && refinedIron) {
             // Hull crafting recipe
-            IRecipeInput wrench = GTCXConfiguration.general.enableCraftingTools ? new RecipeInputOreDict("craftingToolWrench") : null;
+            IRecipeInput wrench = new RecipeInputOreDict("craftingToolWrench");
             String material = GTCXConfiguration.general.usePlates ? plate : ingot;
             recipes.addRecipe(GTCXMaterialGen.getHull(mat, 1), "PPP", "PWP", "PPP", 'P', material, 'W', wrench);
             //Ingots from hulls
@@ -348,16 +348,10 @@ public class GTCXRecipeIterators {
         } 
         String stick = "stickWood";
         GTCXToolGen G = new GTCXToolGen();
-        if (GTCXConfiguration.general.enableCraftingTools) {
             recipes.addRecipe(G.getPickaxe(mat), "PII", "FSH", " S ", 'P', plate, 'I', ingot, 'F', "craftingToolFile", 'H', "craftingToolForgeHammer", 'S', stick);
             recipes.addRecipe(G.getAxe(mat), "PIH", "PS ", "FS ", 'P', plate, 'I', ingot, 'F', "craftingToolFile", 'H', "craftingToolForgeHammer", 'S', stick);
             recipes.addRecipe(G.getShovel(mat), "FPH", " S ", " S ", 'P', plate, 'F', "craftingToolFile", 'H', "craftingToolForgeHammer", 'S', stick);
             recipes.addRecipe(G.getSword(mat), " P ", "FPH", " S ", 'P', plate, 'F', "craftingToolFile", 'H', "craftingToolForgeHammer", 'S', stick);
-        } else {
-            recipes.addRecipe(G.getPickaxe(mat), "PII", " S ", " S ", 'P', plate, 'I', ingot, 'S', stick);
-            recipes.addRecipe(G.getAxe(mat), "PI", "PS", " S", 'P', plate, 'I', ingot, 'S', stick);
-            recipes.addRecipe(G.getShovel(mat), "P", "S", "S", 'P', plate, 'S', stick);
-            recipes.addRecipe(G.getSword(mat), "P", "P", "S", 'P', plate, 'S', stick);
         }
         if (!gemInput) {
             if (GTCXConfiguration.general.enableCraftingTools) {
@@ -442,12 +436,8 @@ public class GTCXRecipeIterators {
                         listPlates = OreDictionary.getOres(plate, false);
                         if (!listPlates.isEmpty()) {
                             GTCXTilePlateBender.addRecipe(id, 1, listPlates.get(0));
-                            if (!Loader.isModLoaded(GTValues.MOD_ID_IC2_EXTRAS)){
-                                if (GTCXConfiguration.general.harderPlates){
-                                    recipes.addRecipe(listPlates.get(0), "H", "I", "I", 'H', "craftingToolForgeHammer", 'I', id );
-                                }else {
-                                    recipes.addRecipe(listPlates.get(0), "H", "I", 'H', "craftingToolForgeHammer", 'I', id );
-                                }
+                            if (!Loader.isModLoaded(GTValues.MOD_ID_IC2_EXTRAS)) {
+                                recipes.addRecipe(listPlates.get(0), "H", "I", "I", 'H', "craftingToolForgeHammer", 'I', id );
                             }
                         }
                     }
