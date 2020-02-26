@@ -141,8 +141,8 @@ public class GTCXIC2ClassicRecipes {
         ItemStack battery = Ic2Items.battery;
         String circuit = "circuitBasic";
         String machineBlock = "machineBlockCheap";
-        String technetium = "plateTechnetium";
-        String tin = "plateTin";
+        String technetium = GTCXConfiguration.general.usePlates ? "plateTechnetium" : "ingotTechnetium";
+        String tin = GTCXConfiguration.general.usePlates ? "plateTin" : "ingotTin";
         NBTTagCompound nbt = new NBTTagCompound();
         nbt.setBoolean("Lossless", true);
         ItemStack stack = Ic2Items.precisionWrench.copy();
@@ -225,11 +225,16 @@ public class GTCXIC2ClassicRecipes {
                     "circuitBasic");
             recipes.overrideRecipe("shaped_tile.blockrotary_-1598189826", Ic2Items.rotaryMacerator, "GGG", "GMG", "GAG", 'G', RecipeHelper.grinder, 'M', Ic2Items.macerator, 'A', "machineBlockAdvanced");
         }
-        recipeId = IC2.config.getFlag("SteelRecipes") ? 1913907474 : 1986006418;
-        recipes.overrideRecipe("shaped_tile.blockfenceiron_" + recipeId, GTMaterialGen.getIc2(Ic2Items.ironFence, 6), "RRR", "RRR", " W ", 'R', "rodRefinedIron", 'W', "craftingToolWrench");
-        recipeId = IC2.config.getFlag("SteelRecipes") ? 480320652 : 527557260;
-        recipes.overrideRecipe("shaped_tile.blockmachine_" + recipeId, Ic2Items.machine, "PPP", "PWP", "PPP", 'P', GTCXHelperStack.getRefinedIronPlate(), 'W', "craftingToolWrench");
-        recipes.overrideRecipe("shaped_item.upgradekit.mfs_1186329581", Ic2Items.mfsuUpgradeKid, "BMB", "BBB", " B ", 'B', "ingotBronze", 'M', Ic2Items.mfsu);
+        if (GTCXConfiguration.general.enableCraftingTools) {
+            recipeId = IC2.config.getFlag("SteelRecipes") ? 1913907474 : 1986006418;
+            recipes.overrideRecipe("shaped_tile.blockfenceiron_" + recipeId, GTMaterialGen.getIc2(Ic2Items.ironFence, 6), "RRR", "RRR", " W ", 'R', "rodRefinedIron", 'W', "craftingToolWrench");
+            recipeId = IC2.config.getFlag("SteelRecipes") ? 480320652 : 527557260;
+            recipes.overrideRecipe("shaped_tile.blockmachine_" + recipeId, Ic2Items.machine, "PPP", "PWP", "PPP", 'P', GTCXHelperStack.getRefinedIronPlate(), 'W', "craftingToolWrench");
+            recipes.overrideRecipe("shaped_item.upgradekit.mfs_1186329581", Ic2Items.mfsuUpgradeKid, "BMB", "BBB", " B ", 'B', "ingotBronze", 'M', Ic2Items.mfsu);
+        } else {
+            recipeId = IC2.config.getFlag("SteelRecipes") ? 1913907474 : 1986006418;
+            recipes.overrideRecipe("shaped_tile.blockfenceiron_" + recipeId, GTMaterialGen.getIc2(Ic2Items.ironFence, 6), "RRR", "RRR", 'R', "rodRefinedIron");
+        }
         
         IRecipeInput ingotElectric = new RecipeInputCombined(1, GTCXHelperStack.input(RecipeHelper.ingotRefinedIron), GTCXHelperStack.input("itemSilicon"), GTCXHelperStack.input("ingotAluminium"), GTCXHelperStack.input("ingotSilver"), GTCXHelperStack.input("ingotElectrum"), GTCXHelperStack.input("ingotPlatinum"));
         IRecipeInput ingotSilver = new RecipeInputCombined(1, GTCXHelperStack.input("ingotSilver"), GTCXHelperStack.input("ingotElectrum"));
