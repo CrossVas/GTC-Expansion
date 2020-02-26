@@ -21,7 +21,7 @@ public class GTCXVanillaRecipes {
 	
 	public static void initVanillaRecipes() {
 		
-		/** Removals **/
+	/** Removals **/
 		
         ((ForgeRegistry)ForgeRegistries.RECIPES).remove(new ResourceLocation("minecraft", "iron_bars"));
         ((ForgeRegistry)ForgeRegistries.RECIPES).remove(new ResourceLocation("minecraft", "hopper"));
@@ -42,13 +42,12 @@ public class GTCXVanillaRecipes {
         recipes.addRecipe(GTMaterialGen.get(Blocks.HEAVY_WEIGHTED_PRESSURE_PLATE), "PPH", 'P', "plateIron", 'H', "craftingToolForgeHammer");
         recipes.addRecipe(GTMaterialGen.get(Items.FLINT_AND_STEEL), "N ", " F", 'N', "nuggetSteel", 'F', Items.FLINT);
         
-        String nickel = GTCXConfiguration.general.usePlates ? "plateNickel" : "ingotNickel";
-        String silver = GTCXConfiguration.general.usePlates ? "plateSilver" : "ingotSilver";
-        String iron = GTCXConfiguration.general.usePlates ? "plateIron" : "ingotIron";
+        String nickel = "plateNickel";
+        String silver = "plateSilver";
+        String iron = "plateIron";
         IRecipeInput material = new RecipeInputCombined(1, GTCXHelperStack.input(RecipeHelper.bronze), RecipeHelper.aluminium, GTCXHelperStack.input(RecipeHelper.electrum), GTCXHelperStack.input(RecipeHelper.platinum), GTCXHelperStack.input(nickel),  GTCXHelperStack.input(RecipeHelper.refinedIron), GTCXHelperStack.input(silver), GTCXHelperStack.input(iron));
         int recipeID = IC2.config.getFlag("SteelRecipes") ? -305222786 : -156474894;
         GTRecipeCraftingHandler.overrideGTRecipe("gtclassic", "shaped_tile.hopper_" + recipeID, GTMaterialGen.get(Blocks.HOPPER), "IWI", "ICI", " I ", 'I', material, 'W', "craftingToolWrench", 'C', "chestWood");
-        
         recipes.addShapelessRecipe(GTMaterialGen.get(Items.GUNPOWDER, 3), "dustCoal", "dustSulfur", "dustSaltpeter", "dustSaltpeter");
         recipes.addShapelessRecipe(GTMaterialGen.get(Items.GUNPOWDER, 2), "dustCharcoal", "dustSulfur", "dustSaltpeter", "dustSaltpeter");
 	}

@@ -105,13 +105,7 @@ public class GTCXConfiguration {
     @Config.RequiresMcRestart
     public static General general = new General();
 
-    public static class General{
-        @Comment("Enables quite a few of GT recipes using plates instead of ingots.")
-        public boolean usePlates = true;
-//         @Comment("Enables plates taking 2 ingots instead of 1 ingot in the crafting table recipes.")
-//         public boolean harderPlates = false;
-        @Comment("Enables regular and fire bricks taking unfired bricks in the furnace recipe.")
-        public boolean unfiredBricks = false;
+    public static class General {
         @Comment("Enables removing of vanilla smelting of end game metals from all loaded mods")
         public boolean ingotsRequireBlastFurnace = true;
         @Comment("Removes all ic2 and gt crafting uu recipes and forces uu through the uu assembler.")
@@ -120,11 +114,6 @@ public class GTCXConfiguration {
         public boolean removeVanillaCharcoalRecipe = false;
         @Comment("Makes regular and advanced circuits take plates in place of refined iron ingot and red alloy in place of redstone and also uninsulated copper cables.")
         public boolean harderCircuits = true;
-        @Comment({
-                "Enables crafting tools, which are used in things like machine block recipes and tool recipes.",
-                "Does not disable hammers completely, only uses of them in recipes that do not make plates.",
-                "Also does not disable wire cutters usage for making the different molds."})
-        public boolean enableCraftingTools = true;
         @Comment({
                 "Enables plutonium, uranium, and custom added items giving radiation.",
                 "Note: if ic2c extras is loaded, this will have no effect, as all items in this system will be added to ic2c extra's instead."
