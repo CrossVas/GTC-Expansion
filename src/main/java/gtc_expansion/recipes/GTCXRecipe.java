@@ -184,22 +184,7 @@ public class GTCXRecipe {
         recipes.addRecipe(GTCXToolGen.getSword(GTMaterial.Flint), "F", "F", "S", new EnchantmentModifier(GTCXToolGen.getSword(GTMaterial.Flint), Enchantments.FIRE_ASPECT).setUsesInput(), 'F',
                 Items.FLINT, 'S', stick);
     }
-
-    public static void initOVerrideVanillaRecipes(){
-        String stick = "stickWood";
-        recipes.addRecipe(GTCXToolGen.getPickaxe(GTMaterial.Flint), "FFF", " S ", " S ", new EnchantmentModifier(GTCXToolGen.getPickaxe(GTMaterial.Flint), Enchantments.FIRE_ASPECT).setUsesInput(), 'F',
-                Items.FLINT, 'S', stick);
-        recipes.addRecipe(GTCXToolGen.getAxe(GTMaterial.Flint), "FF", "FS", " S", new EnchantmentModifier(GTCXToolGen.getAxe(GTMaterial.Flint), Enchantments.FIRE_ASPECT).setUsesInput(), 'F',
-                Items.FLINT, 'S', stick);
-        recipes.addRecipe(GTCXToolGen.getShovel(GTMaterial.Flint), "F", "S", "S", new EnchantmentModifier(GTCXToolGen.getShovel(GTMaterial.Flint), Enchantments.FIRE_ASPECT).setUsesInput(), 'F',
-                Items.FLINT, 'S', stick);
-        recipes.addRecipe(GTCXToolGen.getSword(GTMaterial.Flint), "F", "F", "S", new EnchantmentModifier(GTCXToolGen.getSword(GTMaterial.Flint), Enchantments.FIRE_ASPECT).setUsesInput(), 'F',
-                Items.FLINT, 'S', stick);
-        if (GTCXConfiguration.general.enableCraftingTools) {
-            recipes.overrideRecipe("shaped_item.itemtoolwrench_-354759652", GTCXToolGen.getWrench(GTCXMaterial.Bronze), "I I", "III", " I ", 'I', "ingotBronze");
-        }
-    }
-
+    
     public static void initShapedBlockRecipes(){
         String invar = "plateInvar";
         recipes.addRecipe(GTMaterialGen.get(GTCXBlocks.assemblingMachine), "CPC", "SMS", "CSC", 'C', "circuitBasic", 'P', Blocks.PISTON, 'S', RecipeHelper.materialSteelsAluminium, 'M', GTCXItems.conveyorModule);
@@ -261,6 +246,7 @@ public class GTCXRecipe {
 //            instance.overrideGTRecipe("shaped_tile.gtclassic.fusionreactor_1659066354",GTMaterialGen.get(GEBlocks.fusionReactor, 1), "ESE", "LCL", "ESE", 'E', "circuitMaster", 'S', GTBlocks.tileSupercondensator, 'L',
 //                    "batteryUltimate", 'C', GTBlocks.tileComputer);
 //        }
+        GTRecipeCraftingHandler.overrideGTRecipe(GTMod.MODID, "shaped_item.gtclassic.destructo_pack_-1797414029", GTMaterialGen.get(GTItems.destructoPack), "CAC", "ABA", "CAC", 'C', GTMaterialGen.getIc2(Ic2Items.advancedCircuit), 'A', RecipeHelper.aluminium, 'B', Items.LAVA_BUCKET);
         recipes.addRecipe(GTMaterialGen.get(GTBlocks.dataCable, 6), "RRR", "CIC", "RRR", 'I', "plateSilicon", 'C', "circuitData", 'R', "itemRubber");
         recipes.addRecipe(GTMaterialGen.get(GTBlocks.tileDigitizerItem, 4), "CPC", "PMP", "CPC", 'P', GTCXItems.pumpModule, 'C', "circuitData", 'M', "machineBlockAdvanced");
         recipes.addRecipe(GTMaterialGen.get(GTBlocks.tileDigitizerFluid, 4), "CPC", "PMP", "CPC", 'P', GTCXItems.conveyorModule, 'C', "circuitData", 'M', "machineBlockAdvanced");
