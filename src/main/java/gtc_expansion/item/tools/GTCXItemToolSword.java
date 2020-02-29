@@ -56,11 +56,18 @@ public class GTCXItemToolSword extends ItemSword
 
     @Override
     public Color getColor(ItemStack stack, int index) {
-        if (index == 0) {
-            return GTMaterial.Wood.getColor();
-        } else {
-            return this.material.getColor();
-        }
+    	if (index == 0) {
+    		if (this.material.equals(GTCXMaterial.Bronze) || this.material.equals(GTCXMaterial.Iron) || this.material.equals(GTMaterial.Ruby) || this.material.equals(GTMaterial.Sapphire) || this.material.equals(GTMaterial.Flint)) {
+    			return GTMaterial.Wood.getColor();
+    		} 
+    		if (this.material.equals(GTCXMaterial.Steel)) {
+    			return GTCXMaterial.RefinedIron.getColor();
+    		} 
+    		if (this.material.equals(GTCXMaterial.TungstenSteel)) {
+    			return GTCXMaterial.Steel.getColor();
+    		}
+    	}
+	return this.material.getColor();
     }
 
     @Override
