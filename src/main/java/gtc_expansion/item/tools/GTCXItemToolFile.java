@@ -60,11 +60,11 @@ public class GTCXItemToolFile extends Item implements IStaticTexturedItem, IGTCo
 
     @Override
     public Color getColor(ItemStack stack, int index) {
-        if (index == 0) {
-            return GTMaterial.Wood.getColor();
-        } else {
-            return this.material.getColor();
-        }
+    	if (index == 0) {
+    		return GTCXMaterial.TungstenSteel.getColor();
+    	} else {
+    		return this.material.getColor();
+    	}
     }
 
     @Override

@@ -72,29 +72,13 @@ public class GTCXJeiPlugin implements IModPlugin {
                 	blacklist.addIngredientToBlacklist(material);	
             	}
             }
-            if (!GTCXConfiguration.general.unfiredBricks){
-                blacklist.addIngredientToBlacklist(GTMaterialGen.get(GTCXItems.unfiredBrick));
-                blacklist.addIngredientToBlacklist(GTMaterialGen.get(GTCXItems.unfiredFireBrick));
-            }
-            if (GTCXConfiguration.general.enableCraftingTools){
-                blacklist.addIngredientToBlacklist(Ic2Items.wrench);
-            }
             if (IC2.config.getFlag("SteelRecipes")){
                 blacklist.addIngredientToBlacklist(GTCXMaterialGen.getHull(GTCXMaterial.Steel, 1));
             } else {
                 blacklist.addIngredientToBlacklist(GTCXMaterialGen.getHull(GTCXMaterial.RefinedIron, 1));
             }
             blacklist.addIngredientToBlacklist(Ic2Items.cutter);
-            if (!GTCXConfiguration.general.enableCraftingTools){
-                blacklist.addIngredientToBlacklist(GTCXToolGen.getWrench(GTCXMaterial.Bronze));
-                blacklist.addIngredientToBlacklist(GTCXToolGen.getWrench(GTCXMaterial.Iron));
-                blacklist.addIngredientToBlacklist(GTCXToolGen.getWrench(GTCXMaterial.Steel));
-                blacklist.addIngredientToBlacklist(GTCXToolGen.getWrench(GTCXMaterial.TungstenSteel));
-                blacklist.addIngredientToBlacklist(GTCXToolGen.getFile(GTCXMaterial.Bronze));
-                blacklist.addIngredientToBlacklist(GTCXToolGen.getFile(GTCXMaterial.Iron));
-                blacklist.addIngredientToBlacklist(GTCXToolGen.getFile(GTCXMaterial.Steel));
-                blacklist.addIngredientToBlacklist(GTCXToolGen.getFile(GTCXMaterial.TungstenSteel));
-            }
+            blacklist.addIngredientToBlacklist(Ic2Items.wrench);
             //blacklist.addIngredientToBlacklist(GTMaterialGen.get(GTBlocks.tileFusionReactor));
 
         }
