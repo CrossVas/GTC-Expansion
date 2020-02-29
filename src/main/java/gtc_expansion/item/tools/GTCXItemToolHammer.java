@@ -70,13 +70,13 @@ public class GTCXItemToolHammer extends ItemPickaxe
     @Override
     public Color getColor(ItemStack stack, int index) {
     	if (index == 0) {
-    		if ((this.material == GTCXMaterial.Bronze) || (this.material == GTCXMaterial.Iron)) {
+    		if (this.material.equals(GTCXMaterial.Bronze) || this.material.equals(GTCXMaterial.Iron)) {
     			return GTMaterial.Wood.getColor();
     		} 
-    		if (this.material == GTCXMaterial.Steel) {
+    		if (this.material.equals(GTCXMaterial.Steel)) {
     			return GTCXMaterial.RefinedIron.getColor();
     		} 
-    		if (this.material == GTCXMaterial.TungstenSteel) {
+    		if (this.material.equals(GTCXMaterial.TungstenSteel)) {
     			return GTCXMaterial.Steel.getColor();
     		}
     	}
