@@ -134,9 +134,7 @@ public class GTCXRecipe {
             GTCXRecipeIterators.createStickRecipe();
         }
         GTCXIC2ClassicRecipes.initIC2Recipes();
-        if (GTCXConfiguration.general.enableCraftingTools){
-            GTCXVanillaRecipes.initVanillaRecipes();
-        }
+        GTCXVanillaRecipes.initVanillaRecipes();
     	GTCXOverrideRecipes.initGTCXOverride();
         GTCXRecipeIterators.initAutoOredictMachineRecipes();
         GTCXTileMicrowave.init();
@@ -155,21 +153,13 @@ public class GTCXRecipe {
         recipes.addRecipe(GTMaterialGen.get(GTCXItems.diamondChainsaw), " D ", "DdD", "TCT", 'D', "dustDiamond", 'd', Ic2Items.chainSaw, 'T', RecipeHelper.titanium, 'C', "circuitAdvanced");
         recipes.addRecipe(GTMaterialGen.get(GTCXItems.steelJackhammer), "SBS", " C ", " s ", 'S', "rodStainlessSteel", 'B', Ic2Items.battery, 'C', "circuitAdvanced", 's', "ingotSteel");
         recipes.addRecipe(GTMaterialGen.get(GTCXItems.bronzeJackhammer), "RBR", " C ", " b ", 'R', "rodBronze", 'B', Ic2Items.battery, 'C', "circuitBasic", 'b', "ingotBronze");
-        if (GTCXConfiguration.general.unfiredBricks){
-            recipes.addRecipe(GTMaterialGen.get(GTCXItems.unfiredBrick, 2), "C", "C", 'C', Items.CLAY_BALL);
-            recipes.addRecipe(GTMaterialGen.get(GTCXItems.unfiredFireBrick, 2), "C", "C", 'C', GTCXItems.fireClayBall);
-        }
         recipes.addRecipe(GTMaterialGen.get(GTItems.lithiumBatpack), "BCB", " A ", 'B', GTCXItems.largeLithiumBattery, 'C', "circuitAdvanced", 'A', RecipeHelper.aluminium);
         recipes.addRecipe(GTMaterialGen.get(GTCXItems.batteryHull), "C", "B", "B", 'C', Ic2Items.copperCable, 'B', "plateBatteryAlloy");
         recipes.addRecipe(GTMaterialGen.get(GTCXItems.largeBatteryHull), "C C", "BBB", "BBB", 'C', Ic2Items.goldCable, 'B', "plateBatteryAlloy");
         recipes.addRecipe(GTMaterialGen.get(GTCXItems.acidBattery), " C ", "LAL", "LAL", 'C', Ic2Items.copperCable, 'L', RecipeHelper.lead, 'A', GTMaterialGen.getTube(GTCXMaterial.SulfuricAcid, 1));
         recipes.addRecipe(GTMaterialGen.get(GTCXItems.mercuryBattery), " C ", "LAL", "LAL", 'C', Ic2Items.copperCable, 'L', RecipeHelper.lead, 'A', GTMaterialGen.getTube(GTMaterial.Mercury, 1));
         recipes.addRecipe(GTMaterialGen.get(GTCXItems.sodiumBattery), " C ", "LAL", "LAL", 'C', Ic2Items.goldCable, 'L', RecipeHelper.aluminium, 'A', GTMaterialGen.getTube(GTMaterial.Sodium, 1));
-        if (GTCXConfiguration.general.enableCraftingTools){
-            recipes.addRecipe(GTMaterialGen.get(GTCXItems.mold), "HF", "SS", "SS", 'H', "craftingToolForgeHammer", 'F', "craftingToolFile", 'S', RecipeHelper.steel);
-        } else {
-            recipes.addRecipe(GTMaterialGen.get(GTCXItems.mold), "SS", "SS", 'S', RecipeHelper.steel);
-        }
+        recipes.addRecipe(GTMaterialGen.get(GTCXItems.mold), "HF", "SS", "SS", 'H', "craftingToolForgeHammer", 'F', "craftingToolFile", 'S', RecipeHelper.steel);
         recipes.addRecipe(GTMaterialGen.get(GTCXItems.moldPlate), "WM", 'W', "craftingToolWireCutter", 'M', GTCXItems.mold);
         recipes.addRecipe(GTMaterialGen.get(GTCXItems.moldRod), "M ", " W", 'W', "craftingToolWireCutter", 'M', GTCXItems.mold);
         recipes.addRecipe(GTMaterialGen.get(GTCXItems.moldCell), "W", "M", 'W', "craftingToolWireCutter", 'M', GTCXItems.mold);
@@ -193,14 +183,6 @@ public class GTCXRecipe {
                 Items.FLINT, 'S', stick);
         recipes.addRecipe(GTCXToolGen.getSword(GTMaterial.Flint), "F", "F", "S", new EnchantmentModifier(GTCXToolGen.getSword(GTMaterial.Flint), Enchantments.FIRE_ASPECT).setUsesInput(), 'F',
                 Items.FLINT, 'S', stick);
-        if (GTCXConfiguration.general.enableCraftingTools){
-            recipes.addRecipe(GTCXToolGen.getFile(GTCXMaterial.Bronze), "P", "P", "S", 'P', "plateBronze", 'S', stick);
-            recipes.overrideRecipe("shaped_item.itemtoolwrench_-354759652", GTCXToolGen.getWrench(GTCXMaterial.Bronze), "I I", "III", " I ", 'I', "ingotBronze");
-            recipes.addRecipe(GTCXToolGen.getFile(GTCXMaterial.Iron), "P", "P", "S", 'P', "plateIron", 'S', stick);
-            recipes.addRecipe(GTCXToolGen.getWrench(GTCXMaterial.Iron), "I I", "III", " I ", 'I', "ingotIron");
-        }
-        recipes.addRecipe(GTCXToolGen.getHammer(GTCXMaterial.Bronze), "PPP", "PPP", " S ", 'P', "ingotBronze", 'S', stick);
-        recipes.addRecipe(GTCXToolGen.getHammer(GTCXMaterial.Iron), "PPP", "PPP", " S ", 'P', "ingotIron", 'S', stick);
     }
 
     public static void initOVerrideVanillaRecipes(){
@@ -219,7 +201,7 @@ public class GTCXRecipe {
     }
 
     public static void initShapedBlockRecipes(){
-        String invar = GTCXConfiguration.general.usePlates ? "plateInvar" : "ingotInvar";
+        String invar = "plateInvar";
         recipes.addRecipe(GTMaterialGen.get(GTCXBlocks.assemblingMachine), "CPC", "SMS", "CSC", 'C', "circuitBasic", 'P', Blocks.PISTON, 'S', RecipeHelper.materialSteelsAluminium, 'M', GTCXItems.conveyorModule);
         recipes.addRecipe(GTMaterialGen.get(GTCXBlocks.chemicalReactor), "PMP", "CcC", "PEP", 'P', RecipeHelper.materialInvarAluminium, 'M', Ic2Items.magnetizer, 'C', "circuitAdvanced", 'c', Ic2Items.compressor, 'E', Ic2Items.extractor);
         recipes.addRecipe(GTMaterialGen.get(GTCXBlocks.distillationTower), "CEC", "PAP", "eEe", 'C', GTBlocks.tileCentrifuge, 'E', "circuitMaster", 'P', Ic2Items.pump.copy(), 'A', "machineBlockHighlyAdvanced", 'e', GTCXBlocks.electrolyzer);
@@ -308,8 +290,8 @@ public class GTCXRecipe {
         recipes.addRecipe(GTMaterialGen.get(GTBlocks.tileBufferFluid), "EWE", "CBC", "EbE", 'E', RecipeHelper.electrum, 'W', Ic2Items.insulatedCopperCable, 'C', "circuitAdvanced", 'B', "machineBlockCheap", 'b', Items.BUCKET);
         IRecipeInput aluiron = new RecipeInputCombined(1, GTCXHelperStack.input(RecipeHelper.refinedIron), RecipeHelper.aluminium);
         recipes.addRecipe(GTMaterialGen.get(GTBlocks.tileCabinet), "III", "CIC", "III", 'I', aluiron, 'C', "chestWood");
-        IRecipeInput wrench = GTCXConfiguration.general.enableCraftingTools ? new RecipeInputCombined(1, GTCXHelperStack.input("craftingToolMonkeyWrench"), GTCXHelperStack.input("craftingToolWrench")) : new RecipeInputOreDict("rodRefinedIron");
-        rod = GTCXConfiguration.general.enableCraftingTools ? new RecipeInputOreDict("rodRefinedIron") : null;
+        IRecipeInput wrench = new RecipeInputCombined(1, GTCXHelperStack.input("craftingToolMonkeyWrench"), GTCXHelperStack.input("craftingToolWrench"));
+        rod = new RecipeInputOreDict("rodRefinedIron");
         recipes.addRecipe(GTMaterialGen.get(GTBlocks.tileDrum), "PWP", "PMP", "PRP", 'P', RecipeHelper.refinedIron, 'W', wrench, 'M', rod, 'R', "rodRefinedIron");
         recipes.addRecipe(GTMaterialGen.get(GTBlocks.tileWorktable), "ICI", "III", "IcI", 'I', aluiron, 'C', "workbench", 'c', "chestWood");
         recipes.addRecipe(GTMaterialGen.get(GTBlocks.tileAutocrafter), "EBE", "CcC", "EME", 'E', RecipeHelper.electrum, 'B', Ic2Items.battery, 'C', "circuitAdvanced", 'c', "workbench", 'M', "machineBlockAdvanced");
