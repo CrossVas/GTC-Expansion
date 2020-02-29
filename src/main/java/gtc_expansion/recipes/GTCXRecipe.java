@@ -219,7 +219,7 @@ public class GTCXRecipe {
         //IRecipeInput pipe = new RecipeInputCombined(1, new RecipeInputItemStack(GTMaterialGen.getFluidPipe(GTMaterial.Titanium, 1)), new RecipeInputItemStack(GTMaterialGen.getFluidPipe(GTCXMaterial.StainlessSteel, 1)));
         ItemStack pipe = new ItemStack(Items.BUCKET, 1);
         recipes.addRecipe(GTMaterialGen.get(GTCXBlocks.fluidCaster), "IcI", "PMP", "ICI", 'I', materialStainlessTitatium, 'c', GTCXItems.mold, 'P', pipe, 'M', "machineBlockVeryAdvanced", 'C', "circuitElite");
-        recipes.addRecipe(GTMaterialGen.get(GTCXBlocks.fluidSmelter), "IbI", "PMP", "BCB", 'I', materialStainlessTitatium, 'c', GTCXBlocks.industrialBlastFurnace, 'P', pipe, 'M', "machineBlockVeryAdvanced", 'C', "circuitElite", 'B', Blocks.BRICK_BLOCK);
+        recipes.addRecipe(GTMaterialGen.get(GTCXBlocks.fluidSmelter), "IcI", "PMP", "BCB", 'I', materialStainlessTitatium, 'c', GTCXBlocks.industrialBlastFurnace, 'P', pipe, 'M', "machineBlockVeryAdvanced", 'C', "circuitElite", 'B', Blocks.BRICK_BLOCK, 'c', GTCXItems.constantanHeatingCoil);
         recipes.addRecipe(GTMaterialGen.get(GTCXBlocks.primitiveBlastFurnace), "PBP", "BWB", "PBP", 'B', Blocks.BRICK_BLOCK, 'P', "plateBronze", 'W', "craftingToolWrench");
         recipes.addRecipe(GTMaterialGen.get(GTCXBlocks.alloyFurnace), "BBB", "FWF", "CCC", 'C', Blocks.BRICK_BLOCK, 'F', Blocks.FURNACE, 'B', "plateBronze", 'W', "craftingToolWrench");
         recipes.addRecipe(GTMaterialGen.get(GTCXBlocks.casingStandard, 4), "III", "CBC", "III", 'I', RecipeHelper.refinedIron, 'C', "circuitBasic", 'B', "machineBlockCheap");
