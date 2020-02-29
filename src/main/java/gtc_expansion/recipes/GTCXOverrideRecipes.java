@@ -61,16 +61,16 @@ public class GTCXOverrideRecipes {
 		}
 		if (Loader.isModLoaded(GTValues.MOD_ID_THERMAL) && GTConfig.modcompat.compatThermal) {
 		GTCExpansion.logger.info("Messing with Thermal Mods!");
-            recipe.overrideGTRecipe("thermalexpansion", "frame", GTMaterialGen.getModItem("thermalexpansion", "frame"), "SGS", "GTG", "SGS", 'S', "ingotSteel", 'G', "blockGlass", 'T', "gearTin");
-            for (GTMaterial mat : GTMaterial.values()) {
-                ThermalExpansionHelper.removeCompactorPlateRecipe(GTMaterialGen.getIngot(mat, 1));	
-                ThermalExpansionHelper.removeCompactorGearRecipe(GTMaterialGen.getIngot(mat, 4));
+            	recipe.overrideGTRecipe("thermalexpansion", "frame", GTMaterialGen.getModItem("thermalexpansion", "frame"), "SGS", "GTG", "SGS", 'S', "ingotSteel", 'G', "blockGlass", 'T', "gearTin");
+            	for (GTMaterial mat : GTMaterial.values()) {
+                	ThermalExpansionHelper.removeCompactorPlateRecipe(GTMaterialGen.getIngot(mat, 1));	
+                	ThermalExpansionHelper.removeCompactorGearRecipe(GTMaterialGen.getIngot(mat, 4));
             }
 		}
 		if (Loader.isModLoaded("gravisuit")) {
 		GTCExpansion.logger.info("Tweaking GraviSuit");
-            GTRecipeCraftingHandler.overrideGTRecipe("gravisuit", "shaped_item.advanceddiamondchainsaw_-416372460", GTMaterialGen.getModItem("gravisuit", "advancedchainsaw"), " SS", "SCS", "BS ", 'S', RecipeHelper.tungstenSteel, 'C', GTCXItems.diamondChainsaw, 'B', GTItems.lithiumBattery);
-            GTRecipeCraftingHandler.overrideGTRecipe("gravisuit", "shaped_item.advanceddrill_1408250051", GTMaterialGen.getModItem("gravisuit", "advanceddrill"), " S ", "SDS", "SBS", 'S', RecipeHelper.tungstenSteel, 'D', Ic2Items.diamondDrill, 'B', GTItems.lithiumBattery);
+            	GTRecipeCraftingHandler.overrideGTRecipe("gravisuit", "shaped_item.advanceddiamondchainsaw_-416372460", GTMaterialGen.getModItem("gravisuit", "advancedchainsaw"), " SS", "SCS", "BS ", 'S', RecipeHelper.tungstenSteel, 'C', GTCXItems.diamondChainsaw, 'B', GTItems.lithiumBattery);
+            	GTRecipeCraftingHandler.overrideGTRecipe("gravisuit", "shaped_item.advanceddrill_1408250051", GTMaterialGen.getModItem("gravisuit", "advanceddrill"), " S ", "SDS", "SBS", 'S', RecipeHelper.tungstenSteel, 'D', Ic2Items.diamondDrill, 'B', GTItems.lithiumBattery);
 		}
 		if (Loader.isModLoaded("railcraft")) {
 		GTCExpansion.logger.info("Wait a minute... RailCraft?! No way!!");
