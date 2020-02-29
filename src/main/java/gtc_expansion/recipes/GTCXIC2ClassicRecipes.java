@@ -149,7 +149,6 @@ public class GTCXIC2ClassicRecipes {
         nbt.setBoolean("Lossless", true);
         ItemStack stack = Ic2Items.precisionWrench.copy();
         stack.setTagCompound(nbt);
-        
         recipes.overrideRecipe("shaped_item.precisionwrench_-1322002202", stack, "CRC", "SIS", "CWC", 'C', "circuitAdvanced", 'R', GTItems.rockCutter, 'S', "rodTungsten", 'I', Ic2Items.iridiumPlate, 'W', Ic2Items.electricWrench);
         recipes.overrideRecipe("shaped_tile.blockgenerator_-66857461", Ic2Items.generator, "B", "M", "F", 'B', battery, 'M', machineBlock, 'F', Blocks.FURNACE);
         recipes.overrideRecipe("shaped_tile.blockreactorchamber_1490756150", Ic2Items.reactorChamber, " C ", "CMC", " C ", 'C', Ic2Items.denseCopperPlate, 'M', machineBlock);
@@ -206,7 +205,7 @@ public class GTCXIC2ClassicRecipes {
         nbt.setBoolean("losslessMode", true);
         stack = Ic2Items.electricWrench.copy();
         stack.setTagCompound(nbt);
-        recipes.overrideRecipe("shaped_item.itemtoolwrenchelectric_883008511", stack, "SWS", "SCS", " B ",'S', "plateStainlessSteel", 'W', wrench, 'C', circuit, 'B', battery);
+        recipes.overrideRecipe("shaped_item.itemtoolwrenchelectric_883008511", stack, "S S", "SCS", " B ",'S', "plateStainlessSteel", 'C', circuit, 'B', battery);
         recipes.overrideRecipe("shaped_item.itemtoolmininglaser_1732214669", Ic2Items.miningLaser,"RHE", "TTC", " AA", 'R', "gemRuby", 'H', GTItems.heatStorageHelium6, 'E', RecipeHelper.tier2Energy, 'T', RecipeHelper.titanium, 'C', "circuitAdvanced", 'A', Ic2Items.advancedAlloy);
         recipes.overrideRecipe("shaped_item.itembatre_2077392104", Ic2Items.battery, " C ", "TRT", "TRT", 'C', Ic2Items.insulatedCopperCable, 'T', tin, 'R', "dustRedstone");
         recipeId = IC2.config.getFlag("SteelRecipes") ? 389795443 : -650149377;
