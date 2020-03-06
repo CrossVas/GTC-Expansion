@@ -19,7 +19,7 @@ Please do! Fork away and PR all you like. I just ask that you attempt you integr
 - Added toolTips for "craftingTool";
 - "craftingTool" now takes more than 1 damage for crafting;
 - Added 2 "Stone" machines, Compressor and Extractor;
-- Added Raw Rubber. Now you cannot obtain rubber directly from Sticky Resin, you will need an Stone Extractor for that;
+- Added Raw Rubber. Now you cannot obtain rubber directly from Sticky Resin, you will need Stone Extractor for that;
 <div>
   <img src="https://imgur.com/9KlMeMR.png" align="left">
   <img src="https://imgur.com/664Np2I.png" align="left">
