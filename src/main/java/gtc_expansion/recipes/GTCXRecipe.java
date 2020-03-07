@@ -139,8 +139,8 @@ public class GTCXRecipe {
     	GTCXOverrideRecipes.initGTCXOverride();
         GTCXRecipeIterators.initAutoOredictMachineRecipes();
         GTCXTileMicrowave.init();
-        GTCXTileStoneCompressor.convertIC2toGTC();
-        GTCXTileStoneExtractor.convertIC2toGTC();
+        GTCXTileStoneCompressor.initRecipes();
+        GTCXTileStoneExtractor.initRecipes();
     }
 
     public static void initShapedItemRecipes(){

@@ -193,15 +193,7 @@ public class GTCXTileStoneExtractor extends GTTileBaseFuelMachine implements IGT
         }
     }
     
-    /** Thanks to @e99999 for help **/
-    
-    public static void convertIC2toGTC() {
-        // Grabs everything from the ic2 classic extractor list.
-        // Call this in post init to ensure you got all recipes.
-        for (RecipeEntry entry : ClassicRecipes.extractor.getRecipeMap()) {
-            IRecipeInput[] in = { entry.getInput() };
-            ItemStack[] out = {};
-            GTRecipeMachineHandler.addRecipe(GTCXRecipeLists.EXTRACTOR_RECIPE_LIST, in, GTRecipeMachineHandler.totalEu(GTCXRecipeLists.EXTRACTOR_RECIPE_LIST, 120), entry.getOutput().getAllOutputs().toArray(out));
-        }
+    public static void initRecipes() {
+    	GTRecipeMachineHandler.convertIC2toGTC(ClassicRecipes.extractor.getRecipeMap(), GTCXRecipeLists.EXTRACTOR_RECIPE_LIST);
     }
 }

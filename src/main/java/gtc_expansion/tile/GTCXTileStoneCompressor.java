@@ -198,15 +198,7 @@ public class GTCXTileStoneCompressor extends GTTileBaseFuelMachine implements IG
         }
     }
    
-    /** Thanks to @e99999 for help **/
-    
-    public static void convertIC2toGTC() {
-        // Grabs everything from the ic2 classic compressor list.
-        // Call this in post init to ensure you got all recipes.
-        for (RecipeEntry entry : ClassicRecipes.compressor.getRecipeMap()) {
-            IRecipeInput[] in = { entry.getInput() };
-            ItemStack[] out = {};
-            GTRecipeMachineHandler.addRecipe(GTCXRecipeLists.COMPRESSOR_RECIPE_LIST, in, GTRecipeMachineHandler.totalEu(GTCXRecipeLists.COMPRESSOR_RECIPE_LIST, 120), entry.getOutput().getAllOutputs().toArray(out));
-        }
+    public static void initRecipes() {
+    	GTRecipeMachineHandler.convertIC2toGTC(ClassicRecipes.compressor.getRecipeMap(), GTCXRecipeLists.COMPRESSOR_RECIPE_LIST);
     }
 }
