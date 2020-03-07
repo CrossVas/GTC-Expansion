@@ -24,6 +24,7 @@ import ic2.core.inventory.filters.MachineFilter;
 import ic2.core.inventory.management.AccessRule;
 import ic2.core.inventory.management.InventoryHandler;
 import ic2.core.inventory.management.SlotType;
+import ic2.core.item.recipe.entry.RecipeInputOreDict;
 import ic2.core.platform.lang.components.base.LocaleComp;
 import ic2.core.platform.registry.Ic2Items;
 import ic2.core.platform.registry.Ic2Sounds;
@@ -48,12 +49,20 @@ public class GTCXTileWiremill extends GTTileBaseMachine {
     public static final int slotFuel = 2;
     protected static final int[] slotInputs = { slotInput };
     public IFilter filter = new MachineFilter(this);
-    private static final int defaultEu = 4;
+    private static int defaultEu;
 
     public GTCXTileWiremill() {
         super(3, 4, defaultEu, 100, 32);
         setFuelSlot(slotFuel);
         maxEnergy = 10000;
+    }
+    
+    public static int setUsageEuPerTick(int value) {
+    	return defaultEu = value;
+    }
+   
+    public static int getUsagePerTick() {
+    	return defaultEu;
     }
 
     @Override
@@ -132,41 +141,40 @@ public class GTCXTileWiremill extends GTTileBaseMachine {
         return Ic2Sounds.extractorOp;
     }
 
+    //TODO Change EU usage per recipe
     public static void init() {
-        addRecipe("ingotCopper", 1, GTMaterialGen.getIc2(Ic2Items.copperCable, 3));
-        addRecipe("ingotTin", 1, GTMaterialGen.getIc2(Ic2Items.tinCable, 4));
-        addRecipe(IC2.getRefinedIron(), 1, GTMaterialGen.getIc2(Ic2Items.ironCable, 6));
-        addRecipe("ingotGold", 1, GTMaterialGen.getIc2(Ic2Items.goldCable, 6));
-        addRecipe("ingotBronze", 1, GTMaterialGen.getIc2(Ic2Items.bronzeCable, 3));
-        addRecipe("ingotKanthal", 4, GTMaterialGen.get(GTCXItems.kanthalHeatingCoil));
-        addRecipe("ingotConstantan", 4, GTMaterialGen.get(GTCXItems.constantanHeatingCoil));
-        addRecipe("ingotNichrome", 4, GTMaterialGen.get(GTCXItems.nichromeHeatingCoil));
-        addRecipe("dustCoal", 4, Ic2Items.carbonFiber);
-        addRecipe("dustCharcoal", 8, Ic2Items.carbonFiber);
-        addRecipe("dustCarbon", 8, Ic2Items.carbonFiber);
+        addRecipe(input("ingotCopper", 1), setUsageEuPerTick(2), 200, GTMaterialGen.getIc2(Ic2Items.copperCable, 3));
+        addRecipe(input("ingotTin", 1), setUsageEuPerTick(2), 300, GTMaterialGen.getIc2(Ic2Items.tinCable, 4));
+        addRecipe(input(IC2.getRefinedIron(), 1), setUsageEuPerTick(2), 400, GTMaterialGen.getIc2(Ic2Items.ironCable, 6));
+        addRecipe(input("ingotGold", 1), setUsageEuPerTick(2), 400, GTMaterialGen.getIc2(Ic2Items.goldCable, 6));
+        addRecipe(input("ingotBronze", 1), setUsageEuPerTick(2), 400, GTMaterialGen.getIc2(Ic2Items.bronzeCable, 3));
+        addRecipe(input("ingotKanthal", 4), setUsageEuPerTick(2), 900, GTMaterialGen.get(GTCXItems.kanthalHeatingCoil));
+        addRecipe(input("ingotConstantan", 3), setUsageEuPerTick(2), 600, GTMaterialGen.get(GTCXItems.constantanHeatingCoil));
+        addRecipe(input("ingotNichrome", 4), setUsageEuPerTick(2), 1200, GTMaterialGen.get(GTCXItems.nichromeHeatingCoil));
+        addRecipe(input("dustCoal", 4), setUsageEuPerTick(2), 800, Ic2Items.carbonFiber);
+        addRecipe(input("dustCharcoal", 8), setUsageEuPerTick(2), 800, Ic2Items.carbonFiber);
+        addRecipe(input("dustCarbon", 8), setUsageEuPerTick(2), 800, Ic2Items.carbonFiber);
     }
 
     public static RecipeModifierHelpers.IRecipeModifier[] totalEu(int total) {
-        return new RecipeModifierHelpers.IRecipeModifier[] { RecipeModifierHelpers.ModifierType.RECIPE_LENGTH.create((total / defaultEu) - 100) };
+        return new RecipeModifierHelpers.IRecipeModifier[] { RecipeModifierHelpers.ModifierType.RECIPE_LENGTH.create((total / getUsagePerTick()) - 100) };
     }
 
-    public static void addRecipe(ItemStack input, ItemStack output) {
-        addRecipe(new IRecipeInput[]{input(input)}, totalEu(400), output);
+    public static void addRecipe(ItemStack input, int euPerTick, int euTotal, RecipeModifierHelpers.IRecipeModifier[] modifiers, ItemStack output) {
+        addRecipe(new IRecipeInput[]{input(input)}, euPerTick, totalEu(euTotal), output);
+    }
+    
+    public static void addRecipe(String input1, int amount1, int euPerTick, int totalEu, ItemStack output) {
+        addRecipe(new IRecipeInput[]{new RecipeInputOreDict(input1, amount1)}, euPerTick, totalEu(totalEu), output);
     }
 
-    public static void addRecipe(String input, int amount, ItemStack output) {
-        addRecipe(new IRecipeInput[]{input(input, amount)}, totalEu(400), output);
+    /** Common Method **/
+    
+    public static void addRecipe(IRecipeInput input, int euPerTick, int totalEu, ItemStack output) {
+        addRecipe(new IRecipeInput[]{input}, euPerTick, totalEu(totalEu), output);
     }
 
-    public static void addRecipe(IRecipeInput input, ItemStack output) {
-        addRecipe(new IRecipeInput[]{input}, totalEu(400), output);
-    }
-
-    public static void addRecipe(IRecipeInput input, int totalEu, ItemStack output) {
-        addRecipe(new IRecipeInput[]{input}, totalEu(totalEu), output);
-    }
-
-    public static void addRecipe(IRecipeInput[] inputs, RecipeModifierHelpers.IRecipeModifier[] modifiers, ItemStack... outputs) {
+    public static void addRecipe(IRecipeInput[] inputs, int euPerTick, RecipeModifierHelpers.IRecipeModifier[] modifiers, ItemStack... outputs) {
         List<IRecipeInput> inlist = new ArrayList<>();
         List<ItemStack> outlist = new ArrayList<>();
         for (IRecipeInput input : inputs) {
@@ -179,10 +187,10 @@ public class GTCXTileWiremill extends GTTileBaseMachine {
         for (ItemStack output : outputs) {
             outlist.add(output);
         }
-        addRecipe(inlist, new MachineOutput(mods, outlist));
+        addRecipe(inlist, euPerTick, new MachineOutput(mods, outlist));
     }
 
-    static void addRecipe(List<IRecipeInput> input, MachineOutput output) {
-        GTCXRecipeLists.WIREMILL_RECIPE_LIST.addRecipe(input, output, output.getAllOutputs().get(0).getUnlocalizedName(), 4);
+    static void addRecipe(List<IRecipeInput> input, int euPerTick, MachineOutput output) {
+        GTCXRecipeLists.WIREMILL_RECIPE_LIST.addRecipe(input, output, output.getAllOutputs().get(0).getUnlocalizedName(), euPerTick);
     }
 }

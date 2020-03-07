@@ -21,8 +21,8 @@ import java.util.Locale;
 @ZenRegister
 public class GTCXAssemblingMachineSupport {
     @ZenMethod
-    public static void addRecipe(IItemStack output, IIngredient input1, IIngredient input2, @Optional(valueLong = 1200L)int totalEu){
-        GTCraftTweakerActions.apply(new AssemblingMachineRecipeAction(GTCraftTweakerActions.of(input1), GTCraftTweakerActions.of(input2), totalEu, CraftTweakerMC.getItemStack(output)));
+    public static void addRecipe(IItemStack output, IIngredient input1, IIngredient input2, @Optional(valueLong = 1200L)int euPerTick, @Optional(valueLong = 1200L)int totalEu){
+        GTCraftTweakerActions.apply(new AssemblingMachineRecipeAction(GTCraftTweakerActions.of(input1), GTCraftTweakerActions.of(input2), euPerTick, totalEu, CraftTweakerMC.getItemStack(output)));
     }
 
     private static final class AssemblingMachineRecipeAction implements IAction {
@@ -30,12 +30,14 @@ public class GTCXAssemblingMachineSupport {
         private final IRecipeInput input1;
         private final IRecipeInput input2;
         private final int totalEu;
+        private final int euPerTick;
         private final ItemStack output;
 
-        AssemblingMachineRecipeAction(IRecipeInput input1, IRecipeInput input2, int totalEu, ItemStack output) {
+        AssemblingMachineRecipeAction(IRecipeInput input1, IRecipeInput input2, int euPerTick, int totalEu, ItemStack output) {
             this.input1 = input1;
             this.input2 = input2;
             this.totalEu = totalEu;
+            this.euPerTick = euPerTick;
             this.output = output;
         }
 
@@ -46,7 +48,7 @@ public class GTCXAssemblingMachineSupport {
                         + "Eu amount must be greater then 0!!");
                 return;
             }
-            GTCXTileAssemblingMachine.addRecipe(input1, input2, totalEu, output);
+            GTCXTileAssemblingMachine.addRecipe(input1, input2, euPerTick, totalEu, output);
         }
 
         @Override

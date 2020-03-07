@@ -6,6 +6,7 @@ import gtc_expansion.GTCExpansion;
 import cofh.api.util.ThermalExpansionHelper;
 import gtc_expansion.GTCXItems;
 import gtclassic.api.helpers.GTValues;
+import gtclassic.api.material.GTMaterial;
 import gtclassic.api.material.GTMaterialGen;
 import gtclassic.api.recipe.GTRecipeCraftingHandler;
 import gtclassic.common.GTConfig;

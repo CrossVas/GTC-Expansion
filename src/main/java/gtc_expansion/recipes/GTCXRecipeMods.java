@@ -1,5 +1,7 @@
 package gtc_expansion.recipes;
 
+import gtc_expansion.GTCXItems;
+import gtc_expansion.GTCXMachineGui.GTCXWiremillGui;
 import gtc_expansion.material.GTCXMaterial;
 import gtc_expansion.material.GTCXMaterialGen;
 import gtc_expansion.tile.GTCXTileAlloySmelter;
@@ -7,18 +9,23 @@ import gtc_expansion.tile.GTCXTileAssemblingMachine;
 import gtc_expansion.tile.GTCXTileWiremill;
 import gtc_expansion.tile.multi.GTCXTileMultiIndustrialBlastFurnace;
 import gtc_expansion.tile.multi.GTCXTileMultiPrimitiveBlastFurnace;
+import gtc_expansion.util.GTCXHelperStack;
 import gtc_expansion.util.GTCXIc2cECompat;
 import gtclassic.api.helpers.GTValues;
 import gtclassic.api.material.GTMaterial;
 import gtclassic.api.material.GTMaterialGen;
 import gtclassic.api.recipe.GTRecipeCraftingHandler;
 import gtclassic.common.GTConfig;
+import gtclassic.common.GTItems;
 import gtclassic.common.recipe.GTRecipe;
 import ic2.api.classic.recipe.ClassicRecipes;
 import ic2.api.classic.recipe.crafting.ICraftingRecipeList;
 import ic2.api.recipe.IRecipeInput;
+import ic2.core.IC2;
 import ic2.core.block.machine.low.TileEntityMacerator;
 import ic2.core.item.recipe.entry.RecipeInputCombined;
+import ic2.core.item.recipe.entry.RecipeInputOreDict;
+import ic2.core.platform.registry.Ic2Items;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -153,7 +160,7 @@ public class GTCXRecipeMods {
             String circuit = "circuitBasic";
             String machineBlock = "machineBlockBasic";
             int recipeId = IC2.config.getFlag("SteelRecipes") ? 42294514 : -997650306;
-            GTRecipeCraftingHandler.overrideGTRecipe(GTValues.MOD_ID_IC2_EXTRAS, "shaped_tile.orewashingplant_" + recipeId, GTMaterialGen.getModItem(GTValues.MOD_ID_IC2_EXTRAS, "orewashingplant"), "PPP", "BMB", "cCc", 'P', GTCXRecipe.materialRefinedIron, 'B', Items.BUCKET, 'M', machineBlock, 'c', Ic2Items.carbonMesh, 'C', circuit);
+            GTRecipeCraftingHandler.overrideGTRecipe(GTValues.MOD_ID_IC2_EXTRAS, "shaped_tile.orewashingplant_" + recipeId, GTMaterialGen.getModItem(GTValues.MOD_ID_IC2_EXTRAS, "orewashingplant"), "PPP", "BMB", "cCc", 'P', RecipeHelper.materialRefinedIron, 'B', Items.BUCKET, 'M', machineBlock, 'c', Ic2Items.carbonMesh, 'C', circuit);
             GTRecipeCraftingHandler.overrideGTRecipe(GTValues.MOD_ID_IC2_EXTRAS, "shaped_tile.roller_-2064391190", GTMaterialGen.getModItem(GTValues.MOD_ID_IC2_EXTRAS, "roller"), "CPC", "PMP", "cPc", 'C', circuit, 'P', Blocks.PISTON, 'M', machineBlock, 'c', GTMaterialGen.getModItem(GTValues.MOD_ID_IC2_EXTRAS, "coil"));
             IRecipeInput casing = new RecipeInputCombined(1, new RecipeInputOreDict("casingSteel"), new RecipeInputOreDict("casingRefinedIron"), new RecipeInputOreDict("casingBronze"));
             GTRecipeCraftingHandler.overrideGTRecipe(GTValues.MOD_ID_IC2_EXTRAS, "shaped_tile.extruder_704871140", GTMaterialGen.getModItem(GTValues.MOD_ID_IC2_EXTRAS, "extruder"), "SCS", "cMc", "SCS", 'C', circuit, 'S', casing, 'M', machineBlock, 'c', GTMaterialGen.getModItem(GTValues.MOD_ID_IC2_EXTRAS, "coil"));
@@ -178,25 +185,25 @@ public class GTCXRecipeMods {
             GTCXTileAlloySmelter.addRecipe("dustEnderium", 1, "blockGlassHardened", 2, GTMaterialGen.getModMetaItem(GTValues.MOD_ID_THERMAL, "glass_alloy", 7, 2));
         }
         if (Loader.isModLoaded("gravisuit")){
-            GTRecipeCraftingHandler.overrideGTRecipe("gravisuit", "shaped_item.advanceddiamondchainsaw_-416372460", GTMaterialGen.getModItem("gravisuit", "advancedchainsaw"), " SS", "SCS", "BS ", 'S', GTCXRecipe.tungstenSteel, 'C', GTCXItems.diamondChainsaw, 'B', GTItems.lithiumBattery);
-            GTRecipeCraftingHandler.overrideGTRecipe("gravisuit", "shaped_item.advanceddrill_1408250051", GTMaterialGen.getModItem("gravisuit", "advanceddrill"), " S ", "SDS", "SBS", 'S', GTCXRecipe.tungstenSteel, 'D', Ic2Items.diamondDrill, 'B', GTItems.lithiumBattery);
+            GTRecipeCraftingHandler.overrideGTRecipe("gravisuit", "shaped_item.advanceddiamondchainsaw_-416372460", GTMaterialGen.getModItem("gravisuit", "advancedchainsaw"), " SS", "SCS", "BS ", 'S', RecipeHelper.tungstenSteel, 'C', GTCXItems.diamondChainsaw, 'B', GTItems.lithiumBattery);
+            GTRecipeCraftingHandler.overrideGTRecipe("gravisuit", "shaped_item.advanceddrill_1408250051", GTMaterialGen.getModItem("gravisuit", "advanceddrill"), " S ", "SDS", "SBS", 'S', RecipeHelper.tungstenSteel, 'D', Ic2Items.diamondDrill, 'B', GTItems.lithiumBattery);
         }
         if (Loader.isModLoaded("railcraft")){
-            GTCXTileAssemblingMachine.addRecipe(new IRecipeInput[]{new RecipeInputCombined(6, input("rodIron", 6), input("rodBronze", 6)), new RecipeInputCombined(6, input("rodIron", 6), input("rodBronze", 6))}, GTCXTileAssemblingMachine.totalEu(400), GTMaterialGen.getModMetaItem("railcraft", "rail", 0, 8));
-            GTCXTileAssemblingMachine.addRecipe("rodInvar", 6, "rodInvar", 6, 400, GTMaterialGen.getModMetaItem("railcraft", "rail", 0, 12));
-            GTCXTileAssemblingMachine.addRecipe("rodSteel", 6, "rodSteel", 6, 400, GTMaterialGen.getModMetaItem("railcraft", "rail", 0, 16));
-            GTCXTileAssemblingMachine.addRecipe(new IRecipeInput[]{new RecipeInputCombined(6, input("rodTitanium", 6), input("rodTungsten", 6)), new RecipeInputCombined(6, input("rodTitanium", 6), input("rodTungsten", 6))}, GTCXTileAssemblingMachine.totalEu(400), GTMaterialGen.getModMetaItem("railcraft", "rail", 0, 32));
-            GTCXTileAssemblingMachine.addRecipe("rodTungstensteel", 6, "rodTungstensteel", 6, 400, GTMaterialGen.getModMetaItem("railcraft", "rail", 0, 48));
-            GTCXTileAssemblingMachine.addRecipe("rodSteel", 12, "dustObsidian", 3, 400, GTMaterialGen.getModMetaItem("railcraft", "rail", 4, 8));
-            GTCXTileAssemblingMachine.addRecipe("rodInvar", 12, "dustObsidian", 3, 400, GTMaterialGen.getModMetaItem("railcraft", "rail", 4, 4));
-            GTCXTileAssemblingMachine.addRecipe("rodTungstensteel", 12, "dustObsidian", 3, 400, GTMaterialGen.getModMetaItem("railcraft", "rail", 4, 16));
-            GTCXTileAssemblingMachine.addRecipe("rodGold", 12, "dustRedstone", 3, 400, GTMaterialGen.getModMetaItem("railcraft", "rail", 1, 8));
-            GTCXTileAssemblingMachine.addRecipe("rodCopper", 6, "rodCopper", 6, 400, GTMaterialGen.getModMetaItem("railcraft", "rail", 5, 6));
-            GTCXTileAssemblingMachine.addRecipe("rodSteel", 12, "rodCopper", 6, 400, GTMaterialGen.getModMetaItem("railcraft", "rail", 5, 12));
-            GTCXTileWiremill.addRecipe(new RecipeInputCombined(6, input("rodIron", 6), input("rodBronze", 6)), 400, GTMaterialGen.getModItem("railcraft", "rebar", 4));
-            GTCXTileWiremill.addRecipe(new RecipeInputCombined(6, input("rodRefinedIron", 6), input("rodInvar", 6)), 400, GTMaterialGen.getModItem("railcraft", "rebar", 6));
-            GTCXTileWiremill.addRecipe(new RecipeInputCombined(6, input("rodTungsten", 6), input("rodTitanium", 6)), 400, GTMaterialGen.getModItem("railcraft", "rebar", 16));
-            GTCXTileWiremill.addRecipe("rodSteel", 6, GTMaterialGen.getModItem("railcraft", "rebar", 8));
+            GTCXTileAssemblingMachine.addRecipe(new IRecipeInput[]{new RecipeInputCombined(6, input("rodIron", 6), input("rodBronze", 6)), new RecipeInputCombined(6, input("rodIron", 6), input("rodBronze", 6))}, GTCXTileAssemblingMachine.setUsageEuPerTick(2), GTCXTileAssemblingMachine.totalEu(400), GTMaterialGen.getModMetaItem("railcraft", "rail", 0, 8));
+            GTCXTileAssemblingMachine.addRecipe("rodInvar", 6, "rodInvar", 6, GTCXTileAssemblingMachine.setUsageEuPerTick(2), 400, GTMaterialGen.getModMetaItem("railcraft", "rail", 0, 12));
+            GTCXTileAssemblingMachine.addRecipe("rodSteel", 6, "rodSteel", 6, GTCXTileAssemblingMachine.setUsageEuPerTick(2), 400, GTMaterialGen.getModMetaItem("railcraft", "rail", 0, 16));
+            GTCXTileAssemblingMachine.addRecipe(new IRecipeInput[]{new RecipeInputCombined(6, input("rodTitanium", 6), input("rodTungsten", 6)), new RecipeInputCombined(6, input("rodTitanium", 6), input("rodTungsten", 6))}, GTCXTileAssemblingMachine.setUsageEuPerTick(2), GTCXTileAssemblingMachine.totalEu(400), GTMaterialGen.getModMetaItem("railcraft", "rail", 0, 32));
+            GTCXTileAssemblingMachine.addRecipe("rodTungstensteel", 6, "rodTungstensteel", 6, GTCXTileAssemblingMachine.setUsageEuPerTick(2), 400, GTMaterialGen.getModMetaItem("railcraft", "rail", 0, 48));
+            GTCXTileAssemblingMachine.addRecipe("rodSteel", 12, "dustObsidian", 3, GTCXTileAssemblingMachine.setUsageEuPerTick(2), 400, GTMaterialGen.getModMetaItem("railcraft", "rail", 4, 8));
+            GTCXTileAssemblingMachine.addRecipe("rodInvar", 12, "dustObsidian", 3, GTCXTileAssemblingMachine.setUsageEuPerTick(2), 400, GTMaterialGen.getModMetaItem("railcraft", "rail", 4, 4));
+            GTCXTileAssemblingMachine.addRecipe("rodTungstensteel", 12, "dustObsidian", 3, GTCXTileAssemblingMachine.setUsageEuPerTick(2), 400, GTMaterialGen.getModMetaItem("railcraft", "rail", 4, 16));
+            GTCXTileAssemblingMachine.addRecipe("rodGold", 12, "dustRedstone", 3, GTCXTileAssemblingMachine.setUsageEuPerTick(2), 400, GTMaterialGen.getModMetaItem("railcraft", "rail", 1, 8));
+            GTCXTileAssemblingMachine.addRecipe("rodCopper", 6, "rodCopper", 6, GTCXTileAssemblingMachine.setUsageEuPerTick(2), 400, GTMaterialGen.getModMetaItem("railcraft", "rail", 5, 6));
+            GTCXTileAssemblingMachine.addRecipe("rodSteel", 12, "rodCopper", 6, GTCXTileAssemblingMachine.setUsageEuPerTick(2), 400, GTMaterialGen.getModMetaItem("railcraft", "rail", 5, 12));
+            GTCXTileWiremill.addRecipe(new RecipeInputCombined(6, input("rodIron", 6), input("rodBronze", 6)), GTCXTileAssemblingMachine.setUsageEuPerTick(2), 400, GTMaterialGen.getModItem("railcraft", "rebar", 4));
+            GTCXTileWiremill.addRecipe(new RecipeInputCombined(6, input("rodRefinedIron", 6), input("rodInvar", 6)), GTCXTileAssemblingMachine.setUsageEuPerTick(2), 400, GTMaterialGen.getModItem("railcraft", "rebar", 6));
+            GTCXTileWiremill.addRecipe(new RecipeInputCombined(6, input("rodTungsten", 6), input("rodTitanium", 6)), GTCXTileAssemblingMachine.setUsageEuPerTick(2), 400, GTMaterialGen.getModItem("railcraft", "rebar", 16));
+            GTCXTileWiremill.addRecipe("rodSteel", 6, GTCXTileWiremill.setUsageEuPerTick(2), 400, GTMaterialGen.getModItem("railcraft", "rebar", 8));
         }
     }
 

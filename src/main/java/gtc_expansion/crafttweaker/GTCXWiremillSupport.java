@@ -21,19 +21,21 @@ import java.util.Locale;
 @ZenRegister
 public class GTCXWiremillSupport {
     @ZenMethod
-    public static void addRecipe(IItemStack output, IIngredient input1, @Optional(valueLong = 400L)int totalEu){
-        GTCraftTweakerActions.apply(new WiremillRecipeAction(GTCraftTweakerActions.of(input1), totalEu, CraftTweakerMC.getItemStack(output)));
+    public static void addRecipe(IItemStack output, IIngredient input1, @Optional(valueLong = 1200L)int euPerTick, @Optional(valueLong = 400L)int totalEu){
+        GTCraftTweakerActions.apply(new WiremillRecipeAction(GTCraftTweakerActions.of(input1), euPerTick, totalEu, CraftTweakerMC.getItemStack(output)));
     }
 
     private static final class WiremillRecipeAction implements IAction {
 
         private final IRecipeInput input1;
         private final int totalEu;
+        private final int euPerTick;
         private final ItemStack output;
 
-        WiremillRecipeAction(IRecipeInput input1, int totalEu, ItemStack output) {
+        WiremillRecipeAction(IRecipeInput input1, int euPerTick, int totalEu, ItemStack output) {
             this.input1 = input1;
             this.totalEu = totalEu;
+            this.euPerTick = euPerTick;
             this.output = output;
         }
 
@@ -44,7 +46,7 @@ public class GTCXWiremillSupport {
                         + "Eu amount must be greater then 0!!");
                 return;
             }
-            GTCXTileWiremill.addRecipe(input1, totalEu, output);
+            GTCXTileWiremill.addRecipe(input1, euPerTick, totalEu, output);
         }
 
         @Override

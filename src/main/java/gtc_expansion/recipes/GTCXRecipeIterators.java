@@ -336,7 +336,7 @@ public class GTCXRecipeIterators {
             //Ingots from hulls
             recipes.addShapelessRecipe(GTMaterialGen.getIngot(mat, 8), GTCXMaterialGen.getHull(mat, 1));
             //Cheaper recipes in assembler
-            GTCXTileAssemblingMachine.addRecipe(plate, 6, GTMaterialGen.get(GTCXItems.machineParts), 3200, GTCXMaterialGen.getHull(mat, 1));
+            GTCXTileAssemblingMachine.addRecipe(plate, 6, GTMaterialGen.get(GTCXItems.machineParts), 2, 3200, GTCXMaterialGen.getHull(mat, 1));
         }
     }
 
@@ -440,11 +440,7 @@ public class GTCXRecipeIterators {
                         if (!listPlates.isEmpty()) {
                             GTCXTilePlateBender.addRecipe(id, 1, listPlates.get(0));
                             if (!Loader.isModLoaded(GTValues.MOD_ID_IC2_EXTRAS)){
-                                if (GTCXConfiguration.general.harderPlates){
                                     recipes.addRecipe(listPlates.get(0), "H", "I", "I", 'H', "craftingToolForgeHammer", 'I', id );
-                                }else {
-                                    recipes.addRecipe(listPlates.get(0), "H", "I", 'H', "craftingToolForgeHammer", 'I', id );
-                                }
                             }
                         }
                     }

@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import gtc_expansion.GTCExpansion;
-import gtc_expansion.GTCXConfiguration;
+import gtc_expansion.material.GTCXMaterial;
 import gtc_expansion.util.GTCXHelperStack;
 import gtclassic.GTMod;
 import gtclassic.api.interfaces.IGTColorItem;

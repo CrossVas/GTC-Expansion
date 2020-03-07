@@ -1,7 +1,7 @@
 package gtc_expansion.item.tools;
 
 import gtc_expansion.GTCExpansion;
-import gtc_expansion.GTCXConfiguration;
+import gtc_expansion.material.GTCXMaterial;
 import gtc_expansion.util.GTCXHelperStack;
 import gtclassic.GTMod;
 import gtclassic.api.interfaces.IGTColorItem;
@@ -42,11 +42,7 @@ public class GTCXItemToolHammer extends ItemPickaxe
     @Override
     public ItemStack getContainerItem(ItemStack itemStack) {
         ItemStack copy = itemStack.copy();
-        if (GTCXConfiguration.general.harderPlates) {
             GTCXHelperStack.damageItem(copy, 4);	
-        } else {
-            GTCXHelperStack.damageItem(copy, 2);
-        }
         return copy;
     }
 
