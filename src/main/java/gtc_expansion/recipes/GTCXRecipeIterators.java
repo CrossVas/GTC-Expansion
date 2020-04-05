@@ -1,6 +1,5 @@
 package gtc_expansion.recipes;
 
-import gtc_expansion.GTCXConfiguration;
 import gtc_expansion.GTCXItems;
 import gtc_expansion.item.tools.GTCXToolGen;
 import gtc_expansion.material.GTCXMaterial;

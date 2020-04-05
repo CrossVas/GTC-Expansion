@@ -122,4 +122,14 @@ public class GTCXConfiguration {
         @Comment("Removes log to planks and planks to sticks regular recipe. Will remove all vanilla (and modded) recipes that output planks from logs and sticks from planks.")
         public boolean planksNeedSaw = true;
     }
+    
+    @Comment("Mod Compatability")
+    @Config.RequiresMcRestart
+    public static ModCompat modcompat = new ModCompat();
+
+    public static class ModCompat {
+
+        public boolean compatGravisuit = true;
+        public boolean compatRailcraft = true;
+    }
 }

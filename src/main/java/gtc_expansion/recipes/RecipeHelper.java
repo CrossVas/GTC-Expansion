@@ -1,10 +1,8 @@
 package gtc_expansion.recipes;
 
-import gtc_expansion.GTCXConfiguration;
 import gtc_expansion.GTCXItems;
 import gtc_expansion.util.GTCXHelperStack;
 import gtclassic.api.material.GTMaterialGen;
-import gtclassic.api.tile.GTTileBaseMachine;
 import gtclassic.common.GTItems;
 import ic2.api.recipe.IRecipeInput;
 import ic2.core.IC2;
@@ -12,7 +10,6 @@ import ic2.core.item.recipe.entry.RecipeInputCombined;
 import ic2.core.item.recipe.entry.RecipeInputItemStack;
 import ic2.core.platform.registry.Ic2Items;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
 
 public class RecipeHelper {
 	
@@ -61,6 +58,7 @@ public class RecipeHelper {
 
     static String steel = "plateSteel";
     static String stainlessSteel = "plateStainlessSteel";
+    static IRecipeInput steels = new RecipeInputCombined(1, GTCXHelperStack.input(steel), GTCXHelperStack.input(stainlessSteel));
     static String tungsten = "plateTungsten";
     static String tungstenSteel = "plateTungstensteel";
     static IRecipeInput aluminium = new RecipeInputCombined(1, GTCXHelperStack.input("plateAluminium"), GTCXHelperStack.input("plateAluminum"));
