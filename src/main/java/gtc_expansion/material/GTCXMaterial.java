@@ -1,5 +1,8 @@
 package gtc_expansion.material;
 
+import java.util.Collection;
+import java.util.HashMap;
+
 import gtc_expansion.GTCExpansion;
 import gtclassic.api.material.GTMaterial;
 import gtclassic.api.material.GTMaterialFlag;
@@ -9,9 +12,8 @@ public class GTCXMaterial {
     static String modid = GTCExpansion.MODID;
     static String tex = modid + "_materials";
 
-
     public static final boolean pipes = false;
-
+    
     static GTMaterialFlag particle = new GTMaterialFlag("_particle", tex,15, false, modid);
     static GTMaterialFlag fluid = GTMaterialFlag.FLUID;
     public static GTMaterialFlag molten = new GTMaterialFlag("molten", tex, 14, true, modid);
@@ -54,6 +56,7 @@ public class GTCXMaterial {
     public static final GTMaterial BioFuel = new GTMaterial("BioFuel", 153, 204, 0, fluid);
     public static final GTMaterial Brass = new GTMaterial("Brass", 1, 255, 180, 0, molten, smalldust, dust, nugget, ingot, plate, stick, gear, blockMetal, hull , pipeItem);
     public static final GTMaterial Bronze = new GTMaterial("Bronze", 1, 255, 128, 0, pipeFluid, molten, smalldust, nugget, plate, stick, gear, hull);
+    public static final GTMaterial Cassiterite = new GTMaterial("Cassiterite", 220, 220, 220, crushedAll);
     public static final GTMaterial Charcoal = new GTMaterial("Charcoal", 100, 70, 70, smalldust);
     public static final GTMaterial Chromite = new GTMaterial("Chromite", 35, 20, 15, crushedAll);
     public static final GTMaterial Cinnabar = new GTMaterial("Cinnabar", 150, 0, 0, crushedAll);
@@ -86,7 +89,6 @@ public class GTCXMaterial {
     public static final GTMaterial Naphtha = new GTMaterial("Naphtha", 255, 255, 100, fluid);
     public static final GTMaterial Netherrack = new GTMaterial("Netherrack", 200, 0, 0, smalldust);
     public static final GTMaterial Nichrome = new GTMaterial(-1,"Nichrome", 3, 205, 206, 246, false, molten, smalldust, dust, nugget, ingot, plate, stick, hotIngot);
-    public static final GTMaterial NitricAcid = new GTMaterial("NitricAcid", 187, 165, 35, fluid);
     public static final GTMaterial NitroCarbon = new GTMaterial("NitroCarbon", 31, 94, 94, fluid);
     public static final GTMaterial NitroCoalFuel = new GTMaterial("NitroCoalFuel", 0, 43, 43, fluid);
     public static final GTMaterial NitroDiesel = new GTMaterial("NitroDiesel", 191, 255, 100, fluid);
@@ -166,5 +168,4 @@ public class GTCXMaterial {
         GTMaterialGen.addItemFlag(hull);
         GTMaterialGen.addFluidFlag(molten);
     }
-
 }
