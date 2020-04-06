@@ -1,6 +1,12 @@
 package gtc_expansion.recipes;
 
 import gtc_expansion.GTCXConfiguration;
+<<<<<<< HEAD
+=======
+import gtc_expansion.GTCXItems;
+import gtc_expansion.item.tools.GTCXToolGen;
+import gtc_expansion.material.GTCXMaterial;
+>>>>>>> branch 'GT4' of https://github.com/CrossVas/GTC-Expansion.git
 import gtc_expansion.material.GTCXMaterialGen;
 import gtc_expansion.tile.GTCXTileAlloySmelter;
 import gtc_expansion.tile.GTCXTileAssemblingMachine;
@@ -21,17 +27,38 @@ import gtc_expansion.tile.multi.GTCXTileMultiIndustrialBlastFurnace;
 import gtc_expansion.tile.multi.GTCXTileMultiIndustrialGrinder;
 import gtc_expansion.tile.multi.GTCXTileMultiPrimitiveBlastFurnace;
 import gtc_expansion.tile.multi.GTCXTileMultiVacuumFreezer;
+<<<<<<< HEAD
 import gtc_expansion.util.GTCXIc2cECompat;
+=======
+import gtc_expansion.util.GTCXHelperStack;
+import gtc_expansion.util.GTCXIc2cECompat;
+import gtclassic.GTMod;
+>>>>>>> branch 'GT4' of https://github.com/CrossVas/GTC-Expansion.git
 import gtclassic.api.helpers.GTValues;
 import gtclassic.api.material.GTMaterial;
 import gtclassic.api.material.GTMaterialGen;
 import gtclassic.api.recipe.GTRecipeCraftingHandler;
 import gtclassic.api.recipe.GTRecipeMachineHandler;
+<<<<<<< HEAD
+=======
+import gtclassic.common.GTBlocks;
+import gtclassic.common.GTConfig;
+import gtclassic.common.GTItems;
+>>>>>>> branch 'GT4' of https://github.com/CrossVas/GTC-Expansion.git
 import gtclassic.common.tile.GTTileCentrifuge;
 import ic2.api.classic.recipe.ClassicRecipes;
 import ic2.api.classic.recipe.RecipeModifierHelpers;
 import ic2.api.classic.recipe.crafting.ICraftingRecipeList;
+<<<<<<< HEAD
 import ic2.core.block.machine.low.TileEntityMacerator;
+=======
+import ic2.api.recipe.IRecipeInput;
+import ic2.core.block.machine.low.TileEntityMacerator;
+import ic2.core.item.recipe.entry.RecipeInputCombined;
+import ic2.core.item.recipe.entry.RecipeInputOreDict;
+import ic2.core.item.recipe.upgrades.EnchantmentModifier;
+import ic2.core.platform.registry.Ic2Items;
+>>>>>>> branch 'GT4' of https://github.com/CrossVas/GTC-Expansion.git
 import ic2.core.util.misc.StackUtil;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;

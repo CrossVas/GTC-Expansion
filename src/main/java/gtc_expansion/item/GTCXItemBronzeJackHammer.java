@@ -68,7 +68,7 @@ public class GTCXItemBronzeJackHammer extends ItemElectricTool implements IMinin
     
     @Override
     public int getHarvestLevel(ItemStack stack, String toolClass, EntityPlayer player, IBlockState blockState) {
-        return 1;
+        return 2;
     }
     
     @Override
