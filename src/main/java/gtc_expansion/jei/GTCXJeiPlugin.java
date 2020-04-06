@@ -66,10 +66,15 @@ public class GTCXJeiPlugin implements IModPlugin {
                 blacklist.addIngredientToBlacklist(GTMaterialGen.get(GTCXBlocks.oreOlivineOverworld));
             }
             if (Loader.isModLoaded(GTValues.MOD_ID_THERMAL)) {
-            	int[] aMaterialMeta = { 0, 1, 2, 24, 25, 64, 65, 66, 67, 68, 69, 70, 71, 96, 97, 98, 99, 100, 128, 129, 130, 131, 132, 133, 134, 135, 160, 161, 162, 163, 164, 256, 257, 258, 259, 260, 261, 262, 263, 288, 289, 290, 291, 292 };
-            	for (int i = 0; i < aMaterialMeta.length; i++) {
-                	ItemStack material = GTMaterialGen.getModMetaItem("thermalfoundation", "material", aMaterialMeta[i], 1);
-                	blacklist.addIngredientToBlacklist(material);	
+            	int[] aMaterialMetaGears = { 0, 1, 2, 24, 25, 64, 65, 66, 67, 68, 69, 70, 71, 96, 97, 98, 99, 100, 128, 129, 130, 131, 132, 133, 134, 135, 160, 161, 162, 163, 164, 256, 257, 258, 259, 260, 261, 262, 263, 288, 289, 290, 291, 292 };
+            	int[] aMaterialMetaPlates = { 32, 33, 320, 321, 322, 323, 324, 325, 326, 352, 353, 354, 355, 356 };
+            	for (int i = 0; i < aMaterialMetaGears.length; i++) {
+            		for (int j = 0; j < aMaterialMetaPlates.length; j++) {
+                    	ItemStack materialGears = GTMaterialGen.getModMetaItem("thermalfoundation", "material", aMaterialMetaGears[i], 1);
+                    	ItemStack materialPlates = GTMaterialGen.getModMetaItem("thermalfoundation", "material", aMaterialMetaPlates[j], 1);
+                    	blacklist.addIngredientToBlacklist(materialGears);
+                    	blacklist.addIngredientToBlacklist(materialPlates);
+            		}
             	}
             }
             if (IC2.config.getFlag("SteelRecipes")){

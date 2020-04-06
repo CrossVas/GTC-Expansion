@@ -458,15 +458,17 @@ public class GTCX_CraftingRecipeLoader {
         recipes.addRecipe(GTMaterialGen.getIc2(Ic2Items.mixedMetalIngot, 8), "TTT", "MMM", "BBB", 'T', RecipeHelper.tungstenSteel, 'M', RecipeHelper.materialBrassBronze, 'B', RecipeHelper.materialMixedMetal1);
         recipes.addRecipe(Ic2Items.reactorVent, "PBP", "B B", "PBP", 'P', RecipeHelper.aluminium, 'B', Blocks.IRON_BARS);
         
-        GTCExpansion.logger.info("Tweaking TF Recipes");
         if (GTConfig.modcompat.compatTwilightForest && Loader.isModLoaded(GTValues.MOD_ID_TFOREST)) {
+            GTCExpansion.logger.info("Tweaking TF Recipes");
             GTCXTileMultiPrimitiveBlastFurnace.addRecipe(new IRecipeInput[] { metal("Iron", 1),
                     input(GTMaterialGen.getModItem(GTValues.MOD_ID_TFOREST, "liveroot")),
                     input("nuggetGold", 1) }, 400, GTMaterialGen.getModItem(GTValues.MOD_ID_TFOREST, "ironwood_ingot", 2));
 			String[] twilightPlanksType = { "wood/twilight_oak_", "wood/canopy_", "wood/mangrove_", "wood/darkwood_", "wood/time_", "wood/trans_", "wood/mine_", "wood/sort_" }; 
-    		for (int i = 0; i < twilightPlanksType.length; i++) {
-    			((ForgeRegistry)ForgeRegistries.RECIPES).remove(new ResourceLocation("twilightforest", twilightPlanksType[i] + "planks"));
-    		}
+			if (GTCXConfiguration.general.planksNeedSaw) {
+				for (int i = 0; i < twilightPlanksType.length; i++) {
+	    			((ForgeRegistry)ForgeRegistries.RECIPES).remove(new ResourceLocation("twilightforest", twilightPlanksType[i] + "planks"));
+	    		}	
+			}
         }
         
         GTCExpansion.logger.info("Tweaking EIO Recipes");
@@ -576,20 +578,24 @@ public class GTCX_CraftingRecipeLoader {
         }
 		if (Loader.isModLoaded(GTValues.MOD_ID_FORESTRY)) {
 			GTCExpansion.logger.info("Tweaking Forestry Recipes");
-			String[] forestryPlanksType = { "_larch", "_teak", "_acacia", "_lime", "_chestnut", "_wenge", "_baobab", "_sequoia", "_kapok", "_ebony", "_mahogany", "_balsa", "_willow", "_walnut", "_greenheart", "_cherry", "_mahoe", "_poplar", "_palm", "_papaya", "_pine", "_plum", "_maple", "_citrus", "_giganteum", "_ipe", "_padauk", "_cocobolo", "_zebrawood", "_oak", "_spruce", "_birch", "_jungle", "_acacia", "_dark_oak" };
-    		for (int i = 0; i < forestryPlanksType.length; i++) {
-    			((ForgeRegistry)ForgeRegistries.RECIPES).remove(new ResourceLocation("forestry", "planks" + forestryPlanksType[i]));
-    			((ForgeRegistry)ForgeRegistries.RECIPES).remove(new ResourceLocation("forestry", "fireproof_" + "planks" + forestryPlanksType[i]));
-    		}
+			if (GTCXConfiguration.general.planksNeedSaw) {
+				String[] forestryPlanksType = { "_larch", "_teak", "_acacia", "_lime", "_chestnut", "_wenge", "_baobab", "_sequoia", "_kapok", "_ebony", "_mahogany", "_balsa", "_willow", "_walnut", "_greenheart", "_cherry", "_mahoe", "_poplar", "_palm", "_papaya", "_pine", "_plum", "_maple", "_citrus", "_giganteum", "_ipe", "_padauk", "_cocobolo", "_zebrawood", "_oak", "_spruce", "_birch", "_jungle", "_acacia", "_dark_oak" };
+	    		for (int i = 0; i < forestryPlanksType.length; i++) {
+	    			((ForgeRegistry)ForgeRegistries.RECIPES).remove(new ResourceLocation("forestry", "planks" + forestryPlanksType[i]));
+	    			((ForgeRegistry)ForgeRegistries.RECIPES).remove(new ResourceLocation("forestry", "fireproof_" + "planks" + forestryPlanksType[i]));
+	    		}
+			}
     		((ForgeRegistry)ForgeRegistries.RECIPES).remove(new ResourceLocation("forestry", "gear_bronze"));
     		((ForgeRegistry)ForgeRegistries.RECIPES).remove(new ResourceLocation("forestry", "gear_copper"));
     		((ForgeRegistry)ForgeRegistries.RECIPES).remove(new ResourceLocation("forestry", "gear_tin"));
 		}
 		
-		GTCExpansion.logger.info("Tweaking Vanilla Recipes");
-    	String[] vanillaPlanksType = { "oak_", "spruce_", "birch_", "jungle_", "acacia_", "dark_oak_" };
-		for (int i = 0; i < vanillaPlanksType.length; i++) {
-			((ForgeRegistry)ForgeRegistries.RECIPES).remove(new ResourceLocation("minecraft", vanillaPlanksType[i] + "planks"));	
+		if (GTCXConfiguration.general.planksNeedSaw) {
+			GTCExpansion.logger.info("Tweaking Vanilla Recipes");
+	    	String[] vanillaPlanksType = { "oak_", "spruce_", "birch_", "jungle_", "acacia_", "dark_oak_" };
+			for (int i = 0; i < vanillaPlanksType.length; i++) {
+				((ForgeRegistry)ForgeRegistries.RECIPES).remove(new ResourceLocation("minecraft", vanillaPlanksType[i] + "planks"));	
+			}
 		}
 		
         ((ForgeRegistry)ForgeRegistries.RECIPES).remove(new ResourceLocation("minecraft", "iron_bars"));

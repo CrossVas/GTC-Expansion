@@ -240,8 +240,7 @@ public class GTCXRecipeIterators {
    	    		for (ItemStack entryStack : listStack) {
    	        		ItemStack output = GTCXHelperStack.resultStack(entryStack.copy());
    	        		if (!output.isEmpty()) {
-   	             	recipes.addRecipe(StackUtil.copyWithSize(output, 4), "S", "L", 'S',
-   	             			"craftingToolSaw", 'L', StackUtil.copyWithSize(entryStack, 1));
+   	             	recipes.addRecipe(StackUtil.copyWithSize(output, 4), "S", "L", 'S', "craftingToolSaw", 'L', StackUtil.copyWithSize(entryStack, 1));
    	             	recipes.addRecipe(StackUtil.copyWithSize(output, 2), "L", 'L', StackUtil.copyWithSize(entryStack, 1));
    	        		}
    	    		}

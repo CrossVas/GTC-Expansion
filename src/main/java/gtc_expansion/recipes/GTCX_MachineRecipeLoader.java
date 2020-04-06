@@ -2,7 +2,6 @@ package gtc_expansion.recipes;
 
 import static gtclassic.common.recipe.GTRecipeMods.input;
 
-import cofh.api.util.ThermalExpansionHelper;
 import gtc_expansion.GTCExpansion;
 import gtc_expansion.GTCXBlocks;
 import gtc_expansion.GTCXConfiguration;
@@ -17,6 +16,7 @@ import gtclassic.api.helpers.GTValues;
 import gtclassic.api.material.GTMaterial;
 import gtclassic.api.material.GTMaterialGen;
 import gtclassic.api.recipe.GTRecipeCraftingHandler;
+import gtclassic.api.recipe.GTRecipeMachineHandler;
 import gtclassic.api.tile.GTTileBaseMachine;
 import gtclassic.common.GTConfig;
 import gtclassic.common.GTItems;
@@ -46,6 +46,7 @@ public class GTCX_MachineRecipeLoader {
 	
 	public static void init() {
 		
+        GTHelperStack.removeSmelting(Ic2Items.rubber);
         GameRegistry.addSmelting(GTCXBlocks.oreSheldonite, GTMaterialGen.getIngot(GTMaterial.Platinum, 1), 1.0F);
         GameRegistry.addSmelting(GTCXBlocks.oreCassiterite, GTMaterialGen.getIc2(Ic2Items.tinIngot, 2), 0.5F);
         GameRegistry.addSmelting(GTCXBlocks.oreTetrahedrite, Ic2Items.copperIngot, 0.5F);
@@ -60,7 +61,6 @@ public class GTCX_MachineRecipeLoader {
         if (GTCXConfiguration.general.removeVanillaCharcoalRecipe) {
             GTHelperStack.removeSmelting(new ItemStack(Items.COAL, 1, 1));
         }
-        GTHelperStack.removeSmelting(Ic2Items.rubber);
         
         GTRecipe.maceratorUtil("oreSodalite", 1, GTMaterialGen.getDust(GTMaterial.Sodalite, 12));
 
@@ -155,6 +155,23 @@ public class GTCX_MachineRecipeLoader {
         GTTileCentrifuge.addRecipe("dustTetrahedrite", 8, 0, GTCXRecipe.totalCentrifugeEu(18240), GTMaterialGen.getIc2(Ic2Items.copperDust, 3), GTMaterialGen.getDust(GTCXMaterial.Antimony, 1), GTMaterialGen.getDust(GTMaterial.Sulfur, 3));
         GTTileCentrifuge.addRecipe("dustBatteryAlloy", 5, 0, GTCXRecipe.totalCentrifugeEu(37800), GTMaterialGen.getDust(GTCXMaterial.Antimony, 1), GTMaterialGen.getDust(GTCXMaterial.Lead, 4));
 	
+        GTCXRecipeLists.EXTRACTOR_RECIPE_LIST.startMassChange();
+        GTRecipeMachineHandler.removeRecipe(GTCXRecipeLists.EXTRACTOR_RECIPE_LIST, "item.itemRubber");
+        GTRecipeMachineHandler.removeRecipe(GTCXRecipeLists.EXTRACTOR_RECIPE_LIST, "item.itemRubber_1");
+        GTRecipeMachineHandler.removeRecipe(GTCXRecipeLists.EXTRACTOR_RECIPE_LIST, "item.itemRubber_2");
+        GTRecipeMachineHandler.addRecipe(GTCXRecipeLists.EXTRACTOR_RECIPE_LIST, new IRecipeInput[] { GTTileBaseMachine.input(Ic2Items.stickyResin) }, null, GTMaterialGen.getDust(GTCXMaterial.Rubber, 3));
+        GTCXRecipeLists.EXTRACTOR_RECIPE_LIST.finishMassChange();
+        
+        GTCXRecipeLists.COMPRESSOR_RECIPE_LIST.startMassChange();
+        GTRecipeMachineHandler.removeRecipe(GTCXRecipeLists.COMPRESSOR_RECIPE_LIST, "item.gtclassic.gemRuby");
+        GTRecipeMachineHandler.removeRecipe(GTCXRecipeLists.COMPRESSOR_RECIPE_LIST, "item.gtclassic.gemSapphire");
+        GTRecipeMachineHandler.removeRecipe(GTCXRecipeLists.COMPRESSOR_RECIPE_LIST, "item.gtclassic.gemOlivine");
+        GTRecipeMachineHandler.removeRecipe(GTCXRecipeLists.COMPRESSOR_RECIPE_LIST, "item.gtclassic.gemRedGarnet");
+        GTRecipeMachineHandler.removeRecipe(GTCXRecipeLists.COMPRESSOR_RECIPE_LIST, "item.gtclassic.gemYellowGarnet");
+        GTRecipeMachineHandler.removeRecipe(GTCXRecipeLists.COMPRESSOR_RECIPE_LIST, "item.itemPartIndustrialDiamond");
+        GTRecipeMachineHandler.removeRecipe(GTCXRecipeLists.COMPRESSOR_RECIPE_LIST, "item.itemPartCarbonFibre");
+        GTCXRecipeLists.COMPRESSOR_RECIPE_LIST.finishMassChange();
+        
         GTTileCentrifuge.RECIPE_LIST.startMassChange();
         GTCXRecipe.removeCentrifugeRecipe("item.gtclassic.test_tube");
         GTCXRecipe.removeCentrifugeRecipe("item.gtclassic.test_tube_1");
@@ -213,11 +230,7 @@ public class GTCX_MachineRecipeLoader {
         
 		if (Loader.isModLoaded(GTValues.MOD_ID_THERMAL) && GTConfig.modcompat.compatThermal) {
 			GTCExpansion.logger.info("Tweaking TE Recipes");
-            recipe.overrideGTRecipe("thermalexpansion", "frame", GTMaterialGen.getModItem("thermalexpansion", "frame"), "SGS", "GTG", "SGS", 'S', "ingotSteel", 'G', "blockGlass", 'T', "gearSteel");
-            for (GTMaterial mat : GTMaterial.values()) {
-                ThermalExpansionHelper.removeCompactorPlateRecipe(GTMaterialGen.getIngot(mat, 1));	
-                ThermalExpansionHelper.removeCompactorGearRecipe(GTMaterialGen.getIngot(mat, 4));
-            }
+			recipe.overrideGTRecipe("thermalexpansion", "frame", GTMaterialGen.getModItem("thermalexpansion", "frame"), "SGS", "GTG", "SGS", 'S', "ingotSteel", 'G', "blockGlass", 'T', "gearSteel");
             GTCXTileAlloySmelter.addRecipe("dustCopper", 1, "blockGlassHardened", 2, GTMaterialGen.getModMetaItem(GTValues.MOD_ID_THERMAL, "glass", 0, 2));
             GTCXTileAlloySmelter.addRecipe("dustTin", 1, "blockGlassHardened", 2, GTMaterialGen.getModMetaItem(GTValues.MOD_ID_THERMAL, "glass", 1, 2));
             GTCXTileAlloySmelter.addRecipe("dustSilver", 1, "blockGlassHardened", 2, GTMaterialGen.getModMetaItem(GTValues.MOD_ID_THERMAL, "glass", 2, 2));
