@@ -150,8 +150,16 @@ public class GTCXTileChemicalReactor extends GTTileBaseMachine {
         addRecipe(new IRecipeInput[]{input(GTMaterialGen.get(GTCXItems.magicDye)), input(GTMaterialGen.get(Items.BLAZE_POWDER)), input(GTMaterialGen.getTube(GTMaterial.Chlorine, 1))}, totalEu(5000), GTMaterialGen.getTube(GTMaterial.MagicDye, 1));
         addRecipe(new IRecipeInput[]{input("pulpWood", 4), input("dustSulfur", 1), new RecipeInputCombined(1, input("dustLithium", 1), input(GTMaterialGen.getTube(GTMaterial.Sodium, 1)))}, totalEu(6400), GTMaterialGen.get(GTItems.fuelBinder, 6));
         addRecipe(new IRecipeInput[]{input(GTMaterialGen.get(GTItems.fuelBinder)), input(GTMaterialGen.getTube(GTMaterial.Mercury, 1)), new RecipeInputCombined(1, input("dustEnderEye", 1), input(GTMaterialGen.get(Items.BLAZE_POWDER)))}, totalEu(6400), GTMaterialGen.get(GTItems.fuelBinderMagic, 3));
-        addRecipe(input(GTMaterialGen.getTube(GTCXMaterial.NitricAcid, 1)), input(GTMaterialGen.getTube(GTMaterial.Potassium, 1)), 600, GTMaterialGen.getDust(GTCXMaterial.Saltpeter, 1), GTMaterialGen.get(GTItems.testTube, 2));
-        addRecipe(input(GTMaterialGen.getTube(GTCXMaterial.NitrogenDioxide, 3)), input(GTMaterialGen.getWater(1)), 600, GTMaterialGen.getTube(GTCXMaterial.NitricAcid, 2), GTMaterialGen.get(GTItems.testTube, 2));
+        
+        /** IC2 Fertilizer **/
+        addRecipe(input(GTMaterialGen.getDust(GTMaterial.Calcite, 1)), input(GTMaterialGen.getDust(GTMaterial.Sulfur, 1)), 0, 6000, GTMaterialGen.getIc2(Ic2Items.fertilizer, 2));
+        addRecipe(input(GTMaterialGen.getDust(GTMaterial.Calcite, 1)), input(GTMaterialGen.getDust(GTMaterial.Phosphorus, 1)), 0, 9000, GTMaterialGen.getIc2(Ic2Items.fertilizer, 3));
+        addRecipe(input(GTMaterialGen.getDust(GTMaterial.Calcite, 1)), input(GTMaterialGen.getDust(GTCXMaterial.Ashes, 3)), 0, 3000, GTMaterialGen.getIc2(Ic2Items.fertilizer, 1));
+        addRecipe(input(GTMaterialGen.getDust(GTMaterial.Calcite, 1)), input(GTMaterialGen.getDust(GTCXMaterial.DarkAshes, 1)), 0, 3000, GTMaterialGen.getIc2(Ic2Items.fertilizer, 1));
+        addRecipe(input(GTMaterialGen.getDust(GTMaterial.Calcium, 1)), input(GTMaterialGen.getDust(GTMaterial.Sulfur, 1)), 0, 9000, GTMaterialGen.getIc2(Ic2Items.fertilizer, 3));
+        addRecipe(input(GTMaterialGen.getDust(GTMaterial.Calcium, 1)), input(GTMaterialGen.getDust(GTMaterial.Phosphorus, 1)), 0, 12000, GTMaterialGen.getIc2(Ic2Items.fertilizer, 4));
+        addRecipe(input(GTMaterialGen.getDust(GTMaterial.Calcium, 1)), input(GTMaterialGen.getDust(GTCXMaterial.Ashes, 3)), 0, 6000, GTMaterialGen.getIc2(Ic2Items.fertilizer, 2));
+        addRecipe(input(GTMaterialGen.getDust(GTMaterial.Calcium, 1)), input(GTMaterialGen.getDust(GTCXMaterial.DarkAshes, 1)), 0, 6000, GTMaterialGen.getIc2(Ic2Items.fertilizer, 2));
     }
 
     public static void addRecipe(IRecipeInput input1, IRecipeInput input2, int totalEu, ItemStack... output) {
