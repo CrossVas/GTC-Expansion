@@ -218,16 +218,16 @@ public class GTCXTileMultiImplosionCompressor extends GTTileMultiBaseMachine {
         return new GTCXContainerImplosionCompressor(entityPlayer.inventory, this);
     }
 
-    public static void init(){
-        addRecipe("dustRuby", 1, 6, totalEu(2560), GTMaterialGen.getGem(GTMaterial.Ruby, 1));
-        addRecipe("dustSapphire", 1, 6, totalEu(2560), GTMaterialGen.getGem(GTMaterial.Sapphire, 1));
-        addRecipe("dustEmerald", 1, 6, totalEu(2560), GTMaterialGen.get(Items.EMERALD, 1));
-        addRecipe("dustDiamond", 1, 8, totalEu(2560), GTMaterialGen.getIc2(Ic2Items.industrialDiamond, 1));
-        addRecipe(Ic2Items.coalChunk, 8, totalEu(2560), GTMaterialGen.getIc2(Ic2Items.industrialDiamond, 1));
-        addRecipe("dustOlivine", 1, 6, totalEu(2560), GTMaterialGen.getGem(GTCXMaterial.Olivine, 1));
-        addRecipe("dustRedGarnet", 1, 4, totalEu(2560), GTMaterialGen.getGem(GTCXMaterial.GarnetRed, 1));
-        addRecipe("dustYellowGarnet", 1, 4, totalEu(2560), GTMaterialGen.getGem(GTCXMaterial.GarnetYellow, 1));
-        addRecipe(GTMaterialGen.get(GTCXItems.iridiumAlloyIngot), 8, totalEu(2560), Ic2Items.iridiumPlate, GTMaterialGen.getDust(GTCXMaterial.DarkAshes, 4));
+    public static void init() {
+    	addRecipe(GTMaterialGen.get(GTCXItems.iridiumAlloyIngot), 8, totalEu(600), Ic2Items.iridiumPlate, GTMaterialGen.getDust(GTCXMaterial.DarkAshes, 4));
+    	addRecipe(Ic2Items.coalChunk, 8, totalEu(600), GTMaterialGen.getIc2(Ic2Items.industrialDiamond, 1), GTMaterialGen.getDust(GTCXMaterial.DarkAshes, 4));
+    	addRecipe("dustOlivine", 4, 24, totalEu(600), GTMaterialGen.getGem(GTCXMaterial.Olivine, 3), GTMaterialGen.getDust(GTCXMaterial.DarkAshes, 12));
+    	addRecipe("dustSapphire", 4, 24, totalEu(600), GTMaterialGen.getGem(GTMaterial.Sapphire, 3), GTMaterialGen.getDust(GTCXMaterial.DarkAshes, 12));
+    	addRecipe("dustEmerald", 4, 24, totalEu(600), GTMaterialGen.get(Items.EMERALD, 3), GTMaterialGen.getDust(GTCXMaterial.DarkAshes, 12));
+    	addRecipe("dustDiamond", 4, 24, totalEu(600), GTMaterialGen.getIc2(Ic2Items.industrialDiamond, 3), GTMaterialGen.getDust(GTCXMaterial.DarkAshes, 12));
+    	addRecipe("dustYellowGarnet", 4, 16, totalEu(600), GTMaterialGen.getGem(GTCXMaterial.GarnetYellow, 3), GTMaterialGen.getDust(GTCXMaterial.DarkAshes, 8));
+    	addRecipe("dustRuby", 4, 24, totalEu(600), GTMaterialGen.getGem(GTMaterial.Ruby, 1), GTMaterialGen.getDust(GTCXMaterial.DarkAshes, 12));
+        addRecipe("dustRedGarnet", 4, 16, totalEu(600), GTMaterialGen.getGem(GTCXMaterial.GarnetRed, 1), GTMaterialGen.getDust(GTCXMaterial.DarkAshes, 8));
     }
 
     public static void addRecipe(ItemStack stack, int tnt, RecipeModifierHelpers.IRecipeModifier[] modifiers, ItemStack... outputs) {
