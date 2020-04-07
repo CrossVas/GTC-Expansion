@@ -629,5 +629,24 @@ public class GTCX_CraftingRecipeLoader {
             GTRecipeCraftingHandler.overrideGTRecipe("gravisuit", "shaped_item.advanceddiamondchainsaw_-416372460", GTMaterialGen.getModItem("gravisuit", "advancedchainsaw"), " SS", "SCS", "BS ", 'S', RecipeHelper.tungstenSteel, 'C', GTCXItems.diamondChainsaw, 'B', GTItems.lithiumBattery);
             GTRecipeCraftingHandler.overrideGTRecipe("gravisuit", "shaped_item.advanceddrill_1408250051", GTMaterialGen.getModItem("gravisuit", "advanceddrill"), " S ", "SDS", "SBS", 'S', RecipeHelper.tungstenSteel, 'D', Ic2Items.diamondDrill, 'B', GTItems.lithiumBattery);
 		}
+		
+		if (Loader.isModLoaded("thermalfoundation") && GTConfig.modcompat.compatThermal) {
+			GTRecipeCraftingHandler.overrideGTRecipe("thermalexpansion", "frame", GTMaterialGen.getModItem("thermalexpansion", "frame"), "SGS", "GTG", "SGS", 'S', "ingotSteel", 'G', "blockGlass", 'T', "gearSteel");
+			GTRecipeCraftingHandler.removeRecipe("thermalfoundation", "material_2");
+			GTRecipeCraftingHandler.removeRecipe("thermalfoundation", "material_61");
+			GTRecipeCraftingHandler.removeRecipe("thermalfoundation", "material_62");
+			GTRecipeCraftingHandler.removeRecipe("thermalfoundation", "material_65");
+			GTRecipeCraftingHandler.removeRecipe("thermalfoundation", "material_66");
+			GTRecipeCraftingHandler.removeRecipe("thermalfoundation", "material_68");
+			GTRecipeCraftingHandler.removeRecipe("thermalfoundation", "material_69");
+			GTRecipeCraftingHandler.removeRecipe("thermalfoundation", "material_70");
+			GTRecipeCraftingHandler.removeRecipe("thermalfoundation", "material_71");
+			GTRecipeCraftingHandler.removeRecipe("thermalfoundation", "material_72");
+			GTRecipeCraftingHandler.removeRecipe("thermalfoundation", "material_74");
+			GTRecipeCraftingHandler.removeRecipe("thermalfoundation", "material_75");
+			GTRecipeCraftingHandler.removeRecipe("thermalfoundation", "material_76");
+			GTRecipeCraftingHandler.removeRecipe("thermalfoundation", "material_77");
+			GTRecipeCraftingHandler.removeRecipe("thermalfoundation", "material_78");
+		}
     }
 }
