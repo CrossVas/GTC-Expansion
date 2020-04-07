@@ -436,9 +436,10 @@ public class GTCXTileMultiIndustrialGrinder extends GTTileMultiBaseMachine imple
             addWaterRecipe("oreTungsten", 1, totalEu(12800), GTCXMaterialGen.getPurifiedCrushedOre(GTMaterial.Tungsten, 4), GTCXMaterialGen.getSmallDust(GTCXMaterial.Manganese, 1), GTCXMaterialGen.getSmallDust(GTCXMaterial.Silver, 1));
             addMercuryRecipe("oreTungsten", 1, totalEu(12800), GTCXMaterialGen.getPurifiedCrushedOre(GTMaterial.Tungsten, 4), GTMaterialGen.getDust(GTCXMaterial.Manganese, 1), GTCXMaterialGen.getSmallDust(GTCXMaterial.Silver, 1));
         	/** Sheldonite Ore **/
-            addWaterRecipe("oreSheldonite", 1, totalEu(12800), GTCXMaterialGen.getPurifiedCrushedOre(GTMaterial.Platinum, 2), GTMaterialGen.getDust(GTMaterial.Nickel, 1), GTCXMaterialGen.getNugget(GTMaterial.Iridium, 2));
-            addMercuryRecipe("oreSheldonite", 1, totalEu(12800), GTCXMaterialGen.getPurifiedCrushedOre(GTMaterial.Platinum, 3), GTMaterialGen.getDust(GTMaterial.Nickel, 1), GTCXMaterialGen.getNugget(GTMaterial.Iridium, 2));
-        	/** Chromite Ore **/
+            addWaterRecipe("oreSheldonite", 1, totalEu(12800), GTCXMaterialGen.getPurifiedCrushedOre(GTMaterial.Platinum, 2), GTCXMaterialGen.getSmallDust(GTMaterial.Nickel, 1), GTCXMaterialGen.getSmallDust(GTMaterial.Iridium, 1));
+            addMercuryRecipe("oreSheldonite", 1, totalEu(12800), GTCXMaterialGen.getPurifiedCrushedOre(GTMaterial.Platinum, 3), GTCXMaterialGen.getSmallDust(GTMaterial.Nickel, 1), GTCXMaterialGen.getSmallDust(GTMaterial.Iridium, 1));
+        	addSodiumPersulfateRecipe("oreSheldonite", 1, totalEu(12800), GTCXMaterialGen.getPurifiedCrushedOre(GTMaterial.Platinum, 2), GTMaterialGen.getDust(GTMaterial.Nickel, 1), GTCXMaterialGen.getSmallDust(GTMaterial.Iridium, 1));
+            /** Chromite Ore **/
             addWaterRecipe("oreChromite", 1, totalEu(12800), GTCXMaterialGen.getPurifiedCrushedOre(GTCXMaterial.Chromite, 2), GTCXMaterialGen.getSmallDust(GTCXMaterial.Iron, 1));
             if (OreDictionary.doesOreNameExist("oreNickel")) {
             	/** Nickel Ore **/
