@@ -119,7 +119,9 @@ public class GTCX_MachineRecipeLoader {
         ClassicRecipes.compressor.removeRecipe(GTTileBaseMachine.input("dustRedGarnet", 1));
         ClassicRecipes.compressor.removeRecipe(GTTileBaseMachine.input("dustYellowGarnet", 1));
         ClassicRecipes.compressor.removeRecipe(GTTileBaseMachine.input("dustCarbon", 8));
-        ClassicRecipes.compressor.removeRecipe(GTTileBaseMachine.input(Ic2Items.coalChunk));    
+        ClassicRecipes.compressor.removeRecipe(GTTileBaseMachine.input(Ic2Items.coalChunk));
+        ClassicRecipes.compressor.removeRecipe(GTTileBaseMachine.input("dustThorium", 1));
+        ClassicRecipes.compressor.removeRecipe(GTTileBaseMachine.input("dustEmerald", 1));   
         ClassicRecipes.extractor.removeRecipe(GTTileBaseMachine.input(Ic2Items.stickyResin));
         ClassicRecipes.extractor.removeRecipe(GTTileBaseMachine.input(Ic2Items.rubberSapling));
         ClassicRecipes.extractor.removeRecipe(GTTileBaseMachine.input(Ic2Items.rubberWood));
@@ -170,6 +172,10 @@ public class GTCX_MachineRecipeLoader {
         GTRecipeMachineHandler.removeRecipe(GTCXRecipeLists.COMPRESSOR_RECIPE_LIST, "item.gtclassic.gemYellowGarnet");
         GTRecipeMachineHandler.removeRecipe(GTCXRecipeLists.COMPRESSOR_RECIPE_LIST, "item.itemPartIndustrialDiamond");
         GTRecipeMachineHandler.removeRecipe(GTCXRecipeLists.COMPRESSOR_RECIPE_LIST, "item.itemPartCarbonFibre");
+        GTRecipeMachineHandler.removeRecipe(GTCXRecipeLists.COMPRESSOR_RECIPE_LIST, "item.thorium232Ingot");
+        GTRecipeMachineHandler.removeRecipe(GTCXRecipeLists.COMPRESSOR_RECIPE_LIST, "item.thorium230Ingot");
+        GTRecipeMachineHandler.removeRecipe(GTCXRecipeLists.COMPRESSOR_RECIPE_LIST, "item.gtclassic.ingotThorium");
+        GTRecipeMachineHandler.removeRecipe(GTCXRecipeLists.COMPRESSOR_RECIPE_LIST, "item.emerald");
         GTCXRecipeLists.COMPRESSOR_RECIPE_LIST.finishMassChange();
         
         GTTileCentrifuge.RECIPE_LIST.startMassChange();
