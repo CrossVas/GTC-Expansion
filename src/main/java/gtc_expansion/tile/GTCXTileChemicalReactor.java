@@ -156,10 +156,10 @@ public class GTCXTileChemicalReactor extends GTTileBaseMachine {
         addRecipe(input(GTMaterialGen.getDust(GTMaterial.Calcite, 1)), input(GTMaterialGen.getDust(GTMaterial.Phosphorus, 1)), 0, 9000, GTMaterialGen.getIc2(Ic2Items.fertilizer, 3));
         addRecipe(input(GTMaterialGen.getDust(GTMaterial.Calcite, 1)), input(GTMaterialGen.getDust(GTCXMaterial.Ashes, 3)), 0, 3000, GTMaterialGen.getIc2(Ic2Items.fertilizer, 1));
         addRecipe(input(GTMaterialGen.getDust(GTMaterial.Calcite, 1)), input(GTMaterialGen.getDust(GTCXMaterial.DarkAshes, 1)), 0, 3000, GTMaterialGen.getIc2(Ic2Items.fertilizer, 1));
-        addRecipe(input(GTMaterialGen.getDust(GTMaterial.Calcium, 1)), input(GTMaterialGen.getDust(GTMaterial.Sulfur, 1)), 0, 9000, GTMaterialGen.getIc2(Ic2Items.fertilizer, 3));
-        addRecipe(input(GTMaterialGen.getDust(GTMaterial.Calcium, 1)), input(GTMaterialGen.getDust(GTMaterial.Phosphorus, 1)), 0, 12000, GTMaterialGen.getIc2(Ic2Items.fertilizer, 4));
-        addRecipe(input(GTMaterialGen.getDust(GTMaterial.Calcium, 1)), input(GTMaterialGen.getDust(GTCXMaterial.Ashes, 3)), 0, 6000, GTMaterialGen.getIc2(Ic2Items.fertilizer, 2));
-        addRecipe(input(GTMaterialGen.getDust(GTMaterial.Calcium, 1)), input(GTMaterialGen.getDust(GTCXMaterial.DarkAshes, 1)), 0, 6000, GTMaterialGen.getIc2(Ic2Items.fertilizer, 2));
+        addRecipe(input(GTMaterialGen.getTube(GTMaterial.Calcium, 1)), input(GTMaterialGen.getDust(GTMaterial.Sulfur, 1)), 9000, GTMaterialGen.getIc2(Ic2Items.fertilizer, 3));
+        addRecipe(input(GTMaterialGen.getTube(GTMaterial.Calcium, 1)), input(GTMaterialGen.getDust(GTMaterial.Phosphorus, 1)), 12000, GTMaterialGen.getIc2(Ic2Items.fertilizer, 4));
+        addRecipe(input(GTMaterialGen.getTube(GTMaterial.Calcium, 1)), input(GTMaterialGen.getDust(GTCXMaterial.Ashes, 3)), 6000, GTMaterialGen.getIc2(Ic2Items.fertilizer, 2));
+        addRecipe(input(GTMaterialGen.getTube(GTMaterial.Calcium, 1)), input(GTMaterialGen.getDust(GTCXMaterial.DarkAshes, 1)), 6000, GTMaterialGen.getIc2(Ic2Items.fertilizer, 2));
     }
 
     public static void addRecipe(IRecipeInput input1, IRecipeInput input2, int totalEu, ItemStack... output) {
