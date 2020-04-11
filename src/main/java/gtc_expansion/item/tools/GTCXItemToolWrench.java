@@ -5,8 +5,11 @@ import gtc_expansion.util.GTCXHelperStack;
 import gtclassic.GTMod;
 import gtclassic.api.interfaces.IGTColorItem;
 import gtclassic.api.material.GTMaterial;
+import ic2.core.IC2;
 import ic2.core.item.tool.ItemToolWrench;
+import ic2.core.platform.registry.Ic2Sounds;
 import ic2.core.platform.textures.Ic2Icons;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
@@ -39,6 +42,9 @@ public class GTCXItemToolWrench extends ItemToolWrench implements IGTColorItem {
     @Override
     public ItemStack getContainerItem(ItemStack itemStack) {
         ItemStack copy = itemStack.copy();
+        if (IC2.platform.isSimulating()) {
+        	IC2.audioManager.playOnce(Minecraft.getMinecraft().player, Ic2Sounds.wrenchUse);
+        }
         GTCXHelperStack.damageItem(copy, 8);
         return copy;
     }

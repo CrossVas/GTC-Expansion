@@ -6,10 +6,12 @@ import gtc_expansion.util.GTCXHelperStack;
 import gtclassic.GTMod;
 import gtclassic.api.interfaces.IGTColorItem;
 import gtclassic.api.material.GTMaterial;
+import ic2.core.IC2;
 import ic2.core.platform.textures.Ic2Icons;
 import ic2.core.platform.textures.obj.ICustomItemCameraTransform;
 import ic2.core.platform.textures.obj.ILayeredItemModel;
 import ic2.core.platform.textures.obj.IStaticTexturedItem;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemPickaxe;
@@ -42,7 +44,10 @@ public class GTCXItemToolHammer extends ItemPickaxe
     @Override
     public ItemStack getContainerItem(ItemStack itemStack) {
         ItemStack copy = itemStack.copy();
-            GTCXHelperStack.damageItem(copy, 4);	
+        if (IC2.platform.isSimulating()) {
+        	IC2.audioManager.playOnce(Minecraft.getMinecraft().player, new ResourceLocation("block.anvil.use"));
+        }
+        GTCXHelperStack.damageItem(copy, 4);	
         return copy;
     }
 
