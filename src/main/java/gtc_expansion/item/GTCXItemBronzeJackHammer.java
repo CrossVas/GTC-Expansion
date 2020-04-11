@@ -9,6 +9,7 @@ import com.google.common.collect.ImmutableSet;
 
 import gtc_expansion.GTCExpansion;
 import gtclassic.GTMod;
+import gtclassic.common.item.GTItemJackHammer;
 import ic2.api.classic.item.IMiningDrill;
 import ic2.api.item.ElectricItem;
 import ic2.core.item.base.ItemElectricTool;
@@ -145,8 +146,8 @@ public class GTCXItemBronzeJackHammer extends ItemElectricTool implements IMinin
         return Ic2Icons.getTextures(GTCExpansion.MODID + "_items")[28];
     }
     
-    private boolean isValidState(IBlockState blockstate) {
-        return ItemElectricToolDrill.rocks.contains(blockstate) || blockstate.equals(Blocks.END_STONE.getDefaultState())
-                || blockstate.equals(Blocks.NETHERRACK.getDefaultState());
-    }
+	public boolean isValidState(IBlockState blockstate) {
+		return ItemElectricToolDrill.rocks.contains(blockstate)
+				|| GTItemJackHammer.rocks.contains(blockstate.getBlock());
+	}
 }
