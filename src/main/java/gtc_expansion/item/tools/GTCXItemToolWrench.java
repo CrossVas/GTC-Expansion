@@ -42,7 +42,7 @@ public class GTCXItemToolWrench extends ItemToolWrench implements IGTColorItem {
     @Override
     public ItemStack getContainerItem(ItemStack itemStack) {
         ItemStack copy = itemStack.copy();
-        if (IC2.platform.isSimulating()) {
+        if (!IC2.platform.isSimulating()) {
         	IC2.audioManager.playOnce(Minecraft.getMinecraft().player, Ic2Sounds.wrenchUse);
         }
         GTCXHelperStack.damageItem(copy, 8);

@@ -44,7 +44,7 @@ public class GTCXItemToolHammer extends ItemPickaxe
     @Override
     public ItemStack getContainerItem(ItemStack itemStack) {
         ItemStack copy = itemStack.copy();
-        if (IC2.platform.isSimulating()) {
+        if (!IC2.platform.isSimulating()) {
         	IC2.audioManager.playOnce(Minecraft.getMinecraft().player, new ResourceLocation("block.anvil.use"));
         }
         GTCXHelperStack.damageItem(copy, 4);	
