@@ -4,7 +4,7 @@ GTC Expansion is an addon to GT Classic adding various machines and such. This f
 
 # Current State
 I am currently creating the mod. I would say it's 40% - 50% finished. 
-As for this fork, it's still in an early WIP. Not sure yet how to plan release schedule.
+As for this fork, it's 80 - 90% done. Mostly mod integration to do and steam age (maybe, not sure yet). Releases will be placed on github once I add or fix something.
 
 # Issues
 Please report any issues you find to the issue tracker on this repository. Include as much information as possible including as version and steps to reproduce. Also pleaseuse the included formats.
