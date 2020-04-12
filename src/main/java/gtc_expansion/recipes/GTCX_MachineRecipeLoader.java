@@ -57,6 +57,10 @@ public class GTCX_MachineRecipeLoader {
         GameRegistry.addSmelting(GTMaterialGen.getDust(GTCXMaterial.Rubber, 1), GTMaterialGen.getIc2(Ic2Items.rubber, 1), 0.5F);
         GameRegistry.addSmelting(GTCXMaterialGen.getCrushedOre(GTCXMaterial.Cassiterite, 1), Ic2Items.tinIngot, 0.5F);
         GameRegistry.addSmelting(GTCXMaterialGen.getPurifiedCrushedOre(GTCXMaterial.Cassiterite, 1), Ic2Items.tinIngot, 0.5F);
+        ClassicRecipes.furnace.addRecipe(GTTileBaseMachine.input(Ic2Items.stoneMacerator), GTMaterialGen.getIc2(Ic2Items.bronzeIngot, 12), "stoneMacerator");
+        ClassicRecipes.furnace.addRecipe(GTTileBaseMachine.input(GTMaterialGen.get(GTCXBlocks.stoneExtractor)), GTMaterialGen.getIc2(Ic2Items.bronzeIngot, 5), "stoneExtractor");
+        ClassicRecipes.furnace.addRecipe(GTTileBaseMachine.input(GTMaterialGen.get(GTCXBlocks.stoneCompressor)), GTMaterialGen.getIc2(Ic2Items.bronzeIngot, 8), "stoneCompressor");
+        ClassicRecipes.furnace.addRecipe(GTTileBaseMachine.input(GTMaterialGen.getDust(GTCXMaterial.Rubber, 1)), Ic2Items.rubber, "dustRubber");
         
         if (GTCXConfiguration.general.removeVanillaCharcoalRecipe) {
             GTHelperStack.removeSmelting(new ItemStack(Items.COAL, 1, 1));
