@@ -160,7 +160,7 @@ public class GTCXTileAssemblingMachine extends GTTileBaseMachine {
         addRecipe("plateElectrum", 2, Ic2Items.electricCircuit, setUsageEuPerTick(2), 3200, GTMaterialGen.get(GTCXItems.advancedCircuitBoard));
         addRecipe("plateElectrum", 4, "plateSilicon", 1, setUsageEuPerTick(2), 3200, GTMaterialGen.get(GTCXItems.advancedCircuitBoard, 2));
         addRecipe("plateAluminium", 2, Ic2Items.electricCircuit, setUsageEuPerTick(16), 12800, GTMaterialGen.get(GTCXItems.machineParts, 3));
-        addRecipe(RecipeHelper.materialMachine, input(Ic2Items.pump), setUsageEuPerTick(16), 12800, GTMaterialGen.get(GTCXItems.pumpModule));
+        addRecipe(RecipeHelper.plateBasicMachineBlock, input(Ic2Items.pump), setUsageEuPerTick(16), 12800, GTMaterialGen.get(GTCXItems.pumpModule));
         IRecipeInput plateElectric = new RecipeInputCombined(1, new RecipeInputOreDict("plateSteel"), new RecipeInputOreDict("plateSilicon"),
                 new RecipeInputOreDict("plateAluminium"), new RecipeInputOreDict("plateSilver"), new RecipeInputOreDict("platePlatinum"));
         if (GTCXConfiguration.general.harderCircuits){
