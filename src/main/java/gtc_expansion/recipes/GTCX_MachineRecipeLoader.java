@@ -138,6 +138,8 @@ public class GTCX_MachineRecipeLoader {
         TileEntityExtractor.addRecipe(GTCXItems.largeAcidBattery.getEmpty(), GTMaterialGen.get(GTCXItems.largeBatteryHull));
         TileEntityExtractor.addRecipe(GTCXItems.largeMercuryBattery.getEmpty(), GTMaterialGen.get(GTCXItems.largeBatteryHull));
         TileEntityExtractor.addRecipe(Ic2Items.stickyResin, GTMaterialGen.getDust(GTCXMaterial.Rubber, 3));
+        TileEntityExtractor.addRecipe(Ic2Items.rubberSapling, GTMaterialGen.getDust(GTCXMaterial.Rubber, 1));
+        TileEntityExtractor.addRecipe(Ic2Items.rubberWood, GTMaterialGen.getDust(GTCXMaterial.Rubber, 1));
         TileEntityExtractor.addRecipe("oreOlivine", 1, GTMaterialGen.getGem(GTCXMaterial.Olivine, 3));
         TileEntityMacerator.addRecipe("oreRedstone", 1, GTMaterialGen.get(Items.REDSTONE, 8));
         
@@ -166,6 +168,8 @@ public class GTCX_MachineRecipeLoader {
         GTRecipeMachineHandler.removeRecipe(GTCXRecipeLists.EXTRACTOR_RECIPE_LIST, "item.itemRubber_1");
         GTRecipeMachineHandler.removeRecipe(GTCXRecipeLists.EXTRACTOR_RECIPE_LIST, "item.itemRubber_2");
         GTRecipeMachineHandler.addRecipe(GTCXRecipeLists.EXTRACTOR_RECIPE_LIST, new IRecipeInput[] { GTTileBaseMachine.input(Ic2Items.stickyResin) }, null, GTMaterialGen.getDust(GTCXMaterial.Rubber, 3));
+        GTRecipeMachineHandler.addRecipe(GTCXRecipeLists.EXTRACTOR_RECIPE_LIST, new IRecipeInput[] { GTTileBaseMachine.input(Ic2Items.rubberSapling) }, null, GTMaterialGen.getDust(GTCXMaterial.Rubber, 1));
+        GTRecipeMachineHandler.addRecipe(GTCXRecipeLists.EXTRACTOR_RECIPE_LIST, new IRecipeInput[] { GTTileBaseMachine.input(Ic2Items.rubberWood) }, null, GTMaterialGen.getDust(GTCXMaterial.Rubber, 1));
         GTCXRecipeLists.EXTRACTOR_RECIPE_LIST.finishMassChange();
         
         GTCXRecipeLists.COMPRESSOR_RECIPE_LIST.startMassChange();
