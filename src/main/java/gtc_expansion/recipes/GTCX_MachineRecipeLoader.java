@@ -130,6 +130,7 @@ public class GTCX_MachineRecipeLoader {
         ClassicRecipes.extractor.removeRecipe(GTTileBaseMachine.input(Ic2Items.rubberSapling));
         ClassicRecipes.extractor.removeRecipe(GTTileBaseMachine.input(Ic2Items.rubberWood));
         ClassicRecipes.macerator.removeRecipe(GTTileBaseMachine.input("oreRedstone", 1));
+        ClassicRecipes.macerator.addRecipe(new RecipeInputOreDict("gemDiamond", 1), GTMaterialGen.getDust(GTCXMaterial.Diamond, 1), "gemDiamond");
         ClassicRecipes.fluidGenerator.getBurnMap().remove(GTMaterialGen.getFluid(GTMaterial.Methane));
         ClassicRecipes.fluidGenerator.getBurnMap().remove(GTMaterialGen.getFluid(GTMaterial.Hydrogen));
         
