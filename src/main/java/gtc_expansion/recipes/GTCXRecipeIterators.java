@@ -89,12 +89,10 @@ public class GTCXRecipeIterators {
         ingotUtil(Ic2Items.tinIngot, GTCXMaterial.Tin);
         ingotUtil(Ic2Items.bronzeIngot, GTCXMaterial.Bronze);
         ingotUtil(Ic2Items.silverIngot, GTCXMaterial.Silver);
-        createFullToolRecipes(GTCXMaterial.Iron, false, false, true);
-        createFullToolRecipes(GTCXMaterial.Bronze, false, false, true);
-        createFullToolRecipes(GTCXMaterial.Steel, false, true, true);
-        createFullToolRecipes(GTCXMaterial.TungstenSteel, false, true, true);
-        createFullToolRecipes(GTMaterial.Ruby, true, true, false);
-        createFullToolRecipes(GTMaterial.Sapphire, true, true, false);
+        createFullToolRecipes(GTCXMaterial.Iron, false, true);
+        createFullToolRecipes(GTCXMaterial.Bronze, false, true);
+        createFullToolRecipes(GTCXMaterial.Steel, true, true);
+        createFullToolRecipes(GTCXMaterial.TungstenSteel, true, true);
     }
 
     public static void createFluidCastingRecipes(GTMaterial mat){
@@ -109,7 +107,7 @@ public class GTCXRecipeIterators {
                     GTCXTileFluidSmelter.addRecipe("nugget" + orename, 1, 750 * tier, 1600, GTMaterialGen.getFluidStack(mat, 16));
                 }
             }
-            if (mat.hasFlag(GTMaterialFlag.INGOT)){
+            if (mat.hasFlag(GTMaterialFlag.INGOT)) {
                 GTCXTileFluidCaster.addRecipe(GTMaterialGen.get(GTCXItems.moldIngot), GTMaterialGen.getFluidStack(mat, 144), false, 12800, GTMaterialGen.getIngot(mat, 1));
                 GTCXTileFluidSmelter.addRecipe("ingot" + orename, 1, 750 * tier, 12800, GTMaterialGen.getFluidStack(mat, 144));
             }
@@ -338,12 +336,11 @@ public class GTCXRecipeIterators {
         }
     }
 
-    public static void createFullToolRecipes(GTMaterial mat, boolean gemInput, boolean vanillaTools, boolean createGTTool) {
+    public static void createFullToolRecipes(GTMaterial mat, boolean vanillaTools, boolean createGTTool) {
         String ingot = "ingot" + mat.getDisplayName();
         String plate = "plate" + mat.getDisplayName();
-        String gem = "gem" + mat.getDisplayName();
         String handle = "";
-        if (mat.equals(GTCXMaterial.Iron) || mat.equals(GTCXMaterial.Bronze) || mat.equals(GTMaterial.Ruby) || mat.equals(GTMaterial.Sapphire)) {
+        if (mat.equals(GTCXMaterial.Iron) || mat.equals(GTCXMaterial.Bronze)) {
         	handle = "stickWood";
         } else if (mat.equals(GTCXMaterial.Steel)) {
         	handle = "rodRefinedIron";
@@ -351,7 +348,6 @@ public class GTCXRecipeIterators {
         	handle = "rodSteel";
         }
         GTCXToolGen G = new GTCXToolGen();
-        if (!gemInput) {
         	if (vanillaTools) {
                 recipes.addRecipe(G.getPickaxe(mat), "PII", "FSH", " S ", 'P', plate, 'I', ingot, 'F', "craftingToolFile", 'H', "craftingToolForgeHammer", 'S', handle);
                 recipes.addRecipe(G.getAxe(mat), "PIH", "PS ", "FS ", 'P', plate, 'I', ingot, 'F', "craftingToolFile", 'H', "craftingToolForgeHammer", 'S', handle);
@@ -363,14 +359,7 @@ public class GTCXRecipeIterators {
                 recipes.addRecipe(G.getSaw(mat), "SSS", "PPS", "FH ", 'S', handle, 'P', plate, 'F', "craftingToolFile", 'H', "craftingToolForgeHammer");
                 recipes.addRecipe(G.getHammer(mat), "II ", "IIS", "II ", 'I', ingot, 'S', handle);
                 recipes.addRecipe(G.getWrench(mat), "I I", "III", " I ", 'I', ingot);	
-        	}
-        } else {
-            handle = "stickWood";
-            recipes.addRecipe(G.getPickaxe(mat), "III", " S ", " S ", 'I', gem, 'S', handle);
-            recipes.addRecipe(G.getAxe(mat), "II ", "IS ", " S ", 'I', gem, 'S', handle);
-            recipes.addRecipe(G.getShovel(mat), " I ", " S ", " S ", 'I', gem, 'S', handle);
-            recipes.addRecipe(G.getSword(mat), " I ", " I ", " S ", 'I', gem, 'S', handle);
-        }
+        	} 
     }
 
     public static void dustUtil(ItemStack stack, GTMaterial material) {

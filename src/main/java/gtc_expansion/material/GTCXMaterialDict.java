@@ -84,6 +84,7 @@ public class GTCXMaterialDict {
         OreDictionary.registerOre("craftingToolForgeHammer", new ItemStack(GTCXToolGen.getHammer(mat).getItem(), 1, OreDictionary.WILDCARD_VALUE));
         OreDictionary.registerOre("craftingToolFile", new ItemStack(GTCXToolGen.getFile(mat).getItem(), 1, OreDictionary.WILDCARD_VALUE));
         OreDictionary.registerOre("craftingToolWrench", new ItemStack(GTCXToolGen.getWrench(mat).getItem(), 1, OreDictionary.WILDCARD_VALUE));
+        OreDictionary.registerOre("craftingToolSaw", new ItemStack(GTCXToolGen.getSaw(mat).getItem(), 1, OreDictionary.WILDCARD_VALUE));
         OreDictionary.registerOre("toolAxe", new ItemStack(GTCXToolGen.getAxe(mat).getItem(), 1, OreDictionary.WILDCARD_VALUE));
     }
 

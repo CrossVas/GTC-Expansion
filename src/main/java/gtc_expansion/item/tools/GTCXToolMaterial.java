@@ -18,6 +18,7 @@ public class GTCXToolMaterial {
 
     public static final ToolMaterial Flint = createToolMaterial("Flint", 1, 2.5F, 128, 1.25F, new ItemStack(Items.FLINT));
     public static final ToolMaterial Steel = createToolMaterial(GTCXMaterial.Steel, 2, 6.0F, 512, 3.0F);
+    public static final ToolMaterial Iron = createToolMaterial("Iron", 2, 3.0F, 128, 6.0F, new ItemStack(Items.IRON_INGOT));
     public static final ToolMaterial TungstenSteel = createToolMaterial(GTCXMaterial.TungstenSteel, 4, 10.0F, 5120, 10.0F);
     public static final ToolMaterial Ruby = createToolMaterial("Ruby", 2, 7.0F, 1024, 4.5F, GTMaterialGen.getGem(GTMaterial.Sapphire, 1));
     public static final ToolMaterial Sapphire = createToolMaterial("Sapphire", 2, 7.0f, 1024, 4.5F, GTMaterialGen.getGem(GTMaterial.Ruby, 1));

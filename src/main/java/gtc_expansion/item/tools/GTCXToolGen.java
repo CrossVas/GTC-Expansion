@@ -16,7 +16,7 @@ public class GTCXToolGen {
 
     public static void initTools(){
         createVanillaSet(GTMaterial.Flint, GTCXToolMaterial.Flint);
-        createCraftingSet(GTCXMaterial.Iron, ToolMaterial.IRON);
+        createCraftingSet(GTCXMaterial.Iron, GTCXToolMaterial.Iron);
         createCraftingSet(GTCXMaterial.Bronze, ToolHelper.bronzeToolMaterial);
         createFullSet(GTCXMaterial.Steel, GTCXToolMaterial.Steel);
         createFullSet(GTCXMaterial.TungstenSteel, GTCXToolMaterial.TungstenSteel);
