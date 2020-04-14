@@ -4,10 +4,8 @@ import gtc_expansion.GTCExpansion;
 import gtc_expansion.material.GTCXMaterial;
 import gtc_expansion.util.GTCXHelperStack;
 import gtclassic.GTMod;
-import gtclassic.api.interfaces.IGTColorItem;
 import gtclassic.api.material.GTMaterial;
 import ic2.core.platform.textures.Ic2Icons;
-import ic2.core.platform.textures.obj.ILayeredItemModel;
 import ic2.core.platform.textures.obj.IStaticTexturedItem;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.util.ITooltipFlag;
@@ -17,11 +15,10 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.awt.*;
 import java.util.Arrays;
 import java.util.List;
 
-public class GTCXItemToolFile extends Item implements IStaticTexturedItem, IGTColorItem, ILayeredItemModel {
+public class GTCXItemToolFile extends Item implements IStaticTexturedItem {
 
     GTMaterial material;
 
@@ -55,31 +52,15 @@ public class GTCXItemToolFile extends Item implements IStaticTexturedItem, IGTCo
     @Override
     @SideOnly(Side.CLIENT)
     public TextureAtlasSprite getTexture(int meta) {
-        return Ic2Icons.getTextures(GTCExpansion.MODID + "_materials")[18];
-    }
-
-    @Override
-    public Color getColor(ItemStack stack, int index) {
-    	if (index == 0) {
-    		return GTCXMaterial.Osmium.getColor();
-    	} else {
-    		return this.material.getColor();
+    	String tex = GTCExpansion.MODID + "_tools_crafting";
+    	if (this.material.equals(GTCXMaterial.Bronze)) {
+            return Ic2Icons.getTextures(tex)[1];
+    	} else if (this.material.equals(GTCXMaterial.Steel)) {
+            return Ic2Icons.getTextures(tex)[2];
+    	} else if (this.material.equals(GTCXMaterial.TungstenSteel)) {
+            return Ic2Icons.getTextures(tex)[3];
     	}
-    }
-
-    @Override
-    public boolean isLayered(ItemStack var1) {
-        return true;
-    }
-
-    @Override
-    public int getLayers(ItemStack var1) {
-        return 2;
-    }
-
-    @Override
-    public TextureAtlasSprite getTexture(int var1, ItemStack var2) {
-        return Ic2Icons.getTextures(GTCExpansion.MODID + "_materials")[18 + var1];
+        return Ic2Icons.getTextures(tex)[0];
     }
     
     @Override

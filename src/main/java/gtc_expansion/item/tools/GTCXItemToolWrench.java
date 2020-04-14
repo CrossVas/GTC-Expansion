@@ -1,9 +1,9 @@
 package gtc_expansion.item.tools;
 
 import gtc_expansion.GTCExpansion;
+import gtc_expansion.material.GTCXMaterial;
 import gtc_expansion.util.GTCXHelperStack;
 import gtclassic.GTMod;
-import gtclassic.api.interfaces.IGTColorItem;
 import gtclassic.api.material.GTMaterial;
 import ic2.core.IC2;
 import ic2.core.item.tool.ItemToolWrench;
@@ -17,11 +17,10 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.awt.*;
 import java.util.Arrays;
 import java.util.List;
 
-public class GTCXItemToolWrench extends ItemToolWrench implements IGTColorItem {
+public class GTCXItemToolWrench extends ItemToolWrench {
 
     GTMaterial material;
 
@@ -57,16 +56,15 @@ public class GTCXItemToolWrench extends ItemToolWrench implements IGTColorItem {
     @Override
     @SideOnly(Side.CLIENT)
     public TextureAtlasSprite getTexture(int i) {
-        return Ic2Icons.getTextures(GTCExpansion.MODID + "_materials")[20];
-    }
-
-    @Override
-    public Color getColor(ItemStack stack, int index) {
-        return this.material.getColor();
-    }
-
-    public GTMaterial getMaterial() {
-        return this.material;
+    	String tex = GTCExpansion.MODID + "_tools_crafting";
+    	if (this.material.equals(GTCXMaterial.Bronze)) {
+            return Ic2Icons.getTextures(tex)[13];
+    	} else if (this.material.equals(GTCXMaterial.Steel)) {
+            return Ic2Icons.getTextures(tex)[14];
+    	} else if (this.material.equals(GTCXMaterial.TungstenSteel)) {
+            return Ic2Icons.getTextures(tex)[15];
+    	}
+        return Ic2Icons.getTextures(tex)[12];
     }
 
     @Override

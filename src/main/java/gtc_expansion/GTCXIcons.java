@@ -26,6 +26,8 @@ public class GTCXIcons {
         makeSprite("materials", 16, 4);
         makeSprite("items", 16, 6);
         makeSprite("crops", 7, 1);
+        makeSprite("tools_crafting", 4, 4);
+        makeSprite("tools_vanilla", 3, 4);
         collectBasicTileSprites();
         if (GTConfig.general.animatedTextures){
             addCustomTexture("industrial_front_active", 0, 0, location("bf_front"));

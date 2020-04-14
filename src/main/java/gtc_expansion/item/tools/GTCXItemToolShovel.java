@@ -3,11 +3,9 @@ package gtc_expansion.item.tools;
 import gtc_expansion.GTCExpansion;
 import gtc_expansion.material.GTCXMaterial;
 import gtclassic.GTMod;
-import gtclassic.api.interfaces.IGTColorItem;
 import gtclassic.api.material.GTMaterial;
 import ic2.core.platform.textures.Ic2Icons;
 import ic2.core.platform.textures.obj.ICustomItemCameraTransform;
-import ic2.core.platform.textures.obj.ILayeredItemModel;
 import ic2.core.platform.textures.obj.IStaticTexturedItem;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.creativetab.CreativeTabs;
@@ -19,12 +17,11 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.awt.*;
 import java.util.Arrays;
 import java.util.List;
 
 public class GTCXItemToolShovel extends ItemSpade
-        implements IStaticTexturedItem, IGTColorItem, ILayeredItemModel, ICustomItemCameraTransform {
+        implements IStaticTexturedItem, ICustomItemCameraTransform {
 
     GTMaterial material;
 
@@ -50,38 +47,13 @@ public class GTCXItemToolShovel extends ItemSpade
     @Override
     @SideOnly(Side.CLIENT)
     public TextureAtlasSprite getTexture(int i) {
-        return Ic2Icons.getTextures(GTCExpansion.MODID + "_materials")[25];
-    }
-
-    @Override
-    public Color getColor(ItemStack stack, int index) {
-    	if (index == 0) {
-    		if (this.material.equals(GTCXMaterial.Bronze) || this.material.equals(GTCXMaterial.Iron) || this.material.equals(GTMaterial.Ruby) || this.material.equals(GTMaterial.Sapphire) || this.material.equals(GTMaterial.Flint)) {
-    			return GTMaterial.Wood.getColor();
-    		} 
-    		if (this.material.equals(GTCXMaterial.Steel)) {
-    			return GTCXMaterial.RefinedIron.getColor();
-    		} 
-    		if (this.material.equals(GTCXMaterial.TungstenSteel)) {
-    			return GTCXMaterial.Steel.getColor();
-    		}
+    	String tex = GTCExpansion.MODID + "_tools_vanilla";
+    	if (this.material.equals(GTCXMaterial.Steel)) {
+            return Ic2Icons.getTextures(tex)[7];
+    	} else if (this.material.equals(GTCXMaterial.TungstenSteel)) {
+            return Ic2Icons.getTextures(tex)[8];
     	}
-	return this.material.getColor();
-    }
-
-    @Override
-    public boolean isLayered(ItemStack var1) {
-        return true;
-    }
-
-    @Override
-    public int getLayers(ItemStack var1) {
-        return 2;
-    }
-
-    @Override
-    public TextureAtlasSprite getTexture(int var1, ItemStack var2) {
-        return Ic2Icons.getTextures(GTCExpansion.MODID + "_materials")[25 + var1];
+        return Ic2Icons.getTextures(tex)[6];
     }
 
     @Override
@@ -94,10 +66,6 @@ public class GTCXItemToolShovel extends ItemSpade
             stack.addEnchantment(Enchantments.FIRE_ASPECT, 1);
         }
         items.add(stack);
-    }
-
-    public GTMaterial getMaterial() {
-        return this.material;
     }
 
     public ResourceLocation getCustomTransform(int meta) {
