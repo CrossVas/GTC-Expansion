@@ -163,7 +163,8 @@ public class GTCX_MachineRecipeLoader {
         GTTileCentrifuge.addRecipe("dustConstantan", 3,0, GTCXRecipe.totalCentrifugeEu(7500), GTMaterialGen.getDust(GTMaterial.Nickel, 1), GTMaterialGen.getIc2(Ic2Items.copperDust, 2));
         GTTileCentrifuge.addRecipe("dustTetrahedrite", 8, 0, GTCXRecipe.totalCentrifugeEu(18240), GTMaterialGen.getIc2(Ic2Items.copperDust, 3), GTMaterialGen.getDust(GTCXMaterial.Antimony, 1), GTMaterialGen.getDust(GTMaterial.Sulfur, 3));
         GTTileCentrifuge.addRecipe("dustBatteryAlloy", 5, 0, GTCXRecipe.totalCentrifugeEu(37800), GTMaterialGen.getDust(GTCXMaterial.Antimony, 1), GTMaterialGen.getDust(GTCXMaterial.Lead, 4));
-	
+        GTTileCentrifuge.addRecipe("dustCoal", 9, 0, GTCXRecipe.totalCentrifugeEu(960), Ic2Items.coalDust, GTCXMaterialGen.getSmallDust(GTMaterial.Thorium, 4));
+        
         GTCXRecipeLists.EXTRACTOR_RECIPE_LIST.startMassChange();
         GTRecipeMachineHandler.removeRecipe(GTCXRecipeLists.EXTRACTOR_RECIPE_LIST, "item.itemRubber");
         GTRecipeMachineHandler.removeRecipe(GTCXRecipeLists.EXTRACTOR_RECIPE_LIST, "item.itemRubber_1");
