@@ -252,11 +252,12 @@ public class GTCXRecipeIterators {
     }
 
     public static void createNuggetRecipe(GTMaterial mat) {
+    	String ingot = "ingot" + mat.getDisplayName();
         String nugget = "nugget" + mat.getDisplayName();
         if (!mat.hasFlag(GTCXMaterial.nugget) || !mat.hasFlag(GTMaterialFlag.INGOT)) {
         	return;
         }
-        recipes.addShapelessRecipe(GTCXMaterialGen.getNugget(mat, 9), mat);
+        recipes.addShapelessRecipe(GTCXMaterialGen.getNugget(mat, 9), ingot);
         recipes.addRecipe(GTMaterialGen.getIngot(mat, 1), "XXX", "XXX", "XXX", 'X', nugget);
     }
 
