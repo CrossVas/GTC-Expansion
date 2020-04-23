@@ -17,23 +17,30 @@ import gtc_expansion.tile.GTCXTilePlateBender;
 import gtc_expansion.tile.GTCXTileStoneCompressor;
 import gtc_expansion.tile.GTCXTileStoneExtractor;
 import gtc_expansion.tile.GTCXTileWiremill;
+import gtc_expansion.tile.hatch.GTCXTileEnergyOutputHatch;
+import gtc_expansion.tile.hatch.GTCXTileItemFluidHatches;
 import gtc_expansion.tile.multi.GTCXTileMultiDistillationTower;
 import gtc_expansion.tile.multi.GTCXTileMultiImplosionCompressor;
 import gtc_expansion.tile.multi.GTCXTileMultiIndustrialBlastFurnace;
 import gtc_expansion.tile.multi.GTCXTileMultiIndustrialGrinder;
+import gtc_expansion.tile.multi.GTCXTileMultiLargeSteamTurbine;
 import gtc_expansion.tile.multi.GTCXTileMultiPrimitiveBlastFurnace;
+import gtc_expansion.tile.multi.GTCXTileMultiThermalBoiler;
 import gtc_expansion.tile.multi.GTCXTileMultiVacuumFreezer;
 import gtclassic.GTMod;
 import gtclassic.api.block.GTBlockBaseMachine;
 import gtclassic.api.interfaces.IGTItemContainerTile;
+import ic2.core.IC2;
 import ic2.core.block.base.tile.TileEntityBlock;
 import ic2.core.platform.lang.components.base.LocaleComp;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -137,6 +144,27 @@ public class GTCXBlockTile extends GTBlockBaseMachine {
         if (this == GTCXBlocks.stoneExtractor) {
         	return new GTCXTileStoneExtractor();
         }
+        if (this == GTCXBlocks.inputHatch){
+            return new GTCXTileItemFluidHatches.GTCXTileInputHatch();
+        }
+        if (this == GTCXBlocks.outputHatch){
+            return new GTCXTileItemFluidHatches.GTCXTileOutputHatch();
+        }
+        if (this == GTCXBlocks.fusionMaterialInjector){
+            return new GTCXTileItemFluidHatches.GTCXTileFusionMaterialInjector();
+        }
+        if (this == GTCXBlocks.fusionMaterialExtractor){
+            return new GTCXTileItemFluidHatches.GTCXTileFusionMaterialExtractor();
+        }
+        if (this == GTCXBlocks.thermalBoiler){
+            return new GTCXTileMultiThermalBoiler();
+        }
+        if (this == GTCXBlocks.dynamoHatch){
+            return new GTCXTileEnergyOutputHatch.GTCXTileDynamoHatch();
+        }
+        if (this == GTCXBlocks.largeSteamTurbine){
+            return new GTCXTileMultiLargeSteamTurbine();
+        }
 //        if (this == GEBlocks.fusionReactor){
 //            return new GETileMultiFusionReactor();
 //        }
@@ -160,6 +188,34 @@ public class GTCXBlockTile extends GTBlockBaseMachine {
             return list;
         } else {
             return super.getDrops(world, pos, state, fortune);
+        }
+    }
+    
+    public boolean hasVertical() {
+        return this == GTCXBlocks.inputHatch || this == GTCXBlocks.outputHatch || this == GTCXBlocks.dynamoHatch;
+    }
+
+    @Override
+    public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer,
+                                ItemStack stack) {
+        super.onBlockPlacedBy(worldIn, pos, state, placer, stack);
+        TileEntity tile = worldIn.getTileEntity(pos);
+        if (this.hasVertical() && !IC2.platform.isRendering()) {
+            if (tile instanceof TileEntityBlock) {
+                TileEntityBlock block = (TileEntityBlock) tile;
+                if (placer == null) {
+                    block.setFacing(EnumFacing.NORTH);
+                } else {
+                    int pitch = Math.round(placer.rotationPitch);
+                    if (pitch >= 65) {
+                        block.setFacing(EnumFacing.UP);
+                    } else if (pitch <= -65) {
+                        block.setFacing(EnumFacing.DOWN);
+                    } else {
+                        block.setFacing(EnumFacing.fromAngle((double) placer.rotationYaw).getOpposite());
+                    }
+                }
+            }
         }
     }
 }

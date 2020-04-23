@@ -28,7 +28,9 @@ public class GTCXIcons {
         makeSprite("crops", 7, 1);
         makeSprite("tools_crafting", 4, 4);
         makeSprite("tools_vanilla", 3, 4);
+        makeSprite("pattern", 13, 5);
         collectBasicTileSprites();
+        collectSteamTurbineSprites();
         if (GTConfig.general.animatedTextures){
             addCustomTexture("industrial_front_active", 0, 0, location("bf_front"));
             addCustomTexture("diesel_generator_top_active", 0, 0, location("diesel_generator_top"));
@@ -75,6 +77,13 @@ public class GTCXIcons {
         setTexture(GTCXBlocks.wiremill, s(0), s("wiremill_top"), t1, s(22), s(2), s(2), s(0), s("wiremill_top_active"), t1, s(23), s(2), s(2));
         setTexture(GTCXBlocks.stoneCompressor, bot, top, side, s("stone_compressor_front"), side, side, bot, top, side, s("stone_compressor_front_active"), side, side);
         setTexture(GTCXBlocks.stoneExtractor, bot, top, side, s("stone_extractor_front"), side, side, bot, top, side, s("stone_extractor_front_active"), side, side);
+        setTexture(GTCXBlocks.inputHatch, s(0), s(1), s(2), t1, s(2), s(2));
+        setTexture(GTCXBlocks.outputHatch, s(0), s(1), s(2), t1, s(2), s(2));
+        setTexture(GTCXBlocks.dynamoHatch, s(0), s(1), s(2), s("dynamo_hatch_front"), s(2), s(2));
+        setTexture(GTCXBlocks.fusionMaterialInjector, s(39), s(39), s(42), s(42), s(42), s(42));
+        setTexture(GTCXBlocks.fusionMaterialExtractor, s(42), s(42), s(39), s(39), s(39), s(39));
+        setTexture(GTCXBlocks.thermalBoiler, s(0), s(1), s(2), s("thermal_boiler_front"), s(2), s(2), s(0), s(1), s(2), s("thermal_boiler_front_active"), s(2), s(2));
+        setTexture(GTCXBlocks.largeSteamTurbine, s(0), s(1), s(2), s("steam_turbine_front_center"), s(2), s(2), s(0), s(1), s(2), s("steam_turbine_front_active_center"), s(2), s(2));
     }
 
     private static ResourceLocation location(String name) {
@@ -100,6 +109,24 @@ public class GTCXIcons {
             Ic2Icons.addTextureEntry(new Sprites.TextureEntry(string, 0, 0, 1, 1));
         }
 
+    }
+    
+    public static void collectSteamTurbineSprites(){
+        String[] positions = {"bottom", "bottom_left", "bottom_right", "left", "center", "right", "top", "top_left", "top_right"};
+        for (String string : positions){
+            String active = "steam_turbine_front_active_" + string;
+            String nonActive = "steam_turbine_front_" + string;
+            if (GTConfig.general.debugMode){
+                GTCExpansion.logger.info("Attempting to get sprite data for: " + active);
+                GTCExpansion.logger.info("Attempting to get sprite data for: " + nonActive);
+
+            }
+            Ic2Icons.addSprite(new Sprites.SpriteData(nonActive, "gtc_expansion:textures/sprites/tiles/steam_turbine/" + nonActive + ".png", new Sprites.SpriteInfo(1, 1)));
+            Ic2Icons.addTextureEntry(new Sprites.TextureEntry(nonActive, 0, 0, 1, 1));
+            Ic2Icons.addSprite(new Sprites.SpriteData(active, "gtc_expansion:textures/sprites/tiles/steam_turbine/" + active + ".png", new Sprites.SpriteInfo(1, 1)));
+            Ic2Icons.addTextureEntry(new Sprites.TextureEntry(active, 0, 0, 1, 1));
+            addCustomTexture(active, 0, 0, location(active));
+        }
     }
 
     /**

@@ -152,6 +152,13 @@ public class GTCX_CraftingRecipeLoader {
         recipes.addRecipe(GTMaterialGen.get(GTCXBlocks.dustBin), "IHI", "IWI", "IHI", GTCXRecipe.colorTransfer(GTMaterialGen.get(GTBlocks.tileWorktable)), 'I', RecipeHelper.plateBasicMachineBlock, 'H', Blocks.HOPPER, 'W', GTBlocks.tileWorktable);
         recipes.addRecipe(GTMaterialGen.get(GTCXBlocks.stoneCompressor), "BGB", "PWP", "BMB", 'B', RecipeHelper.plateBronze, 'G', "gearBronze", 'P', RecipeHelper.anyPiston, 'W', "craftingToolWrench", 'M', "machineBlockCheap");
         recipes.addRecipe(GTMaterialGen.get(GTCXBlocks.stoneExtractor), "BBB", "PWP", "BMB", 'B', RecipeHelper.plateBronze, 'P', RecipeHelper.anyPiston, 'W', "craftingToolWrench", 'M', "machineBlockCheap");
+        recipes.addRecipe(GTMaterialGen.get(GTCXBlocks.fusionMaterialInjector), "PcP", "CAC", "PCP", 'P', Ic2Items.pump.copy(), 'c', "chestWood", 'C', GTValues.CIRCUIT_MASTER, 'A', GTBlocks.casingHighlyAdvanced);
+        recipes.addRecipe(GTMaterialGen.get(GTCXBlocks.fusionMaterialExtractor), "PCP", "CAC", "PcP", 'P', Ic2Items.pump.copy(), 'c', "chestWood", 'C', GTValues.CIRCUIT_MASTER, 'A', GTBlocks.casingHighlyAdvanced);
+        recipes.addRecipe(GTMaterialGen.get(GTCXBlocks.inputHatch), "SCS", "GHG", "SSS", 'S', RecipeHelper.plateStainlessSteel, 'C', "chest", 'G', GTRecipeCraftingHandler.combineRecipeObjects("gearSteel", "gearStainlessSteel"), 'H', GTValues.MACHINE_BASIC);
+        recipes.addRecipe(GTMaterialGen.get(GTCXBlocks.outputHatch), "SSS", "GHG", "SCS", 'S', RecipeHelper.plateStainlessSteel, 'C', "chest", 'G', GTRecipeCraftingHandler.combineRecipeObjects("gearSteel", "gearStainlessSteel"), 'H', GTValues.MACHINE_BASIC);
+        recipes.addRecipe(GTMaterialGen.get(GTCXBlocks.dynamoHatch), "SSS", "GHG", "SCS", 'S', RecipeHelper.plateStainlessSteel, 'C', Ic2Items.transformerHV, 'G', GTRecipeCraftingHandler.combineRecipeObjects("gearSteel", "gearStainlessSteel"), 'H', GTValues.MACHINE_BASIC);
+        recipes.addRecipe(GTMaterialGen.get(GTCXBlocks.thermalBoiler), "TcT", "GCG", "TcT", 'T', Ic2Items.thermalGenerator, 'c', GTBlocks.tileCentrifuge, 'G', GTRecipeCraftingHandler.combineRecipeObjects("gearTitanium", "gearTungstensteel"), 'C', GTValues.CIRCUIT_MASTER);
+        recipes.addRecipe(GTMaterialGen.get(GTCXBlocks.largeSteamTurbine), "TTT", "GHG", "TCT", 'T', GTCXBlocks.gasTurbine, 'G', GTRecipeCraftingHandler.combineRecipeObjects("gearTitanium", "gearTungstensteel"), 'H', "machineBlockVeryAdvanced", 'C', GTItems.circuitEnergy);
         
     	GTCExpansion.logger.info("Loading GregTech Classic Expansion Recipes: Items");
 
