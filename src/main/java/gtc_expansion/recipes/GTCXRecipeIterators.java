@@ -294,7 +294,7 @@ public class GTCXRecipeIterators {
             GTCXTileLathe.addRecipe(ingot, 1, GTCXMaterialGen.getRod(mat, 2));
             // If a dust is present create a maceration recipe
             if (mat.hasFlag(GTCXMaterial.smalldust)) {
-                TileEntityMacerator.addRecipe(rod, 1, getDust(mat), 0.0F);
+            	TileEntityMacerator.addRecipe(rod, 1, GTCXMaterialGen.getSmallDust(mat, 2), 0.0F);
             }
         }
     }
