@@ -300,7 +300,6 @@ public class GTCXRecipeIterators {
     }
 
     public static void createGearRecipe(GTMaterial mat) {
-        String ingot = "ingot" + mat.getDisplayName();
         String plate = "plate" + mat.getDisplayName();
         String gear = "gear" + mat.getDisplayName();
         String rod = "rod" + mat.getDisplayName();
@@ -317,7 +316,6 @@ public class GTCXRecipeIterators {
     }
 
     public static void createHullRecipe(GTMaterial mat) {
-        String ingot = "ingot" + mat.getDisplayName();
         String plate = "plate" + mat.getDisplayName();
         boolean steel = false;
         boolean refinedIron = true;
@@ -333,7 +331,7 @@ public class GTCXRecipeIterators {
             String material = plate;
             recipes.addRecipe(GTCXMaterialGen.getHull(mat, 1), "PPP", "PWP", "PPP", 'P', material, 'W', wrench);
             //Ingots from hulls
-            recipes.addShapelessRecipe(GTMaterialGen.getIngot(mat, 8), GTCXMaterialGen.getHull(mat, 1));
+            recipes.addShapelessRecipe(GTMaterialGen.getIngot(mat, 6), GTCXMaterialGen.getHull(mat, 1));
             //Cheaper recipes in assembler
             GTCXTileAssemblingMachine.addRecipe(plate, 6, GTMaterialGen.get(GTCXItems.machineParts), 2, 3200, GTCXMaterialGen.getHull(mat, 1));
         }

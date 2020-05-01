@@ -89,7 +89,9 @@ public class GTCX_CraftingRecipeLoader {
         recipes.addRecipe(GTMaterialGen.get(GTBlocks.tileTypeFilter), "III", "TCB", "III", 'I', RecipeHelper.plateBasicMachineBlock, 'C', GTValues.CIRCUIT_ADVANCED, 'T', GTBlocks.tileTranslocator, 'B', GTBlocks.tileBufferLarge);
         recipes.addRecipe(GTMaterialGen.get(GTBlocks.tileCharcoalPit), new Object[] { "IFI", "IFI", "IFI", 'I', RecipeHelper.plateBasicMachineBlock, 'F', Items.FLINT });
 		recipes.addRecipe(GTMaterialGen.get(GTBlocks.tileBatteryLV), " W ", "IRI", "IMI", 'W', Ic2Items.copperCable, 'I', RecipeHelper.plateTin, 'M', GTValues.MACHINE_BASIC, 'R', "blockRedstone");
-		recipes.addRecipe(GTMaterialGen.get(GTBlocks.tileDragonEggEnergySiphon), "CTC", "ISI", "COC", 'C', GTItems.circuitEnergy, 'T', Ic2Items.teleporter, 'I', Ic2Items.iridiumPlate, 'O', GTItems.orbEnergy, 'S', GTBlocks.tileSupercondensator);
+		recipes.addRecipe(GTMaterialGen.get(GTBlocks.tileLamp, 2), "IPI", "PRP", "IPI", 'P', "paneGlass", 'I', RecipeHelper.plateBasicMachineBlock, 'R', Blocks.REDSTONE_LAMP);
+		recipes.addRecipe(GTMaterialGen.get(GTBlocks.tileDisplayScreen), "PPP", "CMC", "PPP", 'P', RecipeHelper.plateBasicMachineBlock, 'C', GTValues.CIRCUIT_BASIC, 'M', GTCXItems.computerMonitor);
+		GTCXRecipe.overrideGTRecipe("shaped_tile.gtclassic.dragoneggenergysiphon_640702183", GTMaterialGen.get(GTBlocks.tileDragonEggEnergySiphon), "CTC", "ISI", "COC", 'C', GTItems.circuitEnergy, 'T', Ic2Items.teleporter, 'I', Ic2Items.iridiumPlate, 'O', GTItems.orbEnergy, 'S', GTBlocks.tileSupercondensator);
 		
         GTCExpansion.logger.info("Tweaking GregTech Classic Recipes: Items");
         

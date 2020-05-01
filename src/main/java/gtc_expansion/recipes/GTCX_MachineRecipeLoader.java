@@ -186,6 +186,7 @@ public class GTCX_MachineRecipeLoader {
         GTRecipeMachineHandler.removeRecipe(GTCXRecipeLists.COMPRESSOR_RECIPE_LIST, "item.thorium230Ingot");
         GTRecipeMachineHandler.removeRecipe(GTCXRecipeLists.COMPRESSOR_RECIPE_LIST, "item.gtclassic.ingotThorium");
         GTRecipeMachineHandler.removeRecipe(GTCXRecipeLists.COMPRESSOR_RECIPE_LIST, "item.emerald");
+        GTRecipeMachineHandler.removeRecipe(GTCXRecipeLists.COMPRESSOR_RECIPE_LIST, "item.itemPartDCP");
         GTCXRecipeLists.COMPRESSOR_RECIPE_LIST.finishMassChange();
         
         GTTileCentrifuge.RECIPE_LIST.startMassChange();
