@@ -331,7 +331,7 @@ public class GTCXRecipeIterators {
             String material = plate;
             recipes.addRecipe(GTCXMaterialGen.getHull(mat, 1), "PPP", "PWP", "PPP", 'P', material, 'W', wrench);
             //Ingots from hulls
-            recipes.addShapelessRecipe(GTMaterialGen.getIngot(mat, 6), GTCXMaterialGen.getHull(mat, 1));
+            recipes.addShapelessRecipe(getIngot(mat, 6), GTCXMaterialGen.getHull(mat, 1));
             //Cheaper recipes in assembler
             GTCXTileAssemblingMachine.addRecipe(plate, 6, GTMaterialGen.get(GTCXItems.machineParts), 2, 3200, GTCXMaterialGen.getHull(mat, 1));
         }
@@ -375,6 +375,13 @@ public class GTCXRecipeIterators {
     public static void ingotUtil(ItemStack stack, GTMaterial material) {
         String nugget = "nugget" + material.getDisplayName();
         recipes.addRecipe(stack, "XXX", "XXX", "XXX", 'X', nugget);
+    }
+    
+    public static ItemStack getIngot(GTMaterial mat, int count) {
+    	if (mat.equals(GTCXMaterial.Bronze)) {
+    		return GTMaterialGen.getIc2(Ic2Items.bronzeIngot, count);
+    	}
+    	return GTMaterialGen.getIngot(mat, count);
     }
 
     public static ItemStack getDust(GTMaterial mat){
